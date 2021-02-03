@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo form lấy survey khách hàng</title>
+<style>
+    td{
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+<form action="laySurveyKhachHang.html" method="post">
+<h4>Market Research Survey</h4>
+<p>Please take a few moments to complete this satisfaction survey.</p>
+<hr>
+<p><b>What is your age range?</b></p>
+<select name="age" >
+    <option>18-24</option>
+    <option>25-34</option>
+    <option>35-50</option>
+    <option>50+</option>
+</select>
+<p><b>What is your yearly income range?</b></p>
+<select name="salary" >
+    <option>$0 - $25,000</option>
+    <option>$25,000 - $50,000</option>
+    <option>$50,000 - $100,000</option>
+    <option>$100,000+</option>
+</select>
+<p><b>Gender Identity</b></p>
+    <label><input name="gender" type="radio">Male</label>
+    <br><label><input name="gender" type="radio">Female</label>
+    <br><label><input name="gender" type="radio">Nonbinary</label>
+    <br> <label><input name="gender" type="radio">Other</label>
+    <br> <input type="text" name="gender">
+    <p><b>Which of the following products have your purchased in the last 2 months. Please check all that apply</b></p>
+    <label><input name="products" type="checkbox">Product 1</label>
+    <br><label><input name="products" type="checkbox">Product 2</label>
+    <br> <label><input name="products" type="checkbox">Product 3</label>
+    <p><b>How often would you use our new product</b></p>
+    <label><input name="products" type="radio">Daily</label>
+    <br><label><input name="products" type="radio">Weekly </label>
+    <br><label><input name="products" type="radio">Monthly</label>
+
+    <p><b>What would you pay for the new product?</b></p>
+    <label>$<input type="text"name="PayDola" size="5">&nbsp;.&nbsp;<input type="text" size="2"></label>
+    <br> &nbsp; &nbsp;<label>Dollars &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cents</label>
+    <p><b>What features would you like to see in the new product</b></p>
+    <textarea cols="100" rows="10">
+
+    </textarea>
+    <p>Plesase rate your level of agreement with the following sstatement.</p>
+    <table border="1">
+        <tr>
+            <td colspan="2"></td>
+            <td>Strongly</td>
+            <td>Disagree</td>
+            <td>Argee</td>
+        </tr>
+        <tr>
+            <td colspan="2"><b>Our products are priced fairly.</b></td>
+            <td><input type="radio" name="disagree"><br>&nbsp1</td>
+            <td><input type="radio" name="disagree"><br>&nbsp2</td>
+            <td><input type="radio" name="agree"><br>&nbsp3</td>
+        </tr>
+        <tr>
+            <td colspan="2"><b>Our products are high quality.</b></td>
+            <td><input type="radio" name="disagree"><br>&nbsp1</td>
+            <td><input type="radio" name="disagree"><br>&nbsp2</td>
+            <td><input type="radio" name="agree"><br>&nbsp3</td>
+        </tr>
+        <tr>
+            <td colspan="2"><b>You woukd racomment our product to a friend or coworker</b></td>
+            <td><input type="radio" name="disagree"><br>&nbsp1</td>
+            <td><input type="radio" name="disagree"><br>&nbsp2</td>
+            <td><input type="radio" name="agree"><br>&nbsp3</td>
+        </tr>
+    </table><br>
+    <input type="submit" value="Submit" onclick="alert('Thank for your survey! ')">
+
+
+</form>
+</body>
+</html>
