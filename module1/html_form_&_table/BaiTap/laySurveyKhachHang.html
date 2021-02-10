@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <title>Tạo form lấy survey khách hàng</title>
 <style>
+    table{
+        border-collapse: collapse;
+    }
     td{
         text-align: center;
+    }
+    tr:nth-child(even){
+        background-color: #dddddd;
     }
 </style>
 </head>
@@ -60,21 +66,21 @@
         </tr>
         <tr>
             <td colspan="2"><b>Our products are priced fairly.</b></td>
-            <td><input type="radio" name="disagree"><br>&nbsp1</td>
-            <td><input type="radio" name="disagree"><br>&nbsp2</td>
-            <td><input type="radio" name="agree"><br>&nbsp3</td>
+            <td><input type="radio" name="disagree"><br>&nbsp;1</td>
+            <td><input type="radio" name="disagree"><br>&nbsp;2</td>
+            <td><input type="radio" name="agree"><br>&nbsp;3</td>
         </tr>
         <tr>
             <td colspan="2"><b>Our products are high quality.</b></td>
-            <td><input type="radio" name="disagree"><br>&nbsp1</td>
-            <td><input type="radio" name="disagree"><br>&nbsp2</td>
-            <td><input type="radio" name="agree"><br>&nbsp3</td>
+            <td><input type="radio" name="disagree"><br>&nbsp;1</td>
+            <td><input type="radio" name="disagree"><br>&nbsp;2</td>
+            <td><input type="radio" name="agree"><br>&nbsp;3</td>
         </tr>
         <tr>
             <td colspan="2"><b>You woukd racomment our product to a friend or coworker</b></td>
-            <td><input type="radio" name="disagree"><br>&nbsp1</td>
-            <td><input type="radio" name="disagree"><br>&nbsp2</td>
-            <td><input type="radio" name="agree"><br>&nbsp3</td>
+            <td><input type="radio" name="disagree"><br>&nbsp;1</td>
+            <td><input type="radio" name="disagree"><br>&nbsp;2</td>
+            <td><input type="radio" name="agree"><br>&nbsp;3</td>
         </tr>
     </table><br>
     <input type="submit" value="Submit" onclick="alert('Thank for your survey! ')">
