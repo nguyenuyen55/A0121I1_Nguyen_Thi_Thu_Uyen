@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Tổng , Diểm Trung Bình</title>
+</head>
+<body>
+<script>
+    let diemHoa,diemSinh,diemLy,diemtb=0,diemTong=0;
+    diemHoa=parseFloat( prompt("nhập điểm hoá"));
+    diemLy= parseFloat( prompt("nhập điểm lý"));
+    diemSinh=parseFloat( prompt("nhập điểm sinh"));
+    diemTong=diemSinh+diemHoa+diemLy;
+    diemtb=parseFloat((diemTong)/3).toFixed(2);
+    document.write("điểm tổng là "+diemTong);
+    document.write("</br>điểm trung bình là "+diemtb);
+</script>
+</body>
+</html>

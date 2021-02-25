@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng máy tính</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<h4>Caculator</h4>
+<input type="text" width="30" id="a">
+<input type="text" width="30" id="b"><br>
+<input type="button" onclick="add()" value="Addition(+)" id="add">
+<input type="button" onclick="sub()" value=" Subtraction(-)" id="tru">
+<input type="button" onclick="mul()" value="Multiplication(*)" id="nhan">
+<input type="button" onclick="div()" value="Division(/)" id="chia">
+<p id="result"></p>
+<script>
+    let result = 0;
+    let x1;
+    let x2;
+
+    function khaibao() {
+        x1 = document.getElementById("a").value;
+        x2 = document.getElementById("b").value;
+    }
+
+    function add() {
+        khaibao();
+        result = parseFloat(x1) + parseFloat(x2);
+        document.getElementById('result').innerHTML = result;
+    }
+
+    function sub() {
+        khaibao();
+        result = parseFloat(x1) - parseFloat(x2);
+        document.getElementById('result').innerHTML = result;
+    }
+
+    function mul() {
+        khaibao();
+        result = parseFloat(x1) * parseFloat(x2);
+        document.getElementById('result').innerHTML = result;
+    }
+
+    function div() {
+        khaibao();
+        if (x2 != 0) {
+            result = parseFloat(x1) / parseFloat(x2);
+            document.getElementById('result').innerHTML = result;
+        } else {alert("biến thứ 2 không hợp lệ ");
+        }
+    }
+
+
+</script>
+</body>
+</html>
