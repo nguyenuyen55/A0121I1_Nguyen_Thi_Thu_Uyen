@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện Tập if else if</title>
+</head>
+<body>
+<script>
+    let username= prompt("Who is there ?","");
+if(username.toLowerCase() == "admin"){
+    let pass=prompt("mật khẩu","");
+    if(pass == "TheMaster"){
+        alert("Welcome Admin ^^ ");
+    }else if(pass == null) {
+        alert("Canceld");
+    }else {
+        alert("Wrong password");
+    }
+}else if(username == null){
+    alert("Canceld")
+}else {
+    alert("i don't know you");
+}
+    </script>
+
+</body>
+</html>

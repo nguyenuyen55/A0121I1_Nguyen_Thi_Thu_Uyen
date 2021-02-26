@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra năm thuận</title>
+</head>
+<body>
+<script>
+    let year=parseInt(prompt("vui lòng nhập năm când kiểm tra "));
+    if((year % 4 == 0 && year % 100 != 0) || (year % 100 == 0 && year % 400 == 0)  ){
+        alert(year +" là năm nhuận (leap year)");
+    }else {
+        alert(year+" không phải là năm nhuận (leap year)");
+    }
+</script>
+</body>
+</html>
