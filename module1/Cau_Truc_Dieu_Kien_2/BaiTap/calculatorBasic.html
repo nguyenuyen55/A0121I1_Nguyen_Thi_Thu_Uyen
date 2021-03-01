@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy tính cơ bản</title>
+    <style>
+        table{
+            padding: 10px;
+  
+        }
+        #result{
+            text-align: right;
+        }
+        input{
+            color: blue;
+            width: 100px;
+            margin: 1px;;
+        }
+        #result{
+            width: 420px;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+        <td colspan="4">
+            <input type="text" id="result"/>
+        </td></tr>
+<tr>
+    <td> <input type="button" value="1" onclick="so(this.value)"></td>
+    <td> <input type="button" value="2" onclick="so(this.value)"></td>
+    <td> <input type="button" value="3" onclick="so(this.value)"></td>
+    <td> <input type="button" value="+" onclick="so(this.value)"></td>
+</tr>
+<tr>
+    <td> <input type="button" value="4" onclick="so(this.value)"></td>
+    <td> <input type="button" value="5" onclick="so(this.value)"></td>
+    <td> <input type="button" value="6" onclick="so(this.value)"></td>
+    <td> <input type="button" value="-" onclick="so(this.value)"></td>
+</tr>
+<tr>
+    <td> <input type="button" value="7" onclick="so(this.value)"></td>
+    <td> <input type="button" value="8"onclick="so(this.value)"></td>
+    <td> <input type="button" value="9" onclick="so(this.value)"></td>
+    <td> <input type="button" value="*" onclick="so(this.value)"></td>
+</tr>
+<tr>
+    <td> <input type="button" value="C" onclick="result.value=''"></td>
+    <td> <input type="button" value="0" onclick="so(this.value)"></td>
+    <td> <input type="button" value="=" onclick="result.value=eval(result.value);"></td>
+    <td> <input type="button" value="/" onclick="so(this.value)"></td>
+</tr>
+    </table>
+    <script>
+        function so( number){
+                result.value+=number;
+        }
+    </script>
+</body>
+</html>
