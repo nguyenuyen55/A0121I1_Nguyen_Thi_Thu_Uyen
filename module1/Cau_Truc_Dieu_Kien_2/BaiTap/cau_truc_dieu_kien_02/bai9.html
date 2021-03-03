@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra ba cạnh có phải là cạnh của tam giác hay không?</title>
+</head>
+<body>
+    <script>
+        alert("chào mừng bạn đến với phần mềm kiểm tra có phải cạnh của một tam giác hay không?");
+        let a = Number(prompt('nhập độ dài cạnh a'));
+        let b = Number(prompt('nhập độ dài cạnh b'));
+        let c = Number(prompt('nhập độ dài cạnh c'));
+
+        if(a > 0 && b > 0 && c > 0 && (a+b) > c && (a+c) > b && (b+c) > a ) {
+alert('a, b, c là cạnh của một tam giác ');
+        }else {
+            alert('a, b, c không phải là cạnh của giác')
+        }
+
+    </script>
+</body>
+</html>

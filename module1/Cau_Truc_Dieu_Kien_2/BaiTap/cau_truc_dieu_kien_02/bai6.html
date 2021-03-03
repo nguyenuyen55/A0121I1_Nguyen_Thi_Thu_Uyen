@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải phương trình bậc 1</title>
+</head>
+<body>
+    <!--y=ax+b-->
+    <p>phương trình bậc 1 có dạng : y=ax + b</p>
+   <p><input type="text" id="a" placeholder="nhập giá trị của a :"/></p>
+  <p><input type="text" id="b" placeholder="nhập giá trị của b :"/></p>
+
+<input type="button" onclick="tinh()" value="tìm nghiệm"/>
+<div id="kq"></div>
+<script>
+    
+    function tinh(){
+        let a=document.getElementById('a').value;
+        let  b=document.getElementById('b').value;
+        if(a != 0){
+            document.getElementById('kq').innerHTML="x = "+(-b/a);
+        }   else{
+            document.getElementById('kq').innerHTML='phương trình vô nghiệm'
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viết chương trình tính thuế thu nhập cá nhân</title>
+</head>
+<body>
+    <ul>
+      <li>  Bậc 1: 4 triệu đồng/tháng 0%; </li>
+       <li> Bậc 2: Trên 4 - 6 triệu đồng/tháng: 5%;</li>
+       <li> Bậc 3: Trên 6 - 9 triệu đồng: 10%;</li>
+       <li>còn lại là 15%</li>
+    </ul>
+    <p>nhập thu nhập của bạn (triệu)</p>
+    <input type="text" id="money" />
+    <input type="button" value="tính" onclick="tinh();"/>
+    <div id="kq"></div>
+
+    <script>
+        function tinh(){
+            let money=document.getElementById('money').value;
+            if(money<=4000000){
+                document.getElementById('kq').innerHTML='kết quả 0';
+
+            }else if(money<=6000000){
+                document.getElementById('kq').innerHTML='kết quả '+(money*0.05) ;
+            }else if( money<=9000000){
+                document.getElementById('kq').innerHTML='kết quả '+(money*0.1);
+            }  else{
+                document.getElementById('kq').innerHTML='kết quả '+(money*0.15);
+
+            }
+            }
+        
+    </script>
+</body>
+</html>

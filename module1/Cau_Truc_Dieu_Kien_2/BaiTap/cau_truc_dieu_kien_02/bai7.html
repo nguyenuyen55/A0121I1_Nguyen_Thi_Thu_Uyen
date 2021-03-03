@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>phương trình bậc 2</title>
+</head>
+<body>
+    <p>phương trình bậc 2 có dạng : ax^2 + bx + c = 0</p>
+   <p><input type="text" id="a" placeholder="nhập giá trị của a :"/></p>
+  <p><input type="text" id="b" placeholder="nhập giá trị của b :"/></p>
+  <p><input type="text" id="c" placeholder="nhập giá trị của c :"/></p>
+<input type="button" onclick="tinh()" value="tìm nghiệm"/>
+<div id="kq"></div>
+<script>
+    
+    function tinh(){
+        let a=document.getElementById('a').value;
+        let  b=document.getElementById('b').value;
+        let  c=document.getElementById('c').value;
+        let x1=0;
+        let x2=0;
+        let delta;
+        delta=(b*b)-4*(a*c);
+        if(delta==0){
+            document.getElementById('kq').innerHTML="phương trình có 1 nghiệm kép "+(-b/(2*a));
+        }else if(delta>0){
+            x1=((-b-Math.sqrt(delta))/(2*a));
+            x2=((-b+Math.sqrt(delta))/(2*a));
+        document.getElementById('kq').innerHTML="phương trình có 2 nghiệm x1 = "+x1+" x2 = "+x2;
+        }else {
+            document.getElementById('kq').innerHTML="pt vô nghiệm";
+        }
+  
+    }
+</script>
+</body>
+</html>

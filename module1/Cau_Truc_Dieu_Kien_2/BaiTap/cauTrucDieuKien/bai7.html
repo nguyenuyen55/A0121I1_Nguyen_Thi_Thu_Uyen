@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Tính cước điện thoại cho một hộ gia đình với các thông số đã cho</p>
+    <ul>
+        <li>Phí thuê bao bắt buộc là 25 nghìn .</li>
+        <li>600 đồng cho mỗi phút gọi của 50 phút tiếp theo.</li>
+        <li>400 đồng cho mỗi phút gọi của 150 phút tiếp theo.</li>
+        <li>200 đồng cho bất kỳ phút gọi nào sau 200 phút đầu tiên</li>
+    </ul>
+    <p>nhập số phút hộ gia đình đã gọi</p>
+    <input type="text" id="sophut" /><input type="button" onclick="tinh()" value="tính"/>
+    <div id="kq"></div>
+    <script>
+        function tinh(){
+            let soput =document.getElementById('sophut').value;
+            
+            let phicodinh=25000,phi=0;
+            if(soput>200){
+                phi=(soput-200)*200 + 150*400 + 50*600;
+            }else if(soput>50){
+                phi=(soput-50)*400+50*600;
+            }else phi=50*600;
+            
+document.getElementById('kq').innerHTML="số tiền hộ đó trả là "+(phi+phicodinh)+ " ngàn";
+        }
+    </script>
+</body>
+</html>

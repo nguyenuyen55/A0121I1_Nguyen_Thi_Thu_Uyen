@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viết chương trình tính giá điện</title>
+</head>
+<body>
+    <ol>
+        <li>100 Kwh định mức đầu tiên có đơn giá trung bình là 600 đ/kwh</li> 
+<li>các kwh từ 101 --> 150 có đơn giá là 700 đ/kwh</li>
+<li>các kwh từ 151--> 200 có đơn giá là 900 đ/kwh</li>
+    </ul>
+    <p>nhập kwh nhà bạn dùng</p>
+    <input type="text" id="kwh" />
+    <input type="button" value="tính" onclick="tinh();"/>
+    <div id="kq"></div>
+<script>
+    function tinh(){
+    let kwh=document.getElementById('kwh').value;
+    if(kwh<=100){
+        document.getElementById('kq').innerHTML=" số tiền phải trả là "+(kwh*600);
+    } else if(kwh<=150){
+        document.getElementById('kq').innerHTML=" số tiền phải trả là "+(kwh*700);}
+else if(kwh<=200){
+    document.getElementById('kq').innerHTML=" số tiền phải trả là "+(kwh*900);}
+else {
+    document.getElementById('kq').innerHTML=" số tiền phải trả là "+(kwh*1100);
+}
+
+}
+    
+</script>
+
+</body>
+</html>

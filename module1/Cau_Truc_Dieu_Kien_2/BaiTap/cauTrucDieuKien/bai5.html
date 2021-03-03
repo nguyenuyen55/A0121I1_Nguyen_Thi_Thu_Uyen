@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xếp loại học sinh</title>
+</head>
+<body>
+    <script>
+        alert('welcome đến với phần mềm xếp loại học sinh');
+        let diemMieng=Number(prompt('nhập điểm Miệng '),'');
+        let diem15p=Number(prompt('nhập điểm 15p '),'');
+        let diemGiuaKy=Number(prompt('nhập điểm Giua Ky '),'');
+        let diemCuoiKy=Number(prompt('nhập điểm Cuoi Ky '),'');
+    let dtb=0;
+    dtb=((diem15p+diemMieng)+diemGiuaKy*2+diemCuoiKy*3)/5;
+    if(dtb >= 8){
+        alert("giỏi");
+    }else if( dtb >= 6.5){
+        alert('khá');
+    }else if(dtb >= 5){
+        alert('trung bình');
+    }else alert('yếu');
+        
+    </script>
+</body>
+</html>

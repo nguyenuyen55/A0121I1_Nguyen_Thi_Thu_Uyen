@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<div style="display: flex;">
+    <div id="a" style=" width: 250px;">
+        <img src="../../img/Hinh 1a.png" onclick="change('a')" alt="1" id="carA" width="250 px"
+                                            height="600 px" onload="kt();"></div>
+    <img src="../../img/Hinh 2b.png" onclick="change('b')" onload="kt();" alt="2" id="carB" width="250 px" height="600 px">
+    <img src="../../img/Hinh 3c.png" onclick="change('c')" onload="kt();" alt="3" id="carC" width="250 px" height="600 px">
+    <img src="../../img/Hinh 1d.png" onclick="change('d')" onload="kt();" alt="2"  id="carD" width="250 px" height="600 px">
+    <img src="../../img/Hinh 2e.png" onclick="change('e')" onload="kt();" alt="1" id="carE" width="250 px" height="600 px">
+</div>
+</body>
+<script>
+
+   function change(sub){
+let card =document.getElementById('car'+sub.toUpperCase());
+let no =Number(card.alt);
+no++;
+if(no > 3){
+    no -= 3 ;
+}
+card.src="../../img/Hinh "+ no + sub +".png";
+card.alt=no;
+
+   }
+function kt(){
+     let carA = document.getElementById("carA");
+    let carB = document.getElementById("carB");
+    let carC = document.getElementById("carC");
+    let carD = document.getElementById("carD");
+    let carE = document.getElementById("carE");
+
+    if(carA.alt == 1 && carB.alt == 1  && carC.alt == 1 && carD.alt == 1 && carE.alt == 1){
+        alert("you win");
+    }else   if(carA.alt == 2 && carB.alt == 2  && carC.alt == 2 && carD.alt == 2 && carE.alt == 2){
+        alert("you win");}
+ else if(carA.alt == 3 && carB.alt == 3  && carC.alt == 3 && carD.alt == 3 && carE.alt == 3){
+        alert("you win");}
+
+}
+
+
+
+</script>
+</html>

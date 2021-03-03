@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính hoa hồng</title>
+    <style>
+        td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th></th>
+            <th>Mức 1</th>
+            <th>Mức 2</th>
+            <th>Mức 3</th>
+        </tr>
+        <tr>
+            <th>Doanh số</th>
+            <td>400,000,000</td>
+            <td>600,000,000</td>
+            <td>800,000,000</td>
+        </tr>
+        <tr>
+            <th>Mức thưởng</th>
+            <td>1%</td>
+            <td>1.50%</td>
+            <td>2%</td>
+        </tr>
+        <th>Mức thêm</th>
+            <td></td>
+            <td></td>
+            <td>3%</td>
+    </table>
+    <p>nhập doanh số của bạn</p>
+    <input type="text" id="doanhthu" /><input type="button" onclick="tinh()" value="tính"/>
+    <div id="kq"></div>
+    <script>
+        function tinh(){
+            let money=document.getElementById('doanhthu');
+            let result;
+            if(money.value >= 800000000){
+                result=(money.value*5)/100;
+            }else if(money.value >= 600000000 ){
+                result=(money.value*1.5)/100;
+            }else if(money.value >=400000000){
+                result=(money.value*1)/100;
+            }else result =0;
+            document.getElementById('kq').innerHTML=result;
+        }
+    </script>
+    
+</body>
+</html>
