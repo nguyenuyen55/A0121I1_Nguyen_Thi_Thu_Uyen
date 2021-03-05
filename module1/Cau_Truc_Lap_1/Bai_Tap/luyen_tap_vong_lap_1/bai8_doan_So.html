@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game đoán số</title>
+</head>
+<body>
+    <p>Game đoán số</p>
+    <input type="button" value="chơi" onclick="play()"/>
+    <script>
+        function play(){
+            var min =Number(prompt("khoảng random từ :"));
+            var max=Number(prompt("khoảng random đến"));
+            var random=Math.floor(Math.random() * (max - min) ) + min;
+            
+            var i=1,dem=0;
+            while(i>0 && dem<1){
+                var doanso=Number(prompt("bạn đoán số mấy"));
+                if(doanso>random){
+                    alert("lớn");
+                }else if(doanso<random){
+                    alert("nhỏ")
+                }else{
+                    alert("chúc mừng")
+                    dem++;
+                }
+                    i++;
+                
+            }
+
+        }
+    </script>
+</body>
+</html>

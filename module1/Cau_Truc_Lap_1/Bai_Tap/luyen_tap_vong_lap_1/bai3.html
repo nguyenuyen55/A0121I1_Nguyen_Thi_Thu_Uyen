@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>in 20 số fibonacci đầu tiên</title>
+</head>
+
+<body>
+    <script>
+        var fist_number = 1, second_number = 1, temp;
+        for (var i = 0; i < 20; i++) {
+            if (i <= 1) {
+                temp = 1;
+            } else {
+                temp = fist_number + second_number;
+                fist_number = second_number;
+                second_number = temp;
+            }
+            document.write(temp + " ");
+            console.log(temp + " ");
+        }
+    </script>
+</body>
+
+</html>

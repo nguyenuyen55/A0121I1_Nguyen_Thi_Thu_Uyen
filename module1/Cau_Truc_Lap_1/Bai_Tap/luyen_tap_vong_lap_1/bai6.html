@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tính tổng của 30 số chia hết cho 7 đầu tiên trong dãy fibonacci</title>
+</head>
+
+<body>
+    <script>
+        var i = 0, sum=0,dem=0;
+        var first_number = 1;
+        var second_number = 1;
+        var temp = 0;
+        while (i >=0 && dem<30) { 
+        if (i <= 1) {
+            temp = 1;
+        } else {
+            temp = first_number + second_number;
+            first_number = second_number;
+            second_number = temp;
+        }
+        if (temp % 7 == 0) {
+            sum += temp;
+            dem++;  
+        }
+        i++;
+    }
+    document.write(sum);
+
+        
+    </script>
+</body>
+
+</html>
