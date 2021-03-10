@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var string=prompt("nhập 1 chuỗi");
+        var str =string.toString().toLowerCase();
+        var result =[];
+        var i=0,dem=0;
+        for(i =str.length-1 ;i >=0  ; i--){
+            if(str[i+1] == 'u' ||str[i+1] == 'e'|| str[i+1] == 'o' || str[i+1] == 'a' ||str[i+1] == 'i'){
+                dem++;
+            }
+        }
+        alert(dem);
+
+    </script>
+</body>
+</html>

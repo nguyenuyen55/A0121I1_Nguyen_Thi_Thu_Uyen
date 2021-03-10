@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>Tính thuế thu nhập và lương ròng </h4>
+    <ul>
+        <li>20% thuế thu nhập nếu lương là 15 triệu.</li>
+        <li>10% thuế thu nhập nếu lương từ 7 đến 15 triệu.</li>
+        <li>5% thuế thu nhập nếu lương dưới 7 triệu</li>
+    </ul>
+    <p>nhập lương của bạn vào (ví dụ : 5 triệu tương đương 5000000)</p>
+    <input type="text" name="" id="money">
+    <input type="button" value="tính" onclick="tinh()">
+    <div id="kq"></div>
+    <script>
+        function tinh(){
+        let tien = document.getElementById('money').value;
+        let kq,tien_nhan;
+        if(tien <= 7000000){
+            kq = tien * 0.05;
+        }else if (tien <= 15000000 ){
+            kq = tien * 0.1;
+         } else{ kq = tien * 0.2;}
+         tien_nhan =tien - kq;
+         document.getElementById('kq').innerHTML="tiền lương của bạn: "+tien+" <br>tiền thuế của bạn là "+kq+ "<br> tổng lương còn lại bạn nhận được "+tien_nhan;
+
+        }
+    </script>
+</body>
+</html>

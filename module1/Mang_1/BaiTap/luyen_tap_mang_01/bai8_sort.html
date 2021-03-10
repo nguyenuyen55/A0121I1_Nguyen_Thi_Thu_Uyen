@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>viết chương trình sắp xếp mảng giảm dần</title>
+
+</head>
+<body>
+    <script>
+         var arr =[];
+         var n =Number(prompt("cần bao nhiêu phân tử "));
+        //nhập phân tử mảng 
+        for(var i = 0; i < n; i++){
+            arr[i]=Number(prompt("nhập phân tử "+(i+1)));
+        }
+   
+        //duyệt mảng 
+        var max=arr[0];
+        for(var i = 0;i<arr.length;i++){
+            for(var j=i+1;j<arr.length;j++){
+                if(arr[i]<arr[j]){
+                    var b= arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=b;
+                }
+            }
+        }
+        alert(arr);
+    </script>
+</body>
+</html>

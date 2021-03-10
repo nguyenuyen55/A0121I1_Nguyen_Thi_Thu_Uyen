@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let arr1 = new Array();
+        let arr = [3, 5, 2, 7, 4, 3];
+        document.write("mảng có sẵn là [" + arr + " ]");
+
+        for (var i = arr.length - 1; i >= 0; i--) {
+            arr1.push(arr[i]);
+        }
+        document.write("<br>đảo ngược là [" + arr1 + " ]");
+
+    //cách 2:
+    // let first=0;
+    //let last=arr.length-1;
+    //while(fist<last){
+        //let b= a[fist];
+    //     a[last]=a[last];
+    //     a[last]=b;
+    //     last--;
+    //     first++;
+    // }
+    //document.write(arr);
+    </script>
+</body>
+
+</html>

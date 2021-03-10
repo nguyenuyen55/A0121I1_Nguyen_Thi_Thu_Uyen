@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kiểm tra phân tử có ở trong array hay không</title>
+</head>
+<body>
+    <script>
+        var arr =[];
+        var kq ="number is not in the array";
+        //nhập phân tử mảng 
+        for(var i = 0; i < 10; i++){
+            arr[i]=Number(prompt("nhập phân tử "+(i+1)));
+        }
+        var n =Number(prompt("nhập số cần kiểm tra "));
+        //duyệt mảng để tính trung bình
+        for(var i = 0 ; i < arr.length ;i++){
+            if(arr[i]==n){
+                kq="number is in the array";
+            }
+        }
+        alert(kq);
+    </script>
+</body>
+</html>

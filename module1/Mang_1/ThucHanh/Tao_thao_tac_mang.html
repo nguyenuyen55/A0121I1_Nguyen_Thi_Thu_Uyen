@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo và thao tác với mảng </title>
+</head>
+
+<body>
+    <h5>Sample Screen:</h5>
+    <input type="text" name="" id="txtvalue">
+    <input type="button" value="Add" onclick="add_array();">
+    <input type="button" value="Dispay" onclick="display_array();">
+    <div id="kq"></div>
+
+    <script>
+        let x = 0;
+        let arr = new Array();
+
+        function add_array() {
+            arr[x] = document.getElementById('txtvalue').value;
+            alert("add " + arr[x]);
+            x++;
+            document.getElementById('txtvalue').value = "";
+        }
+        function display_array() {
+            let kq = "<hr>";
+            for (var i = 0; i < arr.length; i++) {
+                kq += " arr[" + i + "] = " + arr[i] + "<br>";
+            }
+            document.getElementById('kq').innerHTML = kq;
+        }
+    </script>
+</body>
+
+</html>
