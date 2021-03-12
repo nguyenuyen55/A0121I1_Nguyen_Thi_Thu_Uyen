@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biến kiểu dữ liệu và toán tử</title>
+</head>
+<body> 
+    <div id="kq">
+    <p>CMND</p>
+  <input type="text" name="" id="cmnd">
+  <p>Ngày sinh </p>
+<input type="datetime" name="" id="date">
+<p>Email</p>
+<input type="text" name="" id="address">
+<p>loại Customer</p>
+<select name="" id="idCustimer">
+    <option>Diamond</option>
+    <option>Platinum</option>
+    <option >Gold </option>
+    <option >Silver</option>
+    <option >Member</option>
+</select>
+<p>giảm giá</p>
+<input type="text" name="" id="safeOff">%
+<p>số lượng đi kèm</p>
+
+<input type="text" name="" id="count">
+<p>số ngày thuê</p>
+<input type="text" name="" id="rentDays">
+<p>loại dịch vụ</p>
+<select name="" id="idService">
+    <option>Villa</option>
+    <option>House</option>
+    <option >Room</option> 
+</select>
+<p>loại phòng thuê</p>
+<select name="" id="idRoomRent">
+    <option>Vip</option>
+    <option>business</option>
+    <option >Normal</option> 
+</select>
+<br><br>
+<input type="button" value="gửi" onclick="send()">
+
+</div>
+<script>
+    function send(){
+        var service=0;
+ var kq =document.getElementById('kq');
+ var cmnd =document.getElementById('cmnd').value;
+ var Birthday =document.getElementById('date').value;
+ var address =document.getElementById('address').value;
+ var idCustimer =document.getElementById('idCustimer').value;
+ var safeOff =document.getElementById('safeOff').value;
+ var count =document.getElementById('count').value;
+ var rentDay =document.getElementById('rentDays').value;
+ var idService =document.getElementById('idService').value;
+ var idRoomRent =document.getElementById('idRoomRent').value;
+if(idService=='Villa'){
+    service=500;
+}else if(idService=='House'){
+    service=300;
+}else{
+    service=100;
+}
+kq="thông tin khách hành <br>cmnd: "+cmnd
++ "<br> ngày sinh: "+Birthday
++ "<br>địa chỉ: "+address
++ "<br>loại khách hàng: "+idCustimer
++ "<br>giảm giá: "+safeOff
++ "<br>số lượng đi kèm: "+count
++ "<br>số ngầy thuê: "+rentDay
++ "<br>loại dịch vụ: "+idService
++ "<br>loại phòng thuê: "+idRoomRent
++ "<br> quý khách cần thanh toán (tính luôn tièn giảm giá) là"+(service*rentDay*(1-(safeOff/100))+"$");
+document.getElementById('kq').innerHTML=kq;
+    
+    }
+</script>
+</body>
+</html>

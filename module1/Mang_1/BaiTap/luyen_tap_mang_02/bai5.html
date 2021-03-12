@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>so sánh 2 chuỗi có giống nhau hay không</title>
+</head>
+<body>
+    <script>
+        var str1=prompt("nhập chuỗi thứ nhất ").trim();
+        var str2=prompt("nhập chuỗi thứ hai").trim();
+        
+        var dem=0;
+        if(str1.length===str2.length){
+            for(var i =0 ;i<str1.length;i++){
+               
+                    if(str1[i]===str2[i]){
+                        dem++;
+                    }
+            
+            }
+        }else{
+            alert("không giống nhau");
+        }
+        if(dem===str2.length){
+            alert("giống nhau");
+        }
+    </script>
+</body>
+</html>
