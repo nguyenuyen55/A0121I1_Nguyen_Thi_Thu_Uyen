@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var dem1=0;
+        var str=prompt("nhập chuỗi");
+        for(var i=0;i<(str.length/2);i++){
+            for(var j=(str.length)-1-i;j>=(str.length/2);j--){
+                if(str[i]==str[j]){
+                    break;
+                }else{
+                    dem1++;
+                    break;
+                }
+            }
+        }
+        if(dem1==0){
+            alert("doi xung");
+        }else{
+            alert("không dối xứng")
+        }
+    </script>
+</body>
+</html>

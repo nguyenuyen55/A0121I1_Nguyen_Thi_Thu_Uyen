@@ -1,0 +1,43 @@
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background: #373737;
+}
+h3{
+    position: relative;
+    font-size : 20px;
+    color: #f9f9f9;
+    letter-spacing: 6px;
+    font-weight: 500;
+}
+input{
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+#text{
+    display:  block;
+    color: #000;
+font-weight: 300;
+font-style: italic;
+padding: 5px;
+}
+
+#text1{
+    display:  block;
+    color: #000;
+font-weight: 300;
+font-style: italic;
+padding: 5px;
+}
+
+#text2{
+    display:  block;
+    color: #000;
+font-weight: 300;
+font-style: italic;
+padding: 5px;
+}

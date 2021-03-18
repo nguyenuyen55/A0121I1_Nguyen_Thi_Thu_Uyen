@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="yeu_cau3.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" id="form">
+        <h1>Đăng kí</h1>
+        <h3>Name</h3>
+        <input type="text" name="" id="userName" placeholder="Enter name">
+        <h3>Address</h3>
+        <input type="text" name="" id="email" placeholder="Enter email address " onchange="check();"><span
+            id="text"></span>
+        <h3>PHONE</h3>
+        <input type="text" name="" id="phone" placeholder="Enter phone number " onchange="checksdt();"><span
+            id="text1"></span>
+        <h3>Year of Birthday</h3>
+        <input type="text" name="" id="BirthdayYear" placeholder="enter year of birth" onchange="checkbirthDay()"><span
+            id="text2"></span>
+        <h3>Rent Days</h3>
+        <input type="text" name="" id="rentDay" placeholder="enter rent days" onchange="check_number(this.value)"><span
+        id="text3"></span>
+        <h3>count people</h3>
+        <input type="text" name="" id="countPeople" placeholder="enter count people"><br> <br>
+        <input type="button" value="Send" onclick="send()">
+
+    </form>
+
+    <script>
+        function check() {
+            var form = document.getElementById('form');
+            var email = document.getElementById('email').value;
+            var birthDay = document.getElementById('BirthdayYear').value;
+            var text = document.getElementById("text");
+            var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (email.match(pattern)) {
+                text.innerHTML = "your email in valid";
+                text.style.color = "#00ff00";
+            } else {
+                text.innerHTML = "please enter valid email";
+                text.style.color = "#ff0000";
+            }
+
+        }
+        function checksdt() {
+            var pattern = /^\d{9}$/;
+            var phone = document.getElementById('phone').value;
+            var text = document.getElementById("text1");
+            if (phone.match(pattern)) {
+                text.innerHTML = "your phone in valid";
+                text.style.color = "#00ff00";
+            } else {
+                text.innerHTML = "please enter valid phone";
+                text.style.color = "#ff0000";
+            }
+
+        }
+        function checkbirthDay() {
+            var pattern = /^((0)[1-9]|(1)[0-9]|(2)[0-9]|(3)[0-1])(\/)(((0)[1-9])|((1)[0-2]))(\/)\d{4}$/;
+            var birthDay = document.getElementById('BirthdayYear').value;
+
+            var text = document.getElementById("text2");
+            if (birthDay.match(pattern)) {
+                text.innerHTML = "your birthDay in valid";
+                text.style.color = "#00ff00";
+            } else {
+                text.innerHTML = "please enter valid birthay";
+                text.style.color = "#ff0000";
+            }
+
+        }
+
+        function check_number(number) {
+            var text = document.getElementById("text3");
+            if (Number( number) > 0) {
+                text.innerHTML = "your birthDay in valid";
+                text.style.color = "#00ff00";
+            } else {
+                text.innerHTML = "please enter valid number";
+                text.style.color = "#ff0000";
+            }
+
+        }
+
+        //chuẩn hoá họ và tên
+        //b1 :xoá dấu cách trước và sau
+        function chuanHoa(str) {
+            
+
+        }
+
+
+
+
+        function delete_space(str) {
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] === ' ' && str[i + 1] === ' ') {
+                    str.splice(i, 1);
+                }
+            }
+        }
+        function to_Upper_Case(str) {
+            var str2 = str.toCaseLower();
+            if (str[0] !== ' ') {
+                if (str[0] >= 97 && str[0] <= 122) {
+                    str[0] -= 32;
+                }
+            }
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>

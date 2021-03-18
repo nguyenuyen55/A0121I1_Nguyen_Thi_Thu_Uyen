@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a=new Array();
+
+        function nhap(a) {
+            var n=Number(prompt("nhập bao nhiêu phân tử"));
+            for(var i=0;i<n;i++ ){
+                a[i]=prompt("nhap phan tu "+i);
+            }
+        }
+                function daoNguoc(a) {
+            let v=[];
+            for (let index = a.length-1; index >= 0; index--) {
+               v.push(a[index]);
+            }
+            alert(v);
+        }
+        nhap(a);
+        alert(a);
+        daoNguoc(a);
+    </script>
+</body>
+</html>

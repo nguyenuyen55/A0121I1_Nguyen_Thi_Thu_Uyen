@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="kq"></div>
+    <script>
+var useEnter=prompt("nhập chuỗi ").toLowerCase();
+ 
+function validate(use) {
+    var valueStar =["Polaris","Aldebaran","Deneb","Vega","Altair","Dubhe","Regulus"];
+    var valueName =["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major" ,"Leo"];
+    var kq="";
+    for (let index = 0; index < valueStar.length; index++) {
+        if (valueStar[index].toLowerCase()===use){
+            kq += valueName[index];
+            break;
+        }
+        
+    }
+    if(kq!=""){
+        document.getElementById('kq').innerHTML=kq;
+    }else{
+        alert("không tìm thấy");
+    }
+
+   
+}
+validate(useEnter);
+
+     
+    </script>
+    
+</body>
+</html>

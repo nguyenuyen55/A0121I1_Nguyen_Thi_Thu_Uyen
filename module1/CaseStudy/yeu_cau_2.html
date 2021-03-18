@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var name ="Nguyễn Thị Thu Uyên";
+ var cmnd =212487963;
+ var Birthday =05/05/2000;
+ var address ="Đà nẵng";
+ var safeOff ="20";
+ var rentDay =5;;
+ var idService ='House';
+ var idRoomRent='vip';
+ let idCustomer="Gold"
+ let total;
+ let service=0;
+
+ let discountAddress;
+ let discountRent;
+ let discountIdCustomer;
+
+ function display(){
+    alert("1.tên : "+name
+ + "\n2.cmnd "+cmnd
+ +"\n3.địa chỉ "+address 
+ +"\n4. giảm giá :"+safeOff
+ +"\n5.số ngày thuê "+rentDay
+ +"\n6.loại dịch vụ "+idService
+ +"\n7. loại phòng thuê "+idRoomRent);
+ }
+var choice =parseInt(prompt("1.hiện thông tin khách hàng \n 2.sửa thông tin khách hàng \n 3. hiện thị tổng tiền của khách hàng"));
+
+ switch(choice){
+     case 1: 
+   display();
+        break;
+        case 2:
+        var choiceEdit =Number(prompt("1.tên : "+name
+ + "\n2.cmnd "+cmnd
+ +"\n3.địa chỉ "+address 
+ +"\n4. giảm giá :"+safeOff
+ +"\n5.số ngày thuê "+rentDay
+ +"\n6.loại dịch vụ "+idService
+ +"\n7. loại phòng thuê "+idRoomRent));  
+ 
+    switch(choiceEdit){
+        case 1: name=prompt("nhập tên");
+        display()
+        break;
+        case 2: cmnd =prompt("nhập cmnd");
+        display();break;
+        case 3: address=prompt("nhập địa chỉ");display();
+        break;
+ }
+ break;
+case 3: 
+if(idService==='Villa'){
+    service=500;
+}else if(idService==='House'){
+    service=300;
+}else{
+    service=100;
+}
+if(address==='Đà nẵng'){
+ discountAddress=20;
+}else if(address==='Huế'){
+    discountAddress=10;
+}else if(address==='Quảng Nam'){
+    discountAddress=5;
+}
+if(rentDay>=2 && rentDay <=4){
+    discountRent=10;
+}else if(rentDay<=7){
+    discountRent=20;
+}else{
+    discountRent=30;
+}
+
+switch(idCustomer.toLocaleLowerCase()){
+    case 'diamond':discountIdCustomer=15;break;
+    case 'platium':discountIdCustomer=10;break;
+    case 'gold':discountIdCustomer=5;break;
+    case 'silver':discountIdCustomer=2; break;
+    default: discountIdCustomer=0;
+}
+safeOff=discountIdCustomer+discountRent+discountAddress;
+total=service*rentDay-safeOff;
+alert(total+"$");
+default: alert("fai");break;
+
+}
+    </script>
+</body>
+</html>

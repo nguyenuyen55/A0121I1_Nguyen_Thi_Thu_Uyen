@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="nameProduct"><input type="button" value="Add" onclick="add_Araay();">
+    <p> <input type="button" value="display" onclick="display_Array()"> </p>
+    <div id="kq"></div>
+    <div id="edit" style="display: none;">
+        <hr>
+        <input type="text" name="" id="edit_value"> <button type="button" id="btn_edit" value=""
+            onclick="edit_array(this.value)">Edit</button>
+    </div>
+    <script>
+        let i = 0;
+        let arr = Array();
+        function add_Araay() {
+            arr[i] = document.getElementById('nameProduct').value;
+            alert(arr[i]);
+            i++;
+            document.getElementById('nameProduct').value = " ";
+        }
+        var kq = "";
+        function display_Array() {
+            kq ="";
+            for (let index = 0; index < arr.length; index++) {
+                kq += arr[index] + " <input type='button' value='delete' onclick='delete_elements_array(" + index
+                    + ")'/><input type='button' value='Edit' id='value_edit'  onclick='display_div_edit(" + index + ")'/> <br>";
+                // alert(kq);
+            }
+            document.getElementById("kq").innerHTML = kq;
+        }
+        function delete_elements_array(index) {
+            kq = "";
+            arr.splice(index, 1);
+            i--;
+            display_Array();
+        }
+        function display_div_edit(index) {
+            console.log(index)
+            document.getElementById('edit').style.display = 'block';
+            document.getElementById('btn_edit').value = index;
+        }
+        function edit_array(index) {
+            arr[index] = document.getElementById('edit_value').value
+            display_Array();
+        }
+    </script>
+
+</body>
+
+</html>

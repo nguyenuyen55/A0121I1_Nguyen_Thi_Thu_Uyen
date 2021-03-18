@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+            var choice =Number(prompt("1. Foot to Meters\n2. Meters to Foot\n3. Exits \nEnter my choice:"));
+            while(choice<3){
+                if(choice==1){
+                    var foot=Number(prompt("enter foot:"));
+                    alert(footToMeters(foot));
+                    choice =Number(prompt("1. Foot to Meters\n2. Meters to Foot\n3. Exits \nEnter my choice:"));
+                }else{
+                    var meter=Number(prompt("enter meter:"));
+                    alert(meterToFoot(meter));
+                    choice =Number(prompt("1. Foot to Meters\n2. Meters to Foot\n3. Exits \nEnter my choice:"));
+                }
+            }
+function footToMeters(foot) {
+    return foot*0.305;
+}
+function meterToFoot(meter) {
+    return meter*3.279;
+}
+    </script>
+</body>
+</html>
