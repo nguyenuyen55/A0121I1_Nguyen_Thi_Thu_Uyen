@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xây dựng lớp date</title>
+</head>
+<body>
+    <script>
+        class Datee{
+            constructor(day,moth,year){
+                this.day=day;
+                this.moth=moth;
+                this.year=year;
+            }
+            getday(){
+                return this.day;
+            }
+            getmoth(){
+                return this.moth;
+            }
+            getyear(){
+                return this.year;
+            }
+           setday(day){
+            this.day=day;
+           }
+           setmoth(moth){
+            this.moth=moth;
+           }
+           setyear(year){
+            this.year=year;
+           }
+           toString(){
+               return this.day+"/"+this.moth+"/"+this.year;
+           }
+        
+        }
+        var dt= new Datee(5,5,2000);
+        dt.setday(6);
+        alert(dt.getday());
+
+    </script>
+</body>
+</html>

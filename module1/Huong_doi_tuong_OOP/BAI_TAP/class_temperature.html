@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Temperatura{
+            constructor(c){
+                this.c=c;
+            }
+            getF(){
+                return 1.8*this.c+32; 
+            }
+            getKenvin(){
+                return c*274.15;
+            }
+
+        }
+var c=Number(prompt("mời nhập nhiệt độ (độ C)"));
+if(c>=-273){
+        var tem=new Temperatura(c);
+        alert("từ độ C sang độ F là "+tem.getF());
+        alert("từ độ C sang độ Kenvin là "+tem.getKenvin());
+ } else{
+        alert("nhiệt dộ ko hợp lệ");
+    }
+        </script>
+</body>
+</html>

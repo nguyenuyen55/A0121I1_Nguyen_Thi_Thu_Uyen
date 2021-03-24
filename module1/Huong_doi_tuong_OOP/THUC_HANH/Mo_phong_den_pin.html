@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Battery {
+            constructor(energy) {
+                this.energy = energy;
+            }
+            setEnergy(energy) {
+                return this.energy = energy;
+            }
+            getEnergy() {
+                return this.energy;
+            }
+            decreaseEnergy() {
+                if (energy > 0) {
+                    return "energy " + this.energy - 1;
+                }
+            }
+        }
+        //class flashLamp
+        class FlashLamp {
+            constructor(status, battery) {
+                this.status = status;
+                this.battery = battery;
+            }
+            setBattery(battery) {
+               return this.battery = battery;
+            }
+            getBatteryInfo(){
+                return this.battery;
+            }
+            light(){
+                if(this.status){
+                    alert('lighting');
+                }else{
+                    alert('pin off');
+                }
+            }
+            turnOn(){
+                return this.status=true;
+            }
+            turnOff(){
+                return this.status=false;
+            }
+
+        }
+ //khoi tao lop
+ let battery =new Battery(100);
+ 
+ let flashLamp= new FlashLamp(true,battery);
+ document.write("battergy info : " +flashLamp.getBatteryInfo()+"<br>");
+ flashLamp.light();
+//turn on
+document.write("turn on <br/>");
+flashLamp.turnOn();
+flashLamp.light();
+document.write("battery info : "+flashLamp.getBatteryInfo()+"<br/>");
+//turn off
+document.write("turn off <br/>");
+flashLamp.turnOff();
+flashLamp.light();
+document.write("battery info : "+flashLamp.getBatteryInfo()+"<br/>");
+    </script>
+</body>
+
+</html>

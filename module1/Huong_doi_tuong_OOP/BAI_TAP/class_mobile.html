@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class Mobile{
+            constructor(id,name){
+                this.id=id;
+                this.name=name;
+            }
+           
+            setMessage2 =function(message){
+                this.message=message;
+            }
+           getMessage =function(){
+                return this.message;
+            }
+          sendMessage= function(mess,moble){
+                moble.setMessage2(mess);
+            }
+        }
+        var iphone=new Mobile(1,"iphone");
+        var android =new Mobile(2,"samsung");
+        iphone.sendMessage("message from iphone ",android);
+        var mess =android.getMessage();
+        alert(mess);
+    </script>
+</body>
+</html>

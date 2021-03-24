@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Objects</title>
+</head>
+
+<body>
+  <div id="game"></div>
+  <script> /**
+ *create by thu uyen 22.03.2021
+ */
+
+    function Hero(image, top, left, size,speed) {
+      this.image = image;
+      this.top = top;
+      this.left = left;
+    
+    
+      this.size = size;
+      this.speed=speed;
+
+      this.getHeroElement = function () {
+        return '<img width="' + this.size + '"' +
+          ' height="' + this.size + '"' +
+          ' src="' + this.image + '"' +
+          ' style="top: ' + this.top + 'px;left:' + this.left + 'px;position:absolute;" />';
+      }
+      this.moveRight = function () {
+        this.left += 20;
+        console.log('ok left: ' + this.left);
+      }
+      this.movedown= function () {
+        this.top += 20;
+
+        console.log('ok top: ' + this.top);
+      }
+      this.moveLeft= function () {  
+        this.left -=20;
+        console.log('ok right: ' + (this.left));
+      }
+      this.moveUp= function () {
+        if(this.top>0){
+        this.top -= 20;
+        console.log('ok bottom : ' + this.top);
+      }}
+    }
+
+    var hero = new Hero('pikachu.png',20, 20,200,100);
+    var flag = true;
+    var flag1 = true;
+
+    function start() {
+      
+      if(hero.left < window.innerWidth-hero.size && flag){
+          hero.moveRight();
+        }else  if(hero.top< window.innerHeight-hero.size && flag1){
+              hero.movedown();
+              flag = false;
+
+        }else  if(hero.top > window.innerHeight-hero.size && hero.left > 0 ){
+              hero.moveLeft();
+              flag1=false;
+
+        }else if(hero.left < window.innerWidth-hero.size) {
+          hero.moveUp();
+        }else if(hero.top<0){
+          hero.top=0;
+        }
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+        setTimeout(start, 10)
+      }
+    start();
+
+    
+    </script>
+</body>
+
+</html>
