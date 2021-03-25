@@ -8,46 +8,50 @@
 </head>
 <body>
     <script>
-        //class ElectricLamp
-        class ElectricLamp{
-            constructor(status){
-                this.status=status;
-            }
-            turnOff(){
-                alert("bật");
-            }
-            turnOn(){
-                alert("tắt");
-            }
-        }
-//class SwitchButton
-class SwitchButton{
-    constructor(status,lamp){
-        this.status=status;
-        this.lamp=lamp;
-    }
-    connectToLamp(ElectricLamp){
-        if(this.lamp==ElectricLamp){
-            alert("connect successful..");
-        }else{
-            alert("not connect");
-        }
+//class ElectricLamp
 
+class ElectricLamp{
+    constructor(){
+        this.status=true;
+    }
+    turnOff(){
+        this.status=false;
+    }
+    turnOn(){
+        this.status=true;
+    }
+}
+
+
+//class switchButton
+class SwitchButton{
+    constructor(){
+        this.status=false;
+        this.lamp="";
+    }
+    connectToLamp(electricLamp){
+        this.lamp=electricLamp;
     }
     switchOff(){
-        alert("tắt nguồn");
+        this.status=false;
+        this.lamp.turnOff();
     }
     switchOn(){
-        alert("bật nguồn");
+        this.status=true;
+        this.lamp.turnOn();
     }
-
 }
-var electricLamp = new ElectricLamp("bật");
-var button=new SwitchButton("bật",electricLamp);
-button.connectToLamp(electricLamp);
 
+//khởi tạo đối tượng
+var electricLamp=new ElectricLamp();
+var button=new SwitchButton();
+//kiem tra trang thai cong tac
+alert(button.status);
+//truyen dien vao
+button.connectToLamp(electricLamp);
+//trang thai sau được bật
 button.switchOn();
-button.switchOff();
+alert(button.status);
 
     </script>
 </body>
