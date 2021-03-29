@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hàm</title>
+</head>
+
+<body>
+    <script>
+        //create one function add information customer
+        var i = 0;
+        var arrListCustomers = [];
+        function addCustomer() {
+            var name = prompt("Enter name Customer :");
+            var age = prompt("Enter age Customer :");
+            var cmnd = prompt("Enter cmnd Customer :");
+            var address = prompt("Enter address Customer :");
+            var idCustimer= prompt("Enter id Customer :");
+            var safeOff =prompt("Enter safeOff Customer :");
+            var count =prompt("Enter count people");
+
+            var rentDay= prompt("Enter rentDays :");
+            var idService =prompt("Enter idService :");
+            var idRoomRent =prompt("Enter idRoomRent");
+            arrListCustomers[i] = name;
+            i++;
+            arrListCustomers[i] = age;
+            i++;
+            arrListCustomers[i] = cmnd;
+            i++;
+            arrListCustomers[i] = address;
+            i++;
+            arrListCustomers[i] = idCustimer;
+            i++;
+            arrListCustomers[i] = safeOff;
+            i++;
+            arrListCustomers[i] = count;
+            i++;
+            arrListCustomers[i] = rentDay;
+            i++;
+            arrListCustomers[i] = idService;
+            i++;
+            arrListCustomers[i] = idRoomRent;
+        }
+        //create function display information customer
+
+        function disPlayInfo() {
+            var kq = "";
+            var kq1='';
+            for (var i = 0; i < arrListCustomers.length; i++) {
+                kq += " " + (i + 1) + ".  " + arrListCustomers[i] + "\n";
+            }
+         return   kq1 ="Display Information Customer \n" + kq;
+        }
+        //create function edit information customer
+        function editCustomer() {
+            var edit =Number(prompt(disPlayInfo()+"\n Enter your choice:"));
+            var textEdit= prompt("Enter text edit");
+            for(var i =0;i<arrListCustomers.length;i++){
+                if((edit-1)==i){
+                    arrListCustomers[i]=textEdit;
+                    break;
+                }
+            }
+            alert(disPlayInfo());
+        }
+        //create function delete information
+        function DeleteInfo() {
+            var deletee =Number(prompt(disPlayInfo()+"\n Enter your choice:"));
+            for(var i =0;i<arrListCustomers.length;i++){
+                if((deletee-1)==i){
+                    arrListCustomers.splice(i,1);
+                    break;
+                }
+            }
+            alert(disPlayInfo());
+        }
+
+        //tạo 1 function menu có tên là displayMainMenu()
+        function displayMainMennu() {
+            var choice = 0;
+            while (choice < 5 && choice >= 0) {
+                choice = Number(prompt("1. Add New Customer.\n2. Display Information Customer.\n3. Edit Information Customer.\n4. Delete Customer. \n5. Exit."));
+                if (choice == 1) {
+                    addCustomer();
+                    i++;
+                } else if (choice == 2) {
+                    alert(disPlayInfo());
+                } if (choice == 3) {
+                    editCustomer();
+                }else if(choice==4){
+                    DeleteInfo();
+                }
+            }
+        }
+        displayMainMennu();
+
+
+    </script>
+</body>
+
+</html>

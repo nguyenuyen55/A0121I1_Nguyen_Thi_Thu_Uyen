@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>opp task2</title>
+</head>
+<body>
+    <script>
+        var listEmployees=[];
+        class Employees {
+            constructor(name, age, cmnd, address, vitri) {
+                this.name = name;
+                this.age = age;
+                this.cmnd = cmnd;
+                this.address = address;
+                this.vitri = vitri;
+                
+            }
+            //get set cho thuoc tinh
+            //name
+            getName() {
+                return this.name;
+            }
+            setName(name) {
+                this.name = name;
+            }
+            //age
+            getAge() {
+                return this.age;
+            }
+            setName(age) {
+                this.age = age;
+            }
+            //cmnd
+            getCmnd() {
+                return this.cmnd;
+            }
+            setCmnd(cmnd) {
+                this.cmnd = cmnd;
+            }
+
+            //address
+            getAddress() {
+                return this.address;
+            }
+            setAddress(Address) {
+                this.address = Address;
+            }
+            //vitri
+            getVitri() {
+                return this.vitri;
+            }
+            setVitri(vitri) {
+                this.vitri = vitri;
+            }
+           
+            getSalary() {
+                let luong = 0;
+
+                if (this.vitri === 'manager') {
+                    luong = 500;
+                } else if (this.vitri === 'sale') {
+                    luong = 300;
+                } else if(this.vitri === 'marketing') {
+                    luong = 100;
+                }
+                return (luong );
+            }
+
+        }
+        var i = 0;
+        function addEmploy() {
+            //check name có hợp lệ hay không?
+            var name = prompt("Enter name Customer :");
+            var pattern = /^[^ ][a-z]/;
+            while (!name.match(pattern)) {
+                name = prompt("data Error Enter name Customer again:");
+            }
+            //check age
+            var age = prompt("Enter age Customer :");
+            pattern = /^\d{2,3}$/;
+            while (!age.match(pattern)) {
+                age = prompt("data Error Enter age  again:");
+            }
+            //ckeck cmnd
+            var cmnd = prompt("Enter cmnd Customer :");
+            pattern = /^\d{9}$/;
+            while (!cmnd.match(pattern)) {
+                cmnd = prompt("data Error Enter cmnd again:");
+            }
+            var address = prompt("Enter address Customer :");
+            var vitri = prompt("vui lòng nhập vị trí (Manager ,Sale,Marketing):");
+            listEmployees.push(new Employees(name, age, cmnd, address,vitri));
+        }
+
+        //hiện thị danh sách sinh viên
+              //function disday danh sach
+              function displayList(array) {
+            kq = "";
+            for (var i = 0; i < array.length; i++) {
+                kq += (i + 1) + ". " + "name: " + array[i].name +
+                    "\n  age :" + array[i].age +
+                    "\n  cmnd: " + array[i].cmnd +
+                    "\n  address: " + array[i].address +
+                    "\n  safeOff: " + array[i].vitri +
+                    "\n";
+            }
+            return kq;
+        }
+        function main() {
+            var choice = 0;
+            while (choice < 4) {
+                choice = Number(prompt("Welcome to you with us\n1. Add new Employees\n2. Display information Employees\n3. Salary of employees\n4. Exit "));
+                if (choice == 1) {
+                    addEmploy();
+                }else if(choice==2){
+                    displayList(listEmployees);
+                } else if(choice==3){
+                    var numberChoice = Number(prompt(displayList(listEmployees)));
+                   
+                    alert(listEmployees[numberChoice - 1].getSalary() + "$");
+                }
+            
+            }}
+            main();
+
+    </script>
+</body>
+</html>

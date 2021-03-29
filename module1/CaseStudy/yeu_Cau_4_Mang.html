@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //tạo 1 function strcmp
+        function strcmp(str1, str2) {
+            return ((str1 == str2) ? 0 : ((str1 > str2) ? 1 : -1));
+        }
+        var choice = 0;
+        //var choice=Number(prompt("1.Add Customer\n2.Delete Customer\n3.exit Enter your choice :"));
+        var arrNameCustomer = [];
+        var i = 0;
+        while (choice < 4) {
+            var choice = Number(prompt("1.Add Customer\n2.Delete Customer\n3.Display list name (a-z)\n4.Exit \nEnter your choice :"));
+
+            if (choice == 1) {
+                var nameCustomer = "";
+                while (nameCustomer == "") {
+                    var nameCustomer = prompt("nhập tên khách hàng");
+                    if (nameCustomer != "") {
+                        arrNameCustomer[i] = nameCustomer;
+                        i++;
+                        alert("đã thêm");
+                    } else {
+                        alert("bạn chưa nhập giá trị");
+                    }
+                }
+            } else if (choice == 2) {
+                var result = '';
+
+                for (var i = 0; i < arrNameCustomer.length; i++) {
+                    result += (i + 1) + " " + arrNameCustomer[i] + "\n";
+                }
+
+                var dem = 0;
+                var delName = prompt(result + " nhập tên của khách hàng muốn xoá");
+                for (var i = 0; i < arrNameCustomer.length; i++) {
+                    if (arrNameCustomer[i].toLocaleLowerCase() === delName.toLocaleLowerCase()) {
+                        arrNameCustomer.splice(i, 1);
+                        dem++;
+                    }
+                }
+                if (dem == 0) {
+                    alert("không có tên này trong danh sách");
+                } else {
+                    alert("danh sach sau khi xoá : " + arrNameCustomer);
+                }
+            } else if (choice == 3) {
+
+                if (arrNameCustomer.length > 0) {
+                    for (var i = 0; i <= arrNameCustomer.length; i++) {
+                        for (var j = arrNameCustomer.length - 1; j > i; j--) {
+                            if (strcmp(arrNameCustomer[j], arrNameCustomer[j - 1]) < 0) {
+                                var temp = arrNameCustomer[j];
+                                arrNameCustomer[j] = arrNameCustomer[j - 1];
+                                arrNameCustomer[j - 1] = temp;
+                            }
+                        }
+                    }
+                    alert(arrNameCustomer);
+                } else {
+                    alert("danh sách trỗng ");
+                }
+            }
+
+
+        }
+
+    </script>
+</body>
+
+</html>

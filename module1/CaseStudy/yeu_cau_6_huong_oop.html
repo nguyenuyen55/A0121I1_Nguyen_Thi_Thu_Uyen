@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var i = 0;
+        var arrListCustomers = [];
+        //create a class Customer
+        class Customer {
+            constructor(name, age, cmnd, address, idCustomer, safeOff, count, rentDay, idRoomRent, idService) {
+                this.name = name;
+                this.age = age;
+                this.cmnd = cmnd;
+                this.address = address;
+                this.idCustomer = idCustomer;
+                this.safeOff = safeOff;
+                this.count = count;
+                this.rentDay = rentDay;
+                this.idService = idService;
+                this.idRoomRent = idRoomRent;
+            }
+            //get set cho thuoc tinh
+            //name
+            getName() {
+                return this.name;
+            }
+            setName(name) {
+                this.name = name;
+            }
+            //age
+            getAge() {
+                return this.age;
+            }
+            setName(age) {
+                this.age = age;
+            }
+            //cmnd
+            getCmnd() {
+                return this.cmnd;
+            }
+            setCmnd(cmnd) {
+                this.cmnd = cmnd;
+            }
+
+            //address
+            getAddress() {
+                return this.address;
+            }
+            setAddress(Address) {
+                this.address = Address;
+            }
+            //idCustomer
+            getIdCustomer() {
+                return this.idCustomer;
+            }
+            setIdCustomer(idCustomer) {
+                this.idCustomer = idCustomer;
+            }
+            //SafeOFf
+            getSafeOff() {
+                return this.safeOff;
+            }
+            setSafeOff(safeOff) {
+                this.safeOff = safeOff;
+            }
+            //count
+            getCount() {
+                return this.count;
+            }
+            setCount(count) {
+                this.count = count;
+            }
+            //rentDays
+            getRentDay() {
+                return this.rentDay;
+            }
+            setRentDay(rentDay) {
+                this.rentDay = rentDay;
+            }
+            //IdService 
+            getIdService() {
+                return this.idService;
+            }
+            setIdService(IdService) {
+                this.idService = IdService;
+            }
+            //IdRoomRent
+            getIdRoomRent() {
+                return this.idRoomRent;
+            }
+            setAddress(idRoomRent) {
+                this.idRoomRent = idRoomRent;
+            }
+            //create a method pay money
+            getMoney() {
+                let service = 0;
+                if (this.idService == 'villa') {
+                    service = 500;
+                } else if (this.idService == 'house') {
+                    service = 300;
+                } else {
+                    service = 100;
+                }
+                return (service * this.rentDay * (1 - (this.safeOff / 100)));
+            }
+            //addCustomer
+
+        }
+ 
+        function addCustomer() {
+            //check name có hợp lệ hay không?
+            var name = prompt("Enter name Customer :");
+            var pattern = /^[^ ][a-z]/;
+            while (!name.match(pattern)) {
+                name = prompt("data Error Enter name Customer again:");
+            }
+            //check age
+            var age = prompt("Enter age Customer :");
+            pattern = /^\d{2,3}$/;
+            while (!age.match(pattern)) {
+                age = prompt("data Error Enter age  again:");
+            }
+            //ckeck cmnd
+            var cmnd = prompt("Enter cmnd Customer :");
+            pattern = /^\d{9}$/;
+            while (!cmnd.match(pattern)) {
+                cmnd = prompt("data Error Enter cmnd again:");
+            }
+            var address = prompt("Enter address Customer :");
+            var safeOff = prompt("Enter safeOff Customer :");
+            var count = prompt("Enter count people");
+            pattern = /^\d{1,3}$/;
+            while (!count.match(pattern)) {
+                count = prompt("data Error Enter count  again:");
+            }
+            var rentDay = prompt("Enter rentDays :");
+            pattern = /^\d{1,2}$/;
+            while (!rentDay.match(pattern)) {
+                rentDay = prompt("data Error Enter rentDay  again:");
+            }
+            var idService = prompt("Enter idService (Villa,house,Room) :");
+            var idCustomer = prompt("Enter idCustomer (diamaond, platium, gold, silver, Member) :");
+            var idRoomRent = prompt("Enter idRoomRent (vip,Business,Normal)");
+            arrListCustomers.push(new Customer(name, age, cmnd, address, idCustomer, safeOff, count, rentDay, idRoomRent, idService));
+        }
+        //function disday danh sach
+        function displayList(array) {
+            kq = "";
+            for (var i = 0; i < array.length; i++) {
+                kq += (i + 1) + ". " + "name: " + array[i].name +
+                    "\n  age :" + array[i].age +
+                    "\n  cmnd: " + array[i].cmnd +
+                    "\n  address: " + array[i].address +
+                    "\n  safeOff: " + array[i].safeOff +
+                    "\n  count: " + array[i].count +
+                    "\n  rentDay: " + array[i].rentDay +
+                    "\n  idService: " + array[i].idService +
+                    "\n  idCustomer: " + array[i].idCustomer +
+                    "\n  idRoomRent: " + array[i].idRoomRent +
+                    "\n";
+            }
+            return kq;
+        }
+        function displayList1(array, i) {
+            let kq = "";
+            let j = 0;
+            kq += (j + 1) + ". " + "name: " + array[i - 1].name +
+                "\n " + (j + 2) + " age :" + array[i - 1].age +
+                "\n " + (j + 3) + " cmnd: " + array[i - 1].cmnd +
+                "\n " + (j + 4) + " address: " + array[i - 1].address +
+                "\n " + (j + 5) + " safeOff: " + array[i - 1].safeOff +
+                "\n " + (j + 6) + " count: " + array[i - 1].count +
+                "\n " + (j + 7) + " rentDay: " + array[i - 1].rentDay +
+                "\n " + (j + 8) + " idService: " + array[i - 1].idService +
+                "\n " + (j + 9) + " idCustomer: " + array[i - 1].idCustomer +
+                "\n " + (j + 10) + " idRoomRent: " + array[i - 1].idRoomRent +
+                "\n";
+            return kq;
+        }
+        //function edit customer
+        function Edit(array) {
+            var number = Number(prompt(displayList(array)));
+            var number1 = Number(prompt(displayList1(array, number)));
+            var textEdit = prompt("Enter text edit");
+            array[number - 1][getField(number1)] = textEdit;
+            alert(displayList(array));
+
+        }
+
+        function getField(n) {
+            switch (n) {
+                case 1:
+                    return "name";
+                case 2:
+                    return "age";
+                case 3:
+                    return "cmnd";
+                case 4:
+                    return "address";
+                case 5:
+                    return "safeOff";
+                case 6:
+                    return "count";
+                case 7:
+                    return "rentDay";
+                case 8:
+                    return "idService";
+                case 9:
+                    return "idCustomer";
+                case 10:
+                    return "idRoomRent";
+            }
+        }
+        //function delete
+        function deleteCustomer(array) {
+            var choice = Number(prompt(displayList(array)));
+            array.splice((choice - 1), 1);
+            alert(displayList(array));
+        }
+
+        //tạo a function ve menu
+        function main() {
+            var choice = 0;
+            while (choice < 6) {
+                choice = Number(prompt("Welcome to you with us\n1. Add new customer\n2. Display information customer\n3. Display money \n4. Edit customer\n5. Delete customer "));
+                if (choice == 1) {
+                    addCustomer();
+                } else if (choice == 2) {
+                    alert(displayList(arrListCustomers));
+                } else if (choice == 3) {
+                    var numberChoice = Number(prompt(displayList(arrListCustomers)));
+                    console.log(arrListCustomers[numberChoice - 1]);
+                    alert(arrListCustomers[numberChoice - 1].getMoney() + "nghìn đồng");
+                } else if (choice == 4) {
+                    Edit(arrListCustomers);
+                } else if (choice == 5) {
+                    deleteCustomer(arrListCustomers);
+                }
+            }
+        }
+        main();
+
+
+
+    </script>
+</body>
+
+</html>

@@ -13,7 +13,7 @@
     <form action="#" id="form">
         <h1>Đăng kí</h1>
         <h3>Name</h3>
-        <input type="text" name="" id="userName" placeholder="Enter name">
+        <input type="text" name="" id="userName" placeholder="Enter name" onchange="chuanHoa(this.value)">
         <h3>Address</h3>
         <input type="text" name="" id="email" placeholder="Enter email address " onchange="check();"><span
             id="text"></span>
@@ -90,33 +90,26 @@
 
         //chuẩn hoá họ và tên
         //b1 :xoá dấu cách trước và sau
+
         function chuanHoa(str) {
             
 
+            str =str.trim().toLocaleLowerCase();
+ 
+            str = str.replace(/  +/g, ' ');
+            let array = str.split(" ");
+       for (let i = 0; i < array.length; i++) {
+           array[i] = array[i].replace(array[i][0], array[i][0].toLocaleUpperCase());
+       }
+      var kq=array.join(" ");
+      document.getElementById("userName").value=kq;
         }
 
 
 
 
-        function delete_space(str) {
-            for (let i = 0; i < str.length; i++) {
-                if (str[i] === ' ' && str[i + 1] === ' ') {
-                    str.splice(i, 1);
-                }
-            }
-        }
-        function to_Upper_Case(str) {
-            var str2 = str.toCaseLower();
-            if (str[0] !== ' ') {
-                if (str[0] >= 97 && str[0] <= 122) {
-                    str[0] -= 32;
-                }
-            }
 
-
-
-
-        }
+        
     </script>
 </body>
 
