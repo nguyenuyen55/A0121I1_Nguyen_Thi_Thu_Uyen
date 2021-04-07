@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIỂM TRA ĐIỂM CHUNG GIỮA HAI CHUỖI VÀ SÔ LẦN XUẤT HIỆN CỦA CHÚNG</title>
+</head>
+<body>
+    <script>
+        var s1=prompt("nhập chuỗi 1");
+        var s2=prompt("nhập chuỗi 2");
+        var dem =0;
+        for(var i=0;i<s1.length;i++){
+            for(var j=0;j<s2.length;j++){
+                if(s1[i]===s2[j]){
+                    dem++;
+                   s2=s2.replace(s2[j],'');
+                   break;
+                }
+            }
+        }
+        alert(dem);
+    </script>
+</body>
+</html>

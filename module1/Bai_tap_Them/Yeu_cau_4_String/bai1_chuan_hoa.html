@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Viết một hàm chuẩn hóa xâu ký tự: biến đổi xâu ký tự thành xâu sao cho trong xâu
+    không có 2 dấu cách liền nhau và bắt đầu mỗi từ phải in hoa. Ví dụ tRuong TaN HAI
+    =&gt; Truong Tan Hai.
+    Và một hàm tìm từ dài nhất trong 1 xâu ký tự. Hàm main sử dụng các hàm này để nhập
+    xâu ký tự từ bàn phím, in ra xâu trước và sau khi chuẩn hóa, 1 từ dài nhất trong xâu đó. -->
+<script>
+function main(){
+    var str1 =prompt("nhập họ và tên của bạn:");
+    var str=str1.trim().toLowerCase();
+var tempName="";
+    for(var i=0;i<str.length;i++){
+        if(str[i]===" " && str[i+1] ===' '){
+            continue;
+        }
+        if(i===0 || str[i-1]==' '){
+            tempName +=str[i].toUpperCase();
+            continue;
+        }
+
+        tempName +=str[i];
+
+    }
+   // alert(tempName);
+    var strin=tempName.split(" ");
+    var max=strin[0];
+    for (let index = 0; index < strin.length; index++) {
+        if(strin[index].length>max.length){
+            max=strin[index];
+        }
+    }
+    alert("họ và tên trước chuẩn hoá: "+str1+"\nhọ và tên sau chuẩn hoá: "+tempName+"\ntừ có độ dài nhất là: "+max);
+
+}
+main();
+</script>
+
+</body>
+</html>

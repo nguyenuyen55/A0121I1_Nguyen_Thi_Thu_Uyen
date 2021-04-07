@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu đồ uống </title>
+</head>
+<body>
+    <script>
+        do {
+            var choice=Number(prompt("1. Cafe\n2. Cam vắt\n3. Nước ép cà rốt\n4. Nước ép cà chua\n5. Nước lọc\n6. Nước dừa\n7. Thoát chương trình \nBạn muốn order đồ uống nào ><"));
+            switch (choice) {
+                case 1: alert("tiền cafe cần trả : "+tinhTien(choice) +" ngàn");break;
+                case 2: alert("tiền Cam vắt cần trả : "+tinhTien(choice)+" ngàn");break;
+                case 3: alert("tiền nước ép cà rốt cần trả : "+tinhTien(choice)+" ngàn");break;
+                case 4: alert("tiền nước ép cà chua cần trả : "+tinhTien(choice)+" ngàn");break;
+                case 5: alert("tiền nước lọc cần trả : "+tinhTien(choice)+" ngàn");break;
+                case 6: alert("tiền nước dừa cần trả : "+tinhTien(choice)+" ngàn");break;
+            }
+        } while (choice<7 &&choice>=1);
+
+        function tinhTien(choice) {
+            var soluong=prompt("mời bạn nhập số lượng");
+            var tien=0;
+            switch (choice) {
+                case 1: 
+                    tien=soluong*10;
+                    break;
+                case 2:tien=soluong*15;break;
+                case 3:tien=soluong*10;break;
+                case 4:tien=soluong*10;break;
+                case 5:tien=soluong*5;break;
+                case 6:tien=soluong*20;break;
+            }
+            return tien;
+        }
+    </script>
+</body>
+</html>

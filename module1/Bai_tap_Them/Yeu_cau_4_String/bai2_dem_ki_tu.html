@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //kiểm tra có bao nhiêu kí tự 
+        //abcbhss;
+var str=prompt("mời nhập chuỗi");
+        var dem=str.length;
+        for(var i=0;i<str.length;i++){
+            var m=str[i];
+            for(var j=i+1;j<str.length;j++){
+                if(str[j]==m){
+                    dem--;
+                    break;
+                }
+            }
+        }
+        alert(dem);
+    </script>
+</body>
+</html>

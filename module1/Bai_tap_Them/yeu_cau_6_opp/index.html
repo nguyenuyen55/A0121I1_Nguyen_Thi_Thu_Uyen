@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống mua vé số</title>
+</head>
+
+<body>
+    <script>
+        var array = [];
+        class Candidate {
+            constructor(id, name, birthDay, Toan, Van, Anh) {
+                this.id = id;
+                this.name = name;
+                this.birthDay = birthDay;
+                this.Toan = Toan;
+                this.Van = Van;
+                this.Anh = Anh;
+            }
+            //id
+            getId() {
+                return this.id;
+            }
+            setId(id) {
+                this.id = id;
+            }
+            //name
+            getName() {
+                return this.name;
+            }
+            setName(name) {
+                this.name = name;
+            }
+            //birthDay
+            getBirthDay() {
+                return this.birthDay;
+            }
+            setBirthDay() {
+                this.birthDay = birthDay;
+            }
+            //Toán
+            getToan() {
+                return this.Toan;
+            }
+            setToan(toan) {
+                this.Toan = toan;
+            }
+            //Văn
+            getVan() {
+                return this.Van;
+            }
+            setVan(Van) {
+                this.Van = Van;
+            }
+            //Anh
+            getAnh() {
+                return this.Anh;
+            }
+            setAnh(anh) {
+                this.Anh = anh;
+            }
+            //getDiemTong;
+            getDiemTong() {
+                return this.Toan + this.Van + this.Anh;
+            }
+        }
+        //add thí sinh
+        function addThisinh(array) {
+            var id = prompt("nhập id của thí sinh");
+            var pattern = /^\d{1,4}$/;
+            while (!id.match(pattern)) {
+                id = prompt("vui lòng nhập id là kiểu số");
+            }
+            var name = prompt("nhập tên của thí sinh");
+            var birthDay = prompt("nhập sinh nhật của thí sinh");
+            var Toan = prompt("nhập điểm toán của thí sinh");
+            var pattern = /^\d{1,2}$/;
+            while (!Toan.match(pattern)) {
+                Toan = prompt("vui lòng nhập điểm toán là kiểu số");
+            }
+            var Van = prompt("nhập điểm văn của thí sinh");
+            while (!Van.match(pattern)) {
+                Van = prompt("vui lòng nhập điểm văn là kiểu số");
+            }
+            var Anh = prompt("nhập điểm anh của thí sinh");
+            while (!Anh.match(pattern)) {
+                Anh = prompt("vui lòng nhập điểm văn là kiểu số");
+            }
+            array.push(new Candidate(id, name, birthDay, Toan, Van, Anh));
+        }
+        //displayThiSinh
+        function display(array) {
+            kq = '';
+            array.sort(function (a, b) {
+                return a.id - b.id;
+            });
+            for (var i = 0; i < array.length; i++) {
+                kq += i + 1 + ". id : " + array[i].id + "\n"
+                    + " name : " + array[i].name + "\n"
+                    + "năm sinh : " + array[i].birthDay + "\n"
+                    + "điểm Toán : " + array[i].Toan + "\n"
+                    + "điểm Văn : " + array[i].Van + "\n"
+                    + "điểm Anh : " + array[i].Anh + "\n";
+            }
+            return kq;
+        }
+        //function 
+        function displayItem(array, i) {
+            kq = "";
+            kq += "1 .id " + array[i - 1].id + "\n"
+                + "2 .name " + array[i - 1].name + "\n"
+                + "3 .birthDay " + array[i - 1].birthDay + "\n"
+                + "4 .Toan " + array[i - 1].Toan + "\n"
+                + "5 . Van" + array[i - 1].Van + "\n"
+                + "6 . Anh " + array[i - 1].Anh + "\n";
+            return kq;
+        }
+        function getFiel(n) {
+            switch (n) {
+                case 1: return "id"; break;
+                case 2: return "name"; break;
+                case 3: return "birthDay"; break;
+                case 4: return "Toan"; break;
+                case 5: return "Van"; break;
+                case 6: return "Anh"; break;
+            }
+        }
+
+        //Edit thí sinh
+        function EditThiSinh(array) {
+            var numberEdit = prompt(display(array));
+            var edit = Number(prompt(displayItem(array, numberEdit)));
+            var EditText = prompt("enter text edit ");
+            array[numberEdit - 1][getFiel(edit)] = EditText;
+            alert(display(array));
+        }
+        //xoá thí sinh
+        function detele(array) {
+            var numberEdit = prompt(display(array));
+            array.splice(numberEdit - 1, 1);
+            alert(display(array));
+        }
+        //in ra danh sách có tổng lớn hơn 15
+        function DSlon15(arr) {
+            var kq='';
+            for (var i = 0; i < arr.length; i++) {
+                if(arr[i].getDiemTong()>15){
+                    kq += i + 1 + ". id : " + array[i].id + "\n"
+                    + " name : " + array[i].name + "\n"
+                    + "năm sinh : " + array[i].birthDay + "\n"
+                    + "điểm Toán : " + array[i].Toan + "\n"
+                    + "điểm Văn : " + array[i].Van + "\n"
+                    + "điểm Anh : " + array[i].Anh + "\n";
+                }
+
+            }
+            return kq;
+        }
+        //tạo menu
+        function main(params) {
+            do {
+                var choice = Number(prompt("Welcome to you with us\n1.Thêm thí sinh.\n2.Sửa thí sinh.\n3.Xoá thí sinh\n4. Display thí sinh \n5. In ra thông tin về các thí sinh có tổng lớn hơn 15 \n6.Exit."));
+                if (choice == 1) {
+                    addThisinh(array);
+                } else if (choice === 2) {
+                    EditThiSinh(array);
+                } else if (choice === 3) {
+                    detele(array);
+                } else if (choice === 4) {
+                    alert(display(array));
+                } else if (choice === 5) {
+                    alert(DSlon15(array));
+                }
+            } while (choice < 6);
+
+        }
+
+        main();
+    </script>
+
+
+
+</body>
+
+</html>

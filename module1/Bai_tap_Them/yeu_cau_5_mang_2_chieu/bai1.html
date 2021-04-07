@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!--tính tổng mảng hai chiều-->
+    <script>
+        //bài 1
+        var sodong=Number(prompt("nhập số hàng : "));
+        var socot=Number(prompt("nhập số cột : "));
+        var a = [];
+        //nhập mảng hai chiều
+// for (let i = 0; i <sohang; i++) {
+//     for (let j = 0; j < socot ;j++) {
+//         a[i][j]=prompt("nhập a["+i+"]["+j+"]");
+//     }   
+// }
+var sum=0;
+for(i=0;i<sodong;i++)
+    {
+        a[i]=[];
+        for(j=0;j<socot;j++)
+        {
+            a[i][j]=Number(prompt("nhập a["+i+"]["+j+"]"));
+        }
+    }
+    alert(a);
+//duyệt mảng và tính tổng
+for (let i = 0; i <sodong; i++) {
+    for (let j = 0; j < socot; j++) {
+        if(a[i][j]%2==0){
+            sum +=a[i][j];
+        }
+    }   
+}
+alert(sum);
+//bài 2
+//kiểm tra số nguyên to
+function ktrSoNguyenTo(n) {
+    var dem=0;
+    for (let j = 1; j <=n; j++) {
+        if(n%j==0){
+            dem++;
+    }}   
+    if(dem==2){
+        return true;
+    }else{
+        return false;
+    }
+}
+var count=0;
+var kq="";
+//duyệt mảng và tìm số nguyen tố
+for (let i = 0; i <sodong; i++) {
+    for (let j = 0; j < socot; j++) {
+        if(ktrSoNguyenTo(a[i][j])){
+            kq +=" "+a[i][j];
+            count++;
+        }
+    }   
+}
+
+alert(kq);
+alert("có "+count+"số nguyên tố");
+//bài 3
+var min=a[0][0]
+var max=a[0][0]
+
+
+for (let i = 0; i <sodong; i++) {
+    for (let j = 0; j < socot; j++) {
+        if(a[i][j]>max){
+            max=a[i][j];
+        }
+        if(a[i][j]<min){
+            min=a[i][j];
+        }
+    }   
+}
+alert("giá trị nhỏ nhất "+min);
+alert("giá trị lớn nhất "+max);
+
+
+    </script>
+</body>
+</html>
