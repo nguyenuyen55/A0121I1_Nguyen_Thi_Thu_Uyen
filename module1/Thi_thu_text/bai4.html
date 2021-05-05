@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Cho hai xâu kí tự, tìm số lượng kí tự chung giữa chúng.
+Ví dụ: s1 = &quot;aabcc&quot; và s2 = &quot;adcaa&quot;, thì kết quả commonCharacterCount(s1, s2) = 3.
+ 2 xâu s1 và s2 có 3 kí tự chung: 2 kí tự &#39;a&#39; và 1 kí tự &#39;c&#39;.
+    -->
+
+    <script>
+        var s1='aabcc';
+        var s2='adcaa';
+var dem=0;
+        for (let i = 0; i < s1.length; i++) {
+            for (let j = 0; j < s2.length; j++) {
+                if(s1[i]==s2[j]){
+                    dem++;
+                   s2= s2.replace(s2[j]," ");
+                    break;
+
+                }
+                
+            }
+        }
+        alert(dem);
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        do {
+            var n = prompt("nhập số phấn tử của a");
+        } while (n > 50);
+        var a = [];
+        var b = [];
+        for (let i = 0; i < n; i++) {
+            a[i] = Number(prompt("nhập phân tử " + (i + 1)));
+        }
+        function ktra(so) {
+            var dem = 0;
+            if (so == 1 || so == 2) {
+                return false;
+            } else {
+                for (let i = 1; i <= so; i++) {
+                    if (so % i == 0) {
+                        dem++;
+                    }
+                }
+                if (dem == 2) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+        for (let i = 0; i < a.length; i++) {
+            if (ktra(a[i]) == true) {
+                b.push(a[i]);
+            }
+        }
+        alert(a);
+        alert(b);
+    </script>
+</body>
+
+</html>

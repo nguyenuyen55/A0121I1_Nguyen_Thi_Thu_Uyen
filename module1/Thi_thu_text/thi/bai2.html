@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class PhanSo {
+            constructor(tu, mau) {
+                this.tu = tu;
+                this.mau = mau;
+            }
+            ktraphanSo() {
+                if (this.mau != 0) {
+                    return this.tu / this.mau;
+                }
+            }
+        }
+
+        var tu1 = Number(prompt("nhập tử của phân số 1"));
+        var mau1 = Number(prompt("nhập mẫu của phân số 1"));
+        var tu2 = Number(prompt("nhập tử của phân số 2"));
+        var mau2 = Number(prompt("nhập mẫu của phân số 2"));
+
+        var pt1 = new PhanSo(tu1, mau1);
+        var pt2 = new PhanSo(tu2, mau2);
+        if (pt1.ktraphanSo() == pt2.ktraphanSo()) {
+            alert("true");
+        } else {
+            alert("false");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Viết một hàm chuẩn hóa xâu ký tự: biến đổi xâu ký tự thành xâu sao cho trong xâu
+không có 2 dấu cách liền nhau và bắt đầu mỗi từ phải in hoa. Ví dụ tRuong TaN HAI
+=&gt; Truong Tan Hai.
+    -->
+    <script>
+        var name=prompt("nhập tên của bạn").toLowerCase().trim();
+        var tempname="";
+        for (let i = 0; i < name.length; i++) {
+            if(name[i]==' '&&name[i+1]==" "){
+                continue;
+            }
+            if(i==0 || name[i-1] ==" " ){
+                tempname +=name[i].toUpperCase();
+                continue;
+            }
+            tempname+=name[i];
+            
+        }
+        alert(tempname);
+    </script>
+</body>
+</html>
