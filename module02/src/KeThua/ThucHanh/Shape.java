@@ -1,6 +1,9 @@
 package KeThua.ThucHanh;
 
-public class Shape {
+import AbstractAndInterface.BaiTap.InterfaceChoColorable.Colorable;
+import AbstractAndInterface.BaiTap.InterfaceChoResizeable.Resizeable;
+
+public class Shape implements Resizeable, Colorable {
     private String color;
     private boolean filled;
 
@@ -29,12 +32,24 @@ public class Shape {
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
-
+    public double getArea(){
+        return 0;
+    }
     @Override
     public String toString() {
         return "A Shape with color of "
                 + getColor()
                 + " and "
                 + (isFilled() ? "filled" : "not filled");
+    }
+
+    @Override
+    public void resize(double percent) {
+        return;
+    }
+
+    @Override
+    public void howToColor() {
+        System.out.println("Color all four sides...");
     }
 }

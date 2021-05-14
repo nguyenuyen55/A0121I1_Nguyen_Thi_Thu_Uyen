@@ -1,6 +1,8 @@
 package KeThua.ThucHanh;
 
-public class Square extends Rectangle{
+import AbstractAndInterface.BaiTap.InterfaceChoResizeable.Resizeable;
+
+public class Square extends Rectangle implements Resizeable {
     public Square() {
     }
     public Square(double side) {
@@ -30,12 +32,19 @@ public class Square extends Rectangle{
     public void setLength(double length) {
         super.setLength(length);
     }
-
+    public double getArea(){
+        return getSide()*getSide();
+    }
     @Override
     public String toString() {
         return "A Square with side="
                 + getSide()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void resize(double percent) {
+        this.setSide(this.getSide()+this.getSide()*percent/100);
     }
 }

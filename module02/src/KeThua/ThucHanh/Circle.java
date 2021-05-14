@@ -1,6 +1,8 @@
 package KeThua.ThucHanh;
 
-public class Circle extends Shape {
+import AbstractAndInterface.BaiTap.InterfaceChoResizeable.Resizeable;
+
+public class Circle extends Shape implements Resizeable {
     private double radius;
 
     public Circle() {
@@ -32,5 +34,10 @@ public class Circle extends Shape {
         return "Circle{" +
                 "radius=" + radius +
                   ", which is a subclass of "+super.toString() +'}';
+    }
+
+    @Override
+    public void resize(double percent) {
+        this.radius +=this.radius*percent/100;
     }
 }
