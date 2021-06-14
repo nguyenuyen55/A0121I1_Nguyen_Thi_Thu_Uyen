@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ProductManager {
     Scanner scanner = new Scanner(System.in);
-    ArrayList<Product> arrayList = new ArrayList<>();
+    List<Product> arrayList = new ArrayList<>();
 
     public void addProduct() {
 
@@ -95,6 +95,7 @@ public class ProductManager {
     }
 
     public void searchProduct() {
+        //tìm kiếm gần đúng
         System.out.println("Enter Name Product search ");
         String name = scanner.nextLine();
         int dem = 0;

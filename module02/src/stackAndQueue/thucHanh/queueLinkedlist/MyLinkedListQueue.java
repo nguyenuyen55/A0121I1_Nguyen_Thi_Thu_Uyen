@@ -13,7 +13,7 @@ public class MyLinkedListQueue {
             this.head=this.tail=temp;
             return;
         }
-        this.tail.next=temp;
+        this.tail.link=temp;
         this.tail=temp;
     }
     public Node dequeue(){
@@ -21,7 +21,7 @@ public class MyLinkedListQueue {
             return null;
         }
         Node temp=this.head;
-        this.head=this.head.next;
+        this.head=this.head.link;
         if(this.head==null){
             this.tail=null;
         }

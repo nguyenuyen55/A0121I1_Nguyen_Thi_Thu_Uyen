@@ -1,4 +1,4 @@
-package stackAndQueue.baiTap.TrienKhaiQueue;
+package stackAndQueue.baiTap.trienKhaiQueue;
 
 public class Queue {
     private Node front;
