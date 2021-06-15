@@ -1,21 +1,11 @@
 package exceptionAndDebug.baiTap;
 
-import java.util.Scanner;
-
 public class DemoillegalTringleException {
     public static void main(String[] args) throws IllegalTringleException {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Enter a:");
-        int a = sc.nextInt();
-        System.out.println("Enter b :");
-        int b = sc.nextInt();
-        System.out.println("Enter c  :");
-        int c = sc.nextInt();
-        if (a < 0 || b < 0 || c < 0 || a + b < c || b + c < a || c + a < b) {
+        Tringle tringle = new Tringle(-1, 5, 7);
+        if (tringle.getA() < 0 || tringle.getB() < 0 || tringle.getC() < 0 || tringle.getA() + tringle.getB() < tringle.getC() || tringle.getC() + tringle.getA() < tringle.getB() || tringle.getB() + tringle.getC() < tringle.getA()) {
             throw new IllegalTringleException();
         }
-
     }
 }
 
