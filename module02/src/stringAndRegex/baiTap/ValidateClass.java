@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ValidateClass {
-    private static String regex ="^[CAP][0-9]{4}[GHIKLM]$";
+    private static final   String regex ="^[CAP][0-9]{4}[GHIKLM]$";
     public ValidateClass(){
 
     }

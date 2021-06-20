@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class ValidateAccount {
     private static Pattern pattern;
     private static Matcher matcher;
-    private static String regex="^[_a-z0-9]{6,}$";
+    private final static String regex="^[_a-z0-9]{6,}$";
     public ValidateAccount(){
         pattern=Pattern.compile(regex);
     }
