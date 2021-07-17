@@ -22,6 +22,6 @@ select sum(soTien) as tong
 from employees
 where ten='Huong';
 #- Viết câu lệnh lấy ra tên danh sách của tất cả học viên, không trùng lặp
-select   DISTINCT ten ,khoahoc
+select   DISTINCT ten 
 from employees
 

@@ -22,9 +22,24 @@ ten_sinh_vien varchar(150),
  email varchar(250),
  sdt char(11),
  anh varchar(50));
+create table phieumuon(
+ma_muon varchar(45) primary key,
+ma_sv char(10) ,
+ten_nguoi_muon varchar(100),
+ma_loai_sach char(20) ,
+ngay_bat_dau_muon date,
+ngay_ket_thuc date,
+foreign key (ma_sv) references sinh_vien(ma_sinh_vien),
+foreign key (ma_loai_sach) references loai_sach(ma_loai))
+;
+
+ 
+ 
+ 
 /*
 insert dư lieu vo mỗi bảng 5 dòng
 */
+
 #bang sach
 insert into loai_sach(ma_loai,ten_loai)
 values("TH",'Tin Học'),
@@ -46,3 +61,9 @@ values('110','uyen','2000-05-05','02 thanh sơn','uyen@gmail.com','0332001769'),
 ('112','tram','2000-11-30','cẩm lệ','tram@gmail.com','0367894769'),
 ('113','nhi','2000-06-05','gia lai','nhi@gmail.com','0332007896'),
 ('114','loan','2000-10-07','02 thanh sơn','loan@gmail.com','033568649');
+
+-- insert du lieu vao bang phieu muon
+insert into phieumuon
+values('pm01','110','uyen a','TH','2021-01-01','2021-01-07'),
+('pm02','114','uyen an','VH','2021-01-01','2021-01-07'),
+('pm03','112','hung','TH','2021-02-01','2021-02-07');
