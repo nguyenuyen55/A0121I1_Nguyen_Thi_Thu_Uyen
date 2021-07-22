@@ -76,25 +76,27 @@ call proc_all_products;
  -- Tạo store procedure thêm một sản phẩm mới
  
 delimiter $$
-create procedure proc_insert_products()
+create procedure proc_insert_products( 
+in id int, in productCode varchar(45),in productName varchar(50) ,in productPrice int,in productAmount int,in productDes varchar(100), in productStatus varchar(45)
+)
 begin 
 insert into products 
-values(19,'sp032','book anime',1000,9334,'rat hay','con hang');
+values(id,productCode,productName,productPrice,productAmount,productDes,productStatus);
 end; $$
 delimiter ; 
-call proc_insert_products;
+call proc_insert_products(22,'sp055','book anime',1000,9334,'rat hay','con hang');
 
 
 -- Tạo store procedure sửa thông tin sản phẩm theo id
 delimiter $$
-create procedure proc_update_Status_products(in idd int(11))
+create procedure proc_update_Status_products(in idd int(11), in productSatus varchar(200))
 begin 
 update products
-set productStatus ='het hang'
+set productStatus =productSatus
 where id =idd;
 end; $$
 delimiter ; 
-call proc_update_Status_products(4);
+call proc_update_Status_products(4,'het hang');
 
 -- Tạo store procedure xoá sản phẩm theo id
 delimiter $$
