@@ -259,8 +259,38 @@ select IDKhachHang as id,HoTen,Email,SDT,NgaySinh,DiaChi
 from khachhang
 union
 select IDNhanVien,HoTen,Email,SDT,NgaySinh,DiaChi
-from nhanvien                                                                                                                                                                                                                                                                                                                                                 
- 
+from nhanvien    ;
+                                                                                                                                                                                                                                                                                                                                             
+/*
+21.	Tạo khung nhìn có tên là V_NHANVIEN để lấy được thông tin của tất cả các nhân viên có địa chỉ là “Hải Châu” và
+ đã từng lập hợp đồng cho 1 hoặc nhiều Khách hàng bất kỳ  với ngày lập hợp đồng là “12/12/2019”
+*/ 
+
+create view V_NHANVIEN
+as
+select nhanvien.*
+from hopdong
+inner join nhanvien on hopdong.IDNhanVien = nhanvien.IDNhanVien
+where hopdong.NgayLamHopDong ='2019-12-12'
+group by hopdong.IDNhanVien
+having count( hopdong.IDNhanVien)>=1;
+
+/*
+22.	Thông qua khung nhìn V_NHANVIEN thực hiện cập nhật địa chỉ thành “Liên Chiểu” đối với 
+tất cả các Nhân viên được nhìn thấy bởi khung nhìn này.
+*/
+
+create view V_NHANVIEN_Lieu_chieu
+as
+select *
+from nhanvien
+where DiaChi='Liên Chiểu';
+
+
+
+
+
+
 
  
  
