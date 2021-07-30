@@ -1,0 +1,146 @@
+body{
+    font-family: Arial, Tahoma;
+    font-size: 12px;
+}
+
+#main{
+    width: 1000px;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+#head{
+    height: 100px;
+    background-color: #f5e58a;
+    border: 1px solid #CDCDCD;
+    margin-bottom:5px;
+}
+#head-link{
+    height: 40px;
+    border: 1px solid #CDCDCD;
+    margin-bottom: 5px;
+    clear: both;
+    position: relative;
+}
+#left{
+    min-height: 500px;
+    background-color: #f5e58a;
+    border: 1px solid gainsboro;
+    width: 150px;
+    float: left;
+    margin-bottom: 5px;
+
+}
+#content{
+    min-height: 500px;
+    background-color: #f5e58a;
+    border: 1px solid gainsboro;
+    width: 600px;
+    float: left;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#right{
+    min-height: 500px;
+    background-color: #f5e58a;
+    border: 1px solid gainsboro;
+    width: 232px;
+    float: right;
+    margin-bottom: 5px;
+}
+#footer{
+    height: 50px;
+    border: 1px solid #CDCDCD;
+    margin-bottom: 5px;
+    background-color: pink;
+    clear: both;
+}
+#login{
+    width: 30%;
+    float: left;
+    height: 101px;
+    text-align: center;
+background-color: aqua;
+
+}
+#login p{
+    display: inline-block;
+    background-color: green;
+    padding: 10px;
+    margin-top: 30px;
+    color: white;
+}
+#banner{
+    width: 69%;
+    float: right;
+    height: 101px;
+    text-align: center;
+    background-color: rgb(4, 0, 255);
+}
+#banner p{
+    display: inline-block;
+    background-color: green;
+    padding: 10px;
+    margin-top: 30px;
+    color: white;
+}
+#head-link ul{
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+   
+}
+#head-link ul li{
+    margin: 0 auto;
+    float: left;
+    width: 70px;
+    list-style: none;
+    border: 1px orangered solid;
+    padding: 10px;
+    height: 18px;
+}
+#head-link ul li a{
+    text-decoration: none;
+}
+#head-link #box-search{
+    float: right;
+    width: 200px;
+    height: 40px;
+    padding-top: 6px;
+    position: relative;
+}
+#head-link #search{
+    border-radius: 5px;
+    width: 180px;
+    padding-left: 14px;
+} 
+
+.icon {
+    position: absolute;
+    top:10px;
+    left: 4px;
+}
+
+.box-left{
+    
+    background-color: #f5e58a;
+    padding-bottom: 40px;
+    
+}
+.box-left ul li{
+    list-style: none;
+    margin-bottom: 10px;
+}
+.hotnews{float: left;
+    width: 48%;
+    height: 110px;
+    background-color: rosybrown;
+    margin-right: 5px;
+}
+.sides{
+    float: left;
+    width: 50%;
+    height: 110px;
+    background-color: rosybrown;
+}

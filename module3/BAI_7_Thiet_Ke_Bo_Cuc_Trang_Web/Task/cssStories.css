@@ -1,0 +1,486 @@
+
+@media all and (min-width: 1001px){
+
+    #head{
+    background-color: white;
+    height: 50px;
+    }
+    
+    #head img{
+        width: 50px;
+        height: 50px;
+        margin-left: 50px;
+    }
+    #head #element1{
+        float: left;
+    }
+    #head #element{
+        float: left;
+        margin-left: 267px;
+        margin-top: 10px;
+    
+        
+    }
+    #head #element ul ,#head #element li {
+        
+        padding:0;
+        margin:0;
+    }
+    #head #element ul li {
+    position: relative;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    
+    
+    }
+    #head #element ul li a{
+        width: 235px;
+        height: 32px;
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        line-height: 30px;
+
+        border:1px solid gray;
+        color: black;
+    }
+     #head #element li a:hover {
+        color: green;
+        background-color: cadetblue;
+    }
+    #head #element ul ul li a{
+        width: 225px;
+        color: black;
+        text-align: left;
+        padding-left: 10px;} 
+    #element ul ul{
+            position: absolute;
+            top: 30px;
+     }
+        #element ul ul{
+            position: absolute;
+            top: 30px;
+            left:-10px;
+            visibility: hidden;}
+    #element ul li:hover ul{
+                visibility: visible;
+            }
+    #element2{
+        position: relative;
+        top: 12px;
+        left: 220px;
+    }
+    #element2 button{
+        
+        border-radius: 5px;
+        height: 30px;
+        border: ghostwhite;
+    }
+    #element2 input{
+        height: 30px;
+        width: 354px;
+        text-align: center;
+        border-radius: 5px;
+        border: ghostwhite;
+        background-color: cornsilk;
+    }
+    #row{
+        margin-top: 5px;
+        float: left;
+        height: 368px;
+        /* background-color: peru; */
+        width: 401px;
+        padding: 20px;
+        border-radius: 20px;
+        border: 1px gray solid;
+        margin-left: 10px;
+    }
+    #row span{
+        font-weight: bold;
+    padding: 5px;
+    background-color: green;
+    border-radius: 5px;
+    position: relative;
+    top: -228px;
+    }
+    #footer{
+        position: relative;
+        top: 5px;
+        height: 39px;
+        clear: both;
+        border: 1px solid #56b8e6;
+        background-color: #56b8e6;
+        text-align: center;
+        border-radius: 5px;
+    }
+    }
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 1000px){
+
+    #head{
+    background-color: white;
+    height: 50px;
+    }
+    
+    #head img{
+        width: 50px;
+        height: 50px;
+        margin-left: 50px;
+    }
+    #head #element1{
+        float: left;
+    }
+    #head #element{
+        float: left;
+        margin-left: 50px;
+        margin-top: 10px;
+        
+    }
+    #head #element ul ,#head #element li {
+        
+        padding:0;
+        margin:0;
+    }
+    #head #element ul li {
+    position: relative;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    
+    
+    }
+    #head #element ul li a{
+        width: 235px;
+        height: 32px;
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        line-height: 30px;
+
+        border:1px solid gray;
+        color: black;
+    }
+     #head #element li a:hover {
+        color: green;
+        background-color: cadetblue;
+    }
+    #head #element ul ul li a{
+        width: 225px;
+        color: black;
+        text-align: left;
+        padding-left: 10px;} 
+    #element ul ul{
+            position: absolute;
+            top: 30px;
+     }
+        #element ul ul{
+            position: absolute;
+            top: 30px;
+            left:-10px;
+            visibility: hidden;}
+    #element ul li:hover ul{
+                visibility: visible;
+            }
+    #element2{
+        position: relative;
+        top: 10px;
+        left: 10px;
+    }
+    #element2 button{
+        
+        border-radius: 5px;
+        height: 30px;
+        border: ghostwhite;
+    }
+    #element2 input{
+       
+       
+        height: 30px;
+        border-radius: 5px;
+        border: ghostwhite;
+        background-color: cornsilk;
+    }
+    #row{
+        margin-top: 5px;
+        float: left;
+        height: 379px;
+        /* background-color: peru; */
+        width: 256px;
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px gray solid;
+        margin-left: 10px;
+    }
+    #row span{
+        font-weight: bold;
+        padding: 5px;
+        background-color: green;
+        border-radius: 5px;
+        position: relative;
+        top: -380px;
+        left: 9px;
+    }
+    #footer{
+        position: relative;
+        top: 5px;
+        height: 39px;
+        clear: both;
+        border: 1px solid #56b8e6;
+        background-color: #56b8e6;
+        text-align: center;
+        border-radius: 5px;
+    }
+    }
+
+
+
+
+
+@media all and (max-width: 750px){
+
+#head{
+background-color: white;
+height: 50px;
+}
+
+#head img{
+    width: 50px;
+    height: 50px;
+    margin-left: 50px;
+}
+#head #element1{
+    float: left;
+}
+#head #element{
+    float: left;
+    margin-left: 50px;
+    margin-top: 10px;
+    
+}
+#head #element ul ,#head #element li {
+    
+    padding:0;
+    margin:0;
+}
+#head #element ul li {
+position: relative;
+float: left;
+list-style: none;
+margin: 0;
+padding: 0;
+margin-left: 10px;
+
+
+}
+#head #element ul li a{
+    width: 235px;
+    height: 32px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    line-height: 30px;
+    
+    border:1px solid gray;
+    color: black;
+}
+ #head #element li a:hover {
+    color: green;
+    background-color: cadetblue;
+}
+#head #element ul ul li a{
+    width: 225px;
+    color: black;
+    text-align: left;
+    padding-left: 10px;} 
+#element ul ul{
+        position: absolute;
+        top: 30px;
+    }
+    #element ul ul{
+        position: absolute;
+        top: 30px;
+        left:-10px;
+        visibility: hidden;}
+#element ul li:hover ul{
+            visibility: visible;
+        }
+#element2{
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+#element2 button{
+    border-radius: 5px;
+    height: 30px;
+    border: ghostwhite;
+}
+#element2 input{
+    height: 30px;
+    border-radius: 5px;
+    border: ghostwhite;
+    background-color: cornsilk;
+}
+#row{
+    margin-top: 5px;
+    float: left;
+    height: 379px;
+    /* background-color: peru; */
+    width: 192px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px gray solid;
+    margin-left: 10px;
+}
+#row span{
+    font-weight: bold;
+    padding: 5px;
+    background-color: green;
+    border-radius: 5px;
+    /* position: relative; */
+    top: -177px;
+    left: 68px;
+}
+#footer{
+    position: relative;
+    top: 5px;
+    height: 39px;
+    clear: both;
+    border: 1px solid #56b8e6;
+    background-color: #56b8e6;
+    text-align: center;
+    border-radius: 5px;
+}
+}
+@media all and (min-width: 600px) and (max-width:750px) {
+
+    #head{
+    background-color: white;
+    height: 50px;
+    }
+    
+    #head img{
+        width: 50px;
+        height: 50px;
+        margin-left: 50px;
+    }
+    #head #element1{
+        float: left;
+    }
+    #head #element{
+        float: left;
+        margin-left: 50px;
+        margin-top: 10px;
+        
+    }
+    #head #element ul ,#head #element li {
+        
+        padding:0;
+        margin:0;
+    }
+    #head #element ul li {
+    position: relative;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    
+    
+    }
+    #head #element ul li a{
+        width: 235px;
+        height: 32px;
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        line-height: 30px;
+        
+        border:1px solid gray;
+        color: black;
+    }
+     #head #element li a:hover {
+        color: green;
+        background-color: cadetblue;
+    }
+    #head #element ul ul li a{
+        width: 225px;
+        color: black;
+        text-align: left;
+        padding-left: 10px;} 
+    #element ul ul{
+            position: absolute;
+            top: 30px;
+        }
+        #element ul ul{
+            position: absolute;
+            top: 30px;
+            left:-10px;
+            visibility: hidden;}
+    #element ul li:hover ul{
+                visibility: visible;
+            }
+    #element2{
+        position: relative;
+        top: 10px;
+        left: 10px;
+    }
+    #element2 button{
+        visibility: hidden;
+        display: none;
+    }
+    #element2 input{
+        width: 364px;
+        height: 39px;
+        text-align: center;
+        border-radius: 5px;
+        border: ghostwhite;
+        background-color: cornsilk;
+    }
+    hr{
+        visibility: hidden;
+        display: none; 
+    }
+    #row{
+        margin-top: 5px;
+        float: left;
+        height: 379px;
+        /* background-color: peru; */
+        width: 252px;
+        padding: 10px;
+        border-radius: 20px;
+        border: 1px gray solid;
+        margin-left: 10px;
+    }
+    #row span{
+        font-weight: bold;
+        padding: 5px;
+        background-color: green;
+        border-radius: 5px;
+        /* position: relative; */
+        top: 32px;
+        left: 10px;
+    }
+    #footer{
+        position: relative;
+        top: 5px;
+        height: 39px;
+        clear: both;
+        border: 1px solid #56b8e6;
+        background-color: #56b8e6;
+        text-align: center;
+        border-radius: 5px;
+    }
+    }

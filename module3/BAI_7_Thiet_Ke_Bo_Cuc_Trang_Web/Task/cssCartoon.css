@@ -1,0 +1,227 @@
+body{
+    margin:0 auto;
+	font-family: Arial, Tahoma;
+}
+#s-body{
+	float: left;
+}
+
+#head, #head-link, #s-body, #footer{
+	width: 100%;				
+	margin-bottom:5px;
+	clear: both;
+}
+/* Tất cả các màn hình có độ phân giải thấp nhất là 1001px */
+@media all and (min-width: 1001px){
+    body{
+		
+		font-size: 13px;	
+	}
+	
+	#head{
+		height: 45px;
+		background-color: #CDCDCD;
+		border: 1px solid #CDCDCD;
+	}
+    #headLeft p{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+        border-color: bl;
+    }
+
+	#head-link{
+		 height: 45px;
+		 line-height: 30px;
+		 border: 1px solid #CDCDCD;
+		 background-color: #F5F5F5;	
+         text-align: center;	
+         padding-top: 12px;
+      
+	}
+    #head-link a{
+        
+        color: black;
+        text-decoration: none;
+        padding-right: 10px;
+    }
+    #head-link a:hover {
+        color: blue;
+        cursor: pointer;
+    }
+	
+	#left{
+		 width: 748px;
+		 min-height: 300px;
+		 float:left;
+         padding-left: 10px;
+		 background-color: #f1f1f1;
+	}
+    #element iframe{
+        width: 724px;
+        height: 346px;
+        
+    }
+	#content{
+		 width: 1089px;
+		 min-height: 300px;
+		 /* border: 1px solid #CDCDCD; */
+		 float:left;
+		 margin-left: 5px;
+         padding-left: 10px;
+	}
+    #content iframe{
+        width: 1074px;
+    height: 600px;
+    }
+    #content img{
+    width: 925px;
+   
+    margin-left: 83px;}
+	
+
+	
+	#footer{
+		 height: 39px;
+		 clear: both;
+		 border: 1px solid #56b8e6;
+		 background-color: #56b8e6;
+         text-align: center;
+         
+	}
+
+}
+
+/* Màn hình có độ phân giải tối đa 1000px */ 
+@media screen and (max-width: 1000px) {
+	body{
+		
+		font-size: 13px;	
+	}
+	
+	#head{
+		height: 45px;
+		background-color: #CDCDCD;
+		border: 1px solid #CDCDCD;
+	}
+    #headLeft p{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+        border-color: bl;
+    }
+
+	#head-link{
+		 height: 33px;
+		 line-height: 30px;
+		 border: 1px solid #CDCDCD;
+		 background-color: #F5F5F5;	
+         text-align: center;	
+      
+	}
+    #head-link a{
+        color: black;
+        text-decoration: none;
+        padding-right: 10px;
+    }
+    #head-link a:hover {
+        color: blue;
+        cursor: pointer;
+    }
+	
+	#left{
+		 width: 310px;
+		 min-height: 300px;
+		 float:left;
+         padding-left: 10px;
+		 background-color: #f1f1f1;
+	}
+    
+	#content{
+		 width: 550px;
+		 min-height: 300px;
+		 /* border: 1px solid #CDCDCD; */
+		 float:left;
+		 margin-left: 5px;
+         padding-left: 10px;
+	}
+	
+
+	
+	#footer{
+		 height: 39px;
+		 clear: both;
+		 border: 1px solid #56b8e6;
+		 background-color: #56b8e6;
+         text-align: center;
+         
+	}
+}
+
+/* Màn hình có độ phân giải tối đa 750px */  
+@media screen and (max-width: 750px) {
+    body{
+		
+		font-size: 13px;	
+	}
+	
+	#head{
+		height: 45px;
+		background-color: #CDCDCD;
+		border: 1px solid #CDCDCD;
+	}
+    #headLeft p{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+        border-color: bl;
+    }
+
+	#head-link{
+		 height: 33px;
+		 line-height: 30px;
+		 border: 1px solid #CDCDCD;
+		 background-color: #F5F5F5;	
+         text-align: center;	
+      
+	}
+    #head-link a{
+        color: black;
+        text-decoration: none;
+        padding-right: 10px;
+    }
+    #head-link a:hover {
+        color: blue;
+        cursor: pointer;
+    }
+	
+	#left{
+        visibility: hidden;
+        display: none;
+		 /* width: 310px;
+		 min-height: 300px;
+		 float:left;
+         padding-left: 10px;
+		 background-color: #f1f1f1; */
+	}
+    
+	#content{
+		 width: 550px;
+		 min-height: 300px;
+		 /* border: 1px solid #CDCDCD; */
+		 float:left;
+		 margin-left: 5px;
+         padding-left: 10px;
+	}
+	
+
+	
+	#footer{
+		 height: 39px;
+		 clear: both;
+		 border: 1px solid #56b8e6;
+		 background-color: #56b8e6;
+         text-align: center;
+         
+	}
+}
