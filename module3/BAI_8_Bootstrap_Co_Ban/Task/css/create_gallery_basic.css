@@ -6,10 +6,10 @@
 /*    text-align: center;*/
 /*    margin-right: 5px;*/
 /*}*/
-/*.responsive img{*/
-/*    width: 100%;*/
-/*    height: auto;*/
-/*}*/
+.responsive img{
+    width: 100%;
+    height: auto;
+}
 
 /*@media only screen and (max-width: 700px){*/
 /*    .responsive {*/
