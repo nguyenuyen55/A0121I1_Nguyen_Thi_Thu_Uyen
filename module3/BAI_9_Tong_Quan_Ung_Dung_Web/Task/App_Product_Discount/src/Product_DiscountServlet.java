@@ -13,15 +13,19 @@ public class Product_DiscountServlet extends HttpServlet {
         float listPrice = Float.parseFloat(request.getParameter("listPrice"));
         float Discount_Percent = Float.parseFloat(request.getParameter("Discount_Percent"));
 
+
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        float result = (float) (listPrice* Discount_Percent*0.01);
+        float result = (listPrice* Discount_Percent*0.01f);
+        String strDouble = String.format("%.2f", 1.23456);
         request.setAttribute("discription",description);
         request.setAttribute("listPrice",listPrice);
         request.setAttribute("discount",Discount_Percent);
         request.setAttribute("result",result);
-System.err.print(description);
+        float discount_amount =Math.round((listPrice-result) * 100) / 100;
+        request.setAttribute("discount_amount",discount_amount);
+        System.err.print(description);
         request.getRequestDispatcher("WEB-INF/productDiscount/discount_Product.jsp").forward(request,response);
     }
 
