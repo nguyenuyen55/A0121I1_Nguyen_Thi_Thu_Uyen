@@ -13,7 +13,7 @@
   </head>
   <body>
   <div class="container">
-  <form action="/result" method="post"  >
+  <form action="result" method="post"  >
     <div class="form-group">
       <label > First operand :</label>
       <input type="text" class="form-control " name="first" required>
