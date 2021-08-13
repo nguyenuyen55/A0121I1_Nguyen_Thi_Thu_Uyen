@@ -21,7 +21,7 @@
             <tr>
                 <td>Name :
                 </td>
-                <td>${product.getNameProduct()}" </td>
+                <td>${product.getNameProduct()} </td>
 
             </tr>
             <tr>

@@ -2,7 +2,7 @@ package controller;
 
 import model.bean.Product;
 import model.service.ProductService;
-import model.service.ProductServiceEmp;
+import model.service.ProductServiceImp;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ import java.util.List;
 
 @WebServlet(name = "ProductServlet", urlPatterns = "/products")
 public class ProductServlet extends HttpServlet {
-    static ProductService productServiceEmp = new ProductServiceEmp();
+    static ProductService productServiceEmp = new ProductServiceImp();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -166,20 +166,16 @@ public class ProductServlet extends HttpServlet {
 
 
     private void showDeleteProduct(HttpServletRequest request, HttpServletResponse response) {
-      String id = request.getParameter("id");
-      Product product = productServiceEmp.findId(id);
-      RequestDispatcher dispatcher ;
-      if(product==null){
-          dispatcher = request.getRequestDispatcher("errors-404.jsp");
-      }else {
-          request.setAttribute("product",product);
-          dispatcher = request.getRequestDispatcher("products/delete.jsp");
-      }
-
+        String id = request.getParameter("id");
+        Product product = productServiceEmp.findId(id);
+        RequestDispatcher dispatcher;
+        if(product == null){
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
+        }else {
+            productServiceEmp.delete(id);
+        }
       try{
-          dispatcher.forward(request,response);
-      }catch (ServletException e){
-          e.printStackTrace();
+          response.sendRedirect("/products");
       }catch (IOException e){
           e.printStackTrace();
       }
@@ -187,6 +183,9 @@ public class ProductServlet extends HttpServlet {
 
 
     }
+
+
+
 
     private void showUpdateProduct(HttpServletRequest request, HttpServletResponse response) {
         String id = request.getParameter("id");
@@ -225,6 +224,7 @@ public class ProductServlet extends HttpServlet {
         if(products.size()==0){
             request.setAttribute("message","Không tìm thấy sản phẩm này");
         }
+        request.setAttribute("namesearch",search);
         request.setAttribute("products",products);
         RequestDispatcher dispatcher = request.getRequestDispatcher("products/list.jsp");
         try{
