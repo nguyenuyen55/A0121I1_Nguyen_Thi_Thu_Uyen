@@ -65,7 +65,7 @@
 
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="modal-header"> <h4 class="modal-title">Modal Header</h4>
+                    <div class="modal-header"> <h4 class="modal-title">Thông báo</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
 
                     </div>
@@ -136,6 +136,11 @@
 
             </tr>
         </c:forEach>
+        <div class="paging">
+            <c:forEach begin="1" end="${endPage}" var="i">
+                <a href="/products?action=search&namesearch=${namesearch}">${i}</a>
+            </c:forEach>
+        </div>
 
         </tbody>
     </table>

@@ -136,6 +136,11 @@
 
             </tr>
         </c:forEach>
+        <div class="paging">
+            <c:forEach begin="1" end="${endPage}" var="i">
+                <a href="/products?action=search&namesearch=${namesearch}">${i}</a>
+            </c:forEach>
+        </div>
 
         </tbody>
     </table>

@@ -1,8 +1,8 @@
 package controller;
 
 import model.bean.Product;
-import model.service.ProductService;
-import model.service.ProductServiceImp;
+import model.repository.ProductRepository;
+import model.repository.ProductRepositoryImp;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ import java.util.List;
 
 @WebServlet(name = "ProductServlet", urlPatterns = "/products")
 public class ProductServlet extends HttpServlet {
-    static ProductService productServiceEmp = new ProductServiceImp();
+    static ProductRepository productServiceEmp = new ProductRepositoryImp();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -33,7 +33,6 @@ public class ProductServlet extends HttpServlet {
             case "delete":
                 deleteForm(request,response);
                 break;
-            case "search":
 
             case "view":
                 break;
@@ -221,9 +220,18 @@ public class ProductServlet extends HttpServlet {
     private void searchForm(HttpServletRequest request, HttpServletResponse response) {
         String search = request.getParameter("namesearch");
         List<Product> products = productServiceEmp.search(search);
+
         if(products.size()==0){
             request.setAttribute("message","Không tìm thấy sản phẩm này");
         }
+        int count = products.size();
+       // int endpaing=
+        int pagesize=1;//1 trang cho hai dong
+        int endPage=count/pagesize;
+        if(count % pagesize!=0){
+            endPage++;
+        }
+        request.setAttribute("endPage",endPage);
         request.setAttribute("namesearch",search);
         request.setAttribute("products",products);
         RequestDispatcher dispatcher = request.getRequestDispatcher("products/list.jsp");
