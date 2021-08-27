@@ -3,6 +3,8 @@ package controller;
 import model.bean.Product;
 import model.repository.ProductRepository;
 import model.repository.ProductRepositoryImp;
+import model.service.ProductService;
+import model.service.ProductServiceIm;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +17,7 @@ import java.util.List;
 
 @WebServlet(name = "ProductServlet", urlPatterns = "/products")
 public class ProductServlet extends HttpServlet {
-    static ProductRepository productServiceEmp = new ProductRepositoryImp();
+    static ProductService productServiceEmp = new ProductServiceIm();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
