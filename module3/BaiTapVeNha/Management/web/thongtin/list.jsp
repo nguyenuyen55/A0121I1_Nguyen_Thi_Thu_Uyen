@@ -85,7 +85,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <b>Bạn có muốn xoá thông tin của cô dâu ${thongtin.tenCoDau} và chú rễ ${thongtin.tenChuRe} có ${thongtin.id} không ?</b>
+                            <b>Bạn có muốn xoá thông tin của cô dâu ${thongtin.tenCoDau} và chú rễ ${thongtin.tenChuRe} có id = ${thongtin.id} không ?</b>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
