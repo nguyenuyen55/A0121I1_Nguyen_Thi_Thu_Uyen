@@ -1,0 +1,10 @@
+body{
+    background-image: url('/templates/customer/bg2.jpg');
+
+}
+.contentCreate{
+    padding: 20px;
+    height: 575px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+}

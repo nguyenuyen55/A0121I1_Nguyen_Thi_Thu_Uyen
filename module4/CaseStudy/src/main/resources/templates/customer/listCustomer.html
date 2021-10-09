@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Customer </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/home/studyhome.css}">
+    <link rel="stylesheet" th:href="@{/customer/style.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<!--<body style="background-image:url('/static/video/bg.jpg')" >-->
+<body class="main" style="background-image:url('https://i.imgur.com/GhDZipY.jpg')"  >
+<div th:insert="~{/home/home.html::header}"></div>
+<div  class="container" >
+    <table class="table bg-primary">
+        <thead>
+        <tr >
+            <th></th>
+            <th>name</th>
+            <th>age</th>
+            <th>#</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customer :${customers}">
+            <td scope="row" th:text="${customer.customerName}">1</td>
+            <td th:text="${customer.customerName}">uyen</td>
+            <td th:text="${customer.customerName}">282</td>
+            <td >
+                <a class="btn btn-dark" th:text="Edit"></a>
+                <a class="btn btn-danger" th:text="Delete"></a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+<div th:insert="~{/home/home::footer}"></div>
+</body>
+<!--</body>-->
+</html>

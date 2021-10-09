@@ -1,0 +1,87 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/css/bootstrap.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/home/studyhome.css">
+</head>
+<body class="main"  style="background-image: url('/templates/customer/bg2.jpg');">
+<div th:fragment="header" >
+    <div class="row">
+        <div class="col-4">
+            <!--        <h2 class="font-logo" data-text="Thu Uyên">Thu Uyên</h2>-->
+            <div class="box">
+                <div class="inner">
+                    <span>Code là ghiền</span>
+                </div>
+                <div class="inner">
+                    <span>Code là ghiền</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Employee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contract</a>
+                </li>
+                <li>
+                    <form class="form-inline my-2 my-lg-0">
+                        <div class=" search-home">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="content_left col-2 col-sm-2 text-center" >
+            <p><a href="#">link</a></p>
+            <p><a href="#">link</a></p>
+            <p><a href="#">link</a></p>
+        </div>
+        <div class=" col-10 col-sm-10">
+            <div class="context" style="background: rgba(0,0,0,0.5)">
+                <h1>Welcome</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="text-center" th:fragment="footer">
+    Nguyễn Thị Thu Uyên
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="/static/jquery/jquery-3.5.1.min.js"></script>
+<script src="/static/jquery/popper.min.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+</body>
+</html>
