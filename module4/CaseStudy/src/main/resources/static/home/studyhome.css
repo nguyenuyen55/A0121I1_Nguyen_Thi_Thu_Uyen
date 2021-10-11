@@ -65,7 +65,7 @@ color:white;
     font-family: sans-serif;
     font-weight: bold;
     white-space: nowrap;
-
+overflow: hidden;
 }
 
 .box .inner:first-child {

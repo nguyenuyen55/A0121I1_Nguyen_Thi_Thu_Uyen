@@ -15,84 +15,89 @@
 
 </head>
 <!--<body style="background-image:url('/static/video/bg.jpg')" >-->
-<body class="main" style="background-image:url('https://i.imgur.com/GhDZipY.jpg')"  >
+<body class="main" style="background-image:url('https://i.imgur.com/GhDZipY.jpg')">
 <div th:insert="~{/home/home.html::header}"></div>
 <!--th:style="background-image: url(@{});"-->
 <img th:src="@{images/bg2.jpg}">
-<div class="container" >
-    <form th:object="${customer}" method="post" >
-    <div class="contentCreate">
-        <div class="alert alert-primary alert-dismissible fade show" role="alert" th:if="${message}">
-            <strong th:text="${message}"></strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <h4 class="text-center mb-2">Create Customer </h4>
-        <div class="row ">
-            <div class="col-6">
-                <div class="form-group">
-                    <label for="id">ID Customer</label>
-                    <input type="text" class="form-control" id="id" placeholder="Enter ID Customer" th:field="*{customerId}">
-                </div>
-                <div class="form-group">
-                    <label for="type">Type Customer</label>
-                    <select id="type" class="form-control" th:field="*{customertypes}">
-<!--                        <option th:value="1" selected >Choose...</option>-->
-                        <option value="-1" selected>Choose...</option>
-                        <th:block th:each="type:${customerTypes}">
-                            <option th:value="${type.customerTypeId}" th:text="${type.customerTypeName}" value="">Type Customer
-                            </option>
-                        </th:block>
-                    </select>
+<div class="container">
+    <form th:object="${customer}" method="post" th:action="@{/createCustomer}">
+        <div class="contentCreate">
 
-                </div>
-                <div class="form-group">
-                    <label for="name">Name Customer</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter Name Customer" th:field="*{customerName}">
-                </div>
-                <div class="row">
-                    <div class="form-group col-5 ">
-                        <label class="col-form-label" for="birthday">Birthday</label>
-                        <input type="date" class="form-control" id="birthday" placeholder="mm/dd/yyyy"
-                               name="birthdayCus" th:field="*{birthday}">
+            <h4 class="text-center mb-2">Create Customer </h4>
+            <div class="row ">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="id">ID Customer</label>
+                        <input type="text" class="form-control" id="id" placeholder="Enter ID Customer"
+                               th:field="*{customerId}">
                     </div>
-                    <div class="form-group col-7 ">
-                        <label class=" col-form-label" for="gender">Gender</label>
-                        <select id="gender" class="form-control" th:field="*{gender}">
-                            <option value="0">Nam</option>
-                            <option value="1">Nữ</option>
-                            <option value="2">Khác</option>
+                    <div class="form-group">
+                        <label for="type">Type Customer</label>
+                        <select id="type" class="form-control" th:field="*{customertypes}">
+                            <!--                        <option th:value="1" selected >Choose...</option>-->
+                            <option value="-1" selected>Choose...</option>
+                            <th:block th:each="type:${customerTypes}">
+                                <option th:selected="${type.customerTypeId==typeId}" th:value="${type.customerTypeId}"
+                                        th:text="${type.customerTypeName}" value="">Type Customer
+                                </option>
+                            </th:block>
                         </select>
-                    </div>
-                </div>
 
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name Customer</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name Customer"
+                               th:field="*{customerName}">
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-5 ">
+                            <label class="col-form-label" for="birthday">Birthday</label>
+                            <input type="date" class="form-control" id="birthday" placeholder="mm/dd/yyyy"
+                                   name="birthdayCus" th:field="*{birthday}">
+                            <td  th:errors="*{birthday}">Name Error</td>
+                        </div>
+                        <div class="form-group col-7 ">
+                            <label class=" col-form-label" for="gender">Gender</label>
+                            <select id="gender" class="form-control" th:field="*{gender}">
+                                <option th:selected="${customer.gender==1}" value="1">Nam</option>
+                                <option th:selected="${customer.gender==0}" value="0">Nữ</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="cmnd">CCCD/CMND</label>
+                        <input type="text" class="form-control" id="cmnd" placeholder="CCCD/CMND" th:field="*{idCard}">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" id="phone" placeholder="Enter phone Customer"
+                               th:field="*{phone}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="Enter email Customer"
+                               th:field="*{email}">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter address Customer"
+                               th:field="*{address}">
+                    </div>
+                    <input type="hidden" th:value="${action}" name="action">
+                </div>
             </div>
-            <div class="col-6">
-                <div class="form-group">
-                    <label for="cmnd">CCCD/CMND</label>
-                    <input type="text" class="form-control" id="cmnd" placeholder="CCCD/CMND"th:field="*{idCard}">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="text" class="form-control" id="phone" placeholder="Enter phone Customer" th:field="*{phone}">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" id="email" placeholder="Enter email Customer" th:field="*{email}">
-                </div>
-                <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="Enter address Customer" th:field="*{address}">
-                </div>
+            <div class="row justify-content-center mt-4">
+                <a th:href="@{/listCustomer}" class=" btn btn-info mr-2">Back</a>
+                <a type="reset" class=" btn btn-dark mr-2">Reset</a>
+                <button type="submit" class="btn btn-success" th:text="${action=='edit'?'Update':'Create'}">Create
+                </button>
             </div>
+
         </div>
-        <div class="row justify-content-center mt-4">
-            <button class=" btn btn-info mr-2">Back</button>
-            <button type="reset" class=" btn btn-dark mr-2">Reset</button>
-            <button type="submit" class="btn btn-success">Create</button>
-        </div>
-    </div>
     </form>
 </div>
 <div th:insert="~{/home/home::footer}"></div>
