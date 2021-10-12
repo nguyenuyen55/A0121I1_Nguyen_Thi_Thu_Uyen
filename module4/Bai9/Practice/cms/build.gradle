@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'cg.wbd'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'javax.servlet', name: 'servlet-api', version: '2.5'
+    implementation group: 'org.springframework', name: 'spring-webmvc', version: '4.3.24.RELEASE'
+    implementation group: 'org.thymeleaf', name: 'thymeleaf-spring4', version: '3.0.11.RELEASE'
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.3.Final'
+    implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '1.11.22.RELEASE'
+    implementation group: 'org.springframework', name: 'spring-orm', version: '4.3.17.RELEASE'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.11'
+}
