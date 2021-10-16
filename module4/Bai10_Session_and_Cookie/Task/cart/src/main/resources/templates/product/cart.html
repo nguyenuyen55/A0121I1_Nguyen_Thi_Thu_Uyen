@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart Buy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div th:each="cart :${carts}">
+<div class="row" style="background-color: pink">
+<img src="https://specials-images.forbesimg.com/imageserve/60db6f4968299bd8be481fd8/Young-woman-taking-a-picture/960x0.jpg?fit=scale" class="col-2">
+    <div class="col-10">
+        <p class="text-danger" th:text="${cart.getValue().product.nameProduct}"></p>
+<!--    <div class="row">-->
+<!--        <label class="col-2">Mã SP</label>-->
+<!--        <label class="col-2"  th:text="${cart.getValue().product.idProduct}"></label>-->
+<!--    </div>-->
+        <div class="row">
+            <label class="col-2">Code SP</label>
+            <label class="col-2 "  th:text="${cart.getValue().product.code}">fff</label>
+        </div>
+        <div class="row">
+            <label class="col-2">Price :</label>
+            <label class="col-2"  th:text="${cart.getValue().product.newPrice}"></label>
+        </div>
+        <div class="row">
+            <label class="col-2">Count </label>
+            <input type="number"  class="col-2" th:value="${cart.getValue().count}"/>
+        </div>
+    </div>
+</div>
+
+</div>
+<div>
+    <p>Tổng tiền : <label th:text="${total}"></label></p>
+</div>
+<a class="btn btn-info" th:href="@{/back}">Back</a>
+<a class="ml-2 btn btn-success" th:href="@{/pay}">Pay</a>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
