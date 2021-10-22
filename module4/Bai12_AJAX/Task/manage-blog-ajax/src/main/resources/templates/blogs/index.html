@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Blogs</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body id="tables">
+
+<input type="text" id="search"><br>
+    <button onclick="search();" th:value="Search">search</button>
+
+<table id="tableMain" >
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Category</th>
+    </tr>
+
+
+    <tr id="row" th:each="blog :${blogs}">
+        <td class="count" th:text="${blog.id}"></td>
+        <td th:text="${blog.title}"></td>
+        <td th:text="${blog.context}"></td>
+        <td th:text="${blog.category.nameCategory}"></td>
+    </tr>
+
+</table>
+<button onclick="loadMore()">More Load</button>
+</body>
+<script>
+    function search(){
+        var search = document.getElementById("search").value;
+          $.ajax({
+              type: "GET",
+              url: "/search?search="+search,
+              dataType: "HTML",
+              success: function (data){
+                  $("#tables").html(data);
+          }});
+      }
+      function loadMore(){
+          var count = document.getElementsByClassName("count").length;
+
+          $.ajax({
+              type: "GET",
+              url: "/api/blog/loadmore",
+              data:{
+                exits:count
+              },
+              success: function (data){
+                  var row = document.getElementById("row");
+                  for (var i = 0; i < data.length; i++) {
+                      var result=`<tr >
+                        <td class="count">${data[i].id}</td>
+                        <td>${data[i].title}</td>
+                        <td>${data[i].context}</td>
+                        <td>${data[i].category.nameCategory}</td>
+                    </tr>`;}
+                  row.innerHTML +=result ;
+              }});
+      }
+
+</script>
+</html>
