@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>Language: <a href="?lang=en">English</a> | <a href="?lang=vi">VietNam</a>
+<a href="/create" th:text="#{customer.title}">Create new customer</a>
+<h1>Customers</h1>
+
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+
+<form action="/search">
+    <input type="text" name="kq">
+    <input type="submit" th:value="#{customer.search}">
+</form>
+
+<table border="1">
+    <tr>
+        <th th:text="#{customer.fistName}">First name</th>
+        <th th:text="#{customer.lastName}">Last name</th>
+        <th th:text="#{customer.edit}">Edit</th>
+        <th th:text="#{customer.delete}">Delete</th>
+    </tr>
+    <tr th:each="customer : ${customerList}">
+        <td th:text="${customer.firstName}"></td>
+        <td th:text="${customer.lastName}"></td>
+        <td><a th:href="@{/customer/edit/{id}(id=${customer.getId()})}">edit</a></td>
+        <td><a th:href="@{/customer/delete/{id}(id=${customer.getId()})}">delete</a></td>
+    </tr>
+</table>
+</body>
+</html>
