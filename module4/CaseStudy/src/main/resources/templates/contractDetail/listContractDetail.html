@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Contract Detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/home/studyhome.css}">
+    <link rel="stylesheet" th:href="@{/customer/style.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<!--<body style="background-image:url('/static/video/bg.jpg')" >-->
+<body class="main" style="background-image:url('https://i.imgur.com/GhDZipY.jpg')"  >
+<div th:insert="~{/home/home.html::header}"></div>
+
+<div  class="container" >
+    <div class="alert alert-primary alert-dismissible fade show" role="alert" th:if="${message}">
+        <strong th:text="${message}"></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <a class="btn btn-success" th:href="@{/createContractDetail}" th:text="Create"></a>
+
+    <table class="table" style="background-color: #d5989861">
+        <thead>
+        <tr >
+            <th>STT</th>
+            <th>ID</th>
+            <th>Date Start</th>
+            <th>Date End</th>
+            <th>Total Money</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="contract,index :${contractDetails}">
+            <td scope="row" th:text="${index.count + countPage}">1</td>
+            <td scope="row" th:text="${contract.detailId}">1</td>
+            <td th:text="${{contract.contract.contractId}}">uyen</td>
+            <td th:text="${{contract.quantity}}">uyen</td>
+            <td th:text="${{contract.attachService.getAttchServiceName()}}">uyen</td>
+
+            <!--            <td >-->
+            <!--                <a class="btn btn-danger" th:href="@{deleteService/{id}(id=${service.serviceId})}" id="deleteButton" th:text="Delete"></a>-->
+            <!--            </td>-->
+        </tr>
+
+        </tbody>
+    </table>
+    <div style=" text-align: center;">
+        <a class="btn btn-warning" th:href="@{'/listContractDetail'(page=${contractDetails.number - 1})}" th:if="${contractDetails.hasPrevious()}">Previous</a>
+        <span th:text="${contractDetails.number + 1}"></span>/<span th:text="${contractDetails.totalPages}"></span>
+        <a class="btn btn-warning"  th:href="@{'/listContractDetail'(page=${contractDetails.number + 1})}" th:if="${contractDetails.hasNext()}">Next</a>
+    </div>
+
+    <!--    <div>-->
+    <!--        <a th:href="@{'/customers'(page=${customers.number - 1})}" th:if="${customers.hasPrevious()}">Previous</a>-->
+    <!--        <span th:text="${customers.number + 1}"></span>/<span th:text="${customers.totalPages}"></span>-->
+    <!--        <a th:href="@{'/customers'(page=${customers.number + 1})}" th:if="${customers.hasNext()}">Next</a>-->
+    <!--    </div>-->
+</div>
+<div th:insert="~{/home/home::footer}"></div>
+
+</body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $(".table #deleteButton").on('click', function (event) {
+            event.preventDefault();
+            var href = $(this).attr('href');
+            $('#deleteModal #delRef').attr('href', href);
+            $('#deleteModal').modal();
+        })
+    })
+</script>
+<!--</body>-->
+</html>

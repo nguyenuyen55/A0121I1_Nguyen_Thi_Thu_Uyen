@@ -25,7 +25,7 @@ public class CustomerController {
     RepositionCustomer repositionCustomer;
 
 //    @PageableDefault(value = 4)
-    @GetMapping("/listCustomer")
+    @GetMapping({"/listCustomer","/"})
     public String getList(@RequestParam(name = "search", required = false) Optional<String> nameSearch, Model model, @PageableDefault(value = 4)  Pageable pageable) {
         if (nameSearch.isPresent()) {
             model.addAttribute("search",nameSearch.get());

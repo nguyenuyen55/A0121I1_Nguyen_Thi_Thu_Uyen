@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Contract</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/home/studyhome.css}">
+    <link rel="stylesheet" th:href="@{/customer/style.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<!--<body style="background-image:url('/static/video/bg.jpg')" >-->
+<body class="main" style="background-image:url('https://i.imgur.com/GhDZipY.jpg')">
+<div th:insert="~{/home/home.html::header}"></div>
+<!--th:style="background-image: url(@{});"-->
+<!--<img th:src="@{images/bg2.jpg}">-->
+<div class="container">
+    <form th:object="${contract}" method="post" th:action="@{/createContract}">
+        <div class="contentCreate" style="height :672px">
+
+            <h4 class="text-center mb-2">Create Contract </h4>
+            <div class="row ">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label >ID Contract</label>
+                        <input type="text" class="form-control" id="id" placeholder="Enter ID Service"
+                               th:field="*{contractId}">
+                    </div>
+                    <div class="form-group">
+                        <label > Date Start </label>
+                        <input type="date" class="form-control"
+                               th:field="*{startDate}">
+                    </div>
+                    <div class="form-group">
+                        <label > End Start </label>
+                        <input type="date" class="form-control"
+                               th:field="*{endDate}">
+                    </div>
+                    <div class="form-group">
+                        <label >Contract Deposit </label>
+                        <input type="number" class="form-control"  placeholder="Enter Area Service"
+                               th:field="*{deposit}">
+                    </div>
+                    <div class="form-group">
+                        <label >Total Money</label>
+                        <input type="number" class="form-control"
+                               th:field="*{totalMoney}">
+                    </div>
+
+
+
+                </div>
+                <div class="col-6">
+
+                    <div class="form-group">
+                        <label for="service"> Service</label>
+                        <select id="service" class="form-control" th:field="*{service.serviceId}">
+                            <!--                        <option th:value="1" selected >Choose...</option>-->
+                            <option value="-1" selected>Choose...</option>
+                            <th:block th:each="hu:${services}">
+                                <option th:value="${hu.serviceId}"
+                                        th:text="${hu.nameService}" value="">Type Rent
+                                </option>
+                            </th:block>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type"> Customer</label>
+                        <select id="type" class="form-control" th:field="*{customer.customerId}">
+                            <!--                        <option th:value="1" selected >Choose...</option>-->
+                            <option value="-1" selected>Choose...</option>
+                            <th:block th:each="rent:${customers}">
+                                <option th:value="${rent.customerId}"
+                                        th:text="${rent.customerName}" value="">Type Rent
+                                </option>
+                            </th:block>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label >Employee</label>
+                        <select  class="form-control" th:field="*{employee}">
+                            <!--                        <option th:value="1" selected >Choose...</option>-->
+                            <option value="-1" selected>Choose...</option>
+                            <th:block th:each="ser :${employees}">
+                                <option th:value="${ser.employeeId}"
+                                        th:text="${ser.employeeName}" value="">Type Rent
+                                </option>
+                            </th:block>
+                        </select>
+
+
+                    </div>
+                </div>
+
+        </div>
+            <div class="row justify-content-center mt-4">
+                <a th:href="@{/listContract}" class=" btn btn-info mr-2">Back</a>
+                <a type="reset" class=" btn btn-dark mr-2">Reset</a>
+                <button type="submit" class="btn btn-success" >Create
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<div th:insert="~{/home/home::footer}"></div>
+</body>
+<!--</body>-->
+</html>

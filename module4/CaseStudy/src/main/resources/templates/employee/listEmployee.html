@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Employee </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/home/studyhome.css}">
+    <link rel="stylesheet" th:href="@{/customer/style.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            // var id = document.getElementById("employeeId").value;
+            $(".viewButton").click(function (){
+                $.ajax({
+                    type:"GET",
+                    url:"/viewEmployee/"+$(this).next().val(),
+                    dataType:"HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#delRef").hide();
+                        $("#back").innerText="Back";
+                        //notification
+                        $("#modalId").modal("show");
+                    }
+                })
+            })
+            $(".deleteButton").click(function (){
+                var href="/deleteEmployee/"+$(this).next().val();
+                $.ajax({
+                    type:"GET",
+                    url:"/viewEmployee/"+$(this).next().val(),
+                    dataType:"HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        // $("#delRef").hide();
+                        // var href = $(this).next().val();
+                        $("#back").innerText="No";
+                        $('#delRef').attr('href', href);
+                        $("#modalId").modal("show");
+
+                    }
+                })
+            })
+
+
+
+        })
+    </script>
+</head>
+<!--<body style="background-image:url('/static/video/bg.jpg')" >-->
+<body class="main" style="background-image:url('https://i.imgur.com/GhDZipY.jpg')"  >
+<div th:insert="~{/home/home.html::header}"></div>
+
+<div  class="container-fluid" >
+    <div class="alert alert-primary alert-dismissible fade show" role="alert" th:if="${message}">
+        <strong th:text="${message}"></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <a class="btn btn-success" th:href="@{/createEmployee}" th:text="Create"></a>
+    <form class="form-inline my-2 my-lg-0">
+        <div class=" search-home">
+            <input class="form-control mr-sm-2" type="search" th:value="${search}" name="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </div>
+    </form>
+    <table class="table" style="background-color: #d5989861;table-layout:fixed" cellspacing=1 cellpadding=2 width="25%">
+        <thead>
+        <tr >
+            <th>ID</th>
+            <th>Name</th>
+            <th>Id Card</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>#</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee :${employees}">
+            <td scope="row" th:text="${employee.employeeId}">1</td>
+            <td th:text="${employee.employeeName}">uyen</td>
+            <td th:text="${{employee.employeeBirthday}}" >uyen</td>
+            <td th:text="${employee.employeeIdCard}">uyen</td>
+            <td th:text="${employee.employeeEmail}">uyen</td>
+            <td th:text="${employee.employeeAddress}">282</td>
+            <td >
+                <a class="btn btn-dark" th:href="@{/editEmployee/{id}(id=${employee.employeeId})}" th:text="Edit"></a>
+                <button class="btn btn-danger deleteButton"   th:text="Delete"></button>
+                <input type="hidden" th:value="${employee.employeeId}" >
+                <button class="btn btn-dark viewButton"  th:text="View"></button>
+                <input type="hidden" th:value="${employee.employeeId}" >
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+    <div style=" text-align: center;" th:if="${search==null}">
+        <a class="btn btn-warning" th:href="@{'/listEmployee'(page=0)}" >First</a>
+        <a class="btn btn-warning" th:href="@{'/listEmployee'(page=${employees.number - 1})}" >Previous</a>
+        <span th:text="${employees.number + 1}"></span>/<span th:text="${employees.totalPages}"></span>
+        <a class="btn btn-warning"  th:href="@{'/listEmployee'(page=${employees.number + 1})}" >Next</a>
+        <a class="btn btn-warning"  th:href="@{'/listEmployee'(page=${employees.totalPages - 1})}">Last</a>
+    </div>
+    <div style=" text-align: center;" th:if="${search}">
+        <a class="btn btn-warning" th:href="@{'/listEmployee'(page=0,search=${search})}" >First</a>
+        <a class="btn btn-warning" th:href="@{'/listEmployee'(page=${employees.number - 1},search=${search})}" th:if="${employees.hasPrevious()}">Previous</a>
+        <span th:text="${employees.number + 1}"></span>/<span th:text="${employees.totalPages}"></span>
+        <a class="btn btn-warning"  th:href="@{'/listEmployee'(page=${employees.number + 1},search=${search})}" >Next</a>
+        <a class="btn btn-warning"  th:href="@{'/listEmployee'(page=${employees.totalPages - 1},search=${search})}" >Last</a>
+    </div>
+<!--    <div>-->
+<!--        <a th:href="@{'/customers'(page=${customers.number - 1})}" th:if="${customers.hasPrevious()}">Previous</a>-->
+<!--        <span th:text="${customers.number + 1}"></span>/<span th:text="${customers.totalPages}"></span>-->
+<!--        <a th:href="@{'/customers'(page=${customers.number + 1})}" th:if="${customers.hasNext()}">Next</a>-->
+<!--    </div>-->
+</div>
+<div th:insert="~{/home/home::footer}"></div>
+<div class="modal fade" tabindex="-1" role="dialog" id="modalId">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <h5 class="modal-title" id="title1">Notification</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc muốn xoá không ?<a></a></p>
+            </div>
+            <div class="modal-footer">
+                <a  type="button" class="btn btn-primary" id="delRef">Yes, I am Sure</a>
+                <button type="button" id="back" class="btn btn-secondary" data-dismiss="modal">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+<script>
+
+    // $(document).ready(function () {
+    //     $(".table #deleteButton").on('click', function (event) {
+    //         event.preventDefault();
+    //         var href = $(this).attr('href');
+    //         $('#deleteModal #delRef').attr('href', href);
+    //         $('#deleteModal').modal();
+    //     })
+    // })
+
+
+</script>
+<!--</body>-->
+</html>

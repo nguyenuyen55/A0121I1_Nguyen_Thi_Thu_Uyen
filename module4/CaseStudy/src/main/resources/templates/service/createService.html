@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Customer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/home/studyhome.css}">
+    <link rel="stylesheet" th:href="@{/customer/style.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<!--<body style="background-image:url('/static/video/bg.jpg')" >-->
+<body class="main" style="background-image:url('https://i.imgur.com/GhDZipY.jpg')">
+<div th:insert="~{/home/home.html::header}"></div>
+<!--th:style="background-image: url(@{});"-->
+<!--<img th:src="@{images/bg2.jpg}">-->
+<div class="container">
+    <form th:object="${service}" method="post" th:action="@{/createService}">
+        <div class="contentCreate" style="height :672px">
+
+            <h4 class="text-center mb-2">Create Service </h4>
+            <div class="row ">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label >ID Service</label>
+                        <input type="text" class="form-control" id="id" placeholder="Enter ID Service"
+                               th:field="*{serviceId}">
+                    </div>
+                    <div class="form-group">
+                        <label >Name Service</label>
+                        <input type="text" class="form-control"  placeholder="Enter Name Service"
+                               th:field="*{nameService}">
+                    </div>
+                    <div class="form-group">
+                        <label >Area Service</label>
+                        <input type="number" class="form-control"  placeholder="Enter Area Service"
+                               th:field="*{serviceArea}">
+                    </div>
+                    <div class="form-group">
+                        <label >Cost Service</label>
+                        <input type="number" class="form-control"  placeholder="Enter Cost Service"
+                               th:field="*{serviceCost}">
+                    </div>
+
+                    <div class="form-group">
+                        <label >Max people Service</label>
+                        <input type="number" class="form-control"  placeholder="Enter max people Service"
+                               th:field="*{maxPeople}">
+                    </div>
+                    <div class="form-group">
+                        <label >Standard Room</label>
+                        <textarea type="text" class="form-control"  placeholder="Enter standard room Service"
+                                  th:field="*{standardRoom}"></textarea>
+                    </div>
+
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label >Description Other</label>
+                        <textarea type="text" class="form-control"  placeholder="Enter Description Service"
+                                  th:field="*{descriptionOther}"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label >Pool Area</label>
+                        <input type="number" class="form-control"  placeholder="Enter pool Area Service"
+                               th:field="*{pool_area}">
+                    </div>
+
+                    <div class="form-group">
+                        <label >number of floors</label>
+                        <input type="number" class="form-control"  placeholder="Enter floors"
+                               th:field="*{numberFloors}">
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Cost Customer</label>
+                        <select id="type" class="form-control" th:field="*{rentType}">
+                            <!--                        <option th:value="1" selected >Choose...</option>-->
+                            <option value="-1" selected>Choose...</option>
+                            <th:block th:each="rent:${rentTypes}">
+                                <option th:value="${rent.rentTypeId}"
+                                        th:text="${rent.rentTypeName}" value="">Type Rent
+                                </option>
+                            </th:block>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label >Type Services</label>
+                        <select  class="form-control" th:field="*{serviceTypes}">
+                            <!--                        <option th:value="1" selected >Choose...</option>-->
+                            <option value="-1" selected>Choose...</option>
+                            <th:block th:each="ser :${serTypes}">
+                                <option th:value="${ser.serviceTypeId}"
+                                        th:text="${ser.serviceTypeName}" value="">Type Rent
+                                </option>
+                            </th:block>
+                        </select>
+
+
+                    </div>
+                </div>
+
+        </div>
+            <div class="row justify-content-center mt-4">
+                <a th:href="@{/listService}" class=" btn btn-info mr-2">Back</a>
+                <a type="reset" class=" btn btn-dark mr-2">Reset</a>
+                <button type="submit" class="btn btn-success" >Create
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<div th:insert="~{/home/home::footer}"></div>
+</body>
+<!--</body>-->
+</html>

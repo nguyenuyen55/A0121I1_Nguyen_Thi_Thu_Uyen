@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>List Customer </title>
+    <title>List Service</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
@@ -25,54 +25,44 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <a class="btn btn-success" th:href="@{/createCustomer}" th:text="Create"></a>
-    <form class="form-inline my-2 my-lg-0">
-        <div class=" search-home">
-            <input class="form-control mr-sm-2" type="search" th:value="${search}" name="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </div>
-    </form>
+    <a class="btn btn-success" th:href="@{/createService}" th:text="Create"></a>
+
     <table class="table" style="background-color: #d5989861">
         <thead>
         <tr >
             <th>ID</th>
-            <th>name</th>
-            <th>birthday</th>
-            <th>gender</th>
-            <th>type customer</th>
-            <th>#</th>
+            <th>name service</th>
+            <th>Area</th>
+            <th>Service Types</th>
+            <th>type Rent</th>
+<!--            <th>#</th>-->
         </tr>
         </thead>
         <tbody>
-        <tr th:each="customer :${customers}">
-            <td scope="row" th:text="${customer.customerId}">1</td>
-            <td th:text="${customer.customerName}">uyen</td>
-            <td th:text="${{customer.birthday}}">uyen</td>
-            <td th:text="${customer.gender==1?'Nam':'Nữ'}">282</td>
-            <td th:text="${customer.customertypes.customerTypeName}">282</td>
-            <td >
-                <a class="btn btn-dark" th:href="@{edit/{id}(id=${customer.customerId})}" th:text="Edit"></a>
-                <a class="btn btn-danger" th:href="@{deleteCustomer/{id}(id=${customer.customerId})}" id="deleteButton" th:text="Delete"></a>
-            </td>
+        <tr th:each="service :${services}">
+            <td scope="row" th:text="${service.serviceId}">1</td>
+            <td th:text="${service.nameService}">uyen</td>
+            <td th:text="${service.serviceArea}">uyen</td>
+            <td th:text="${service.serviceTypes.serviceTypeName}">282</td>
+            <td th:text="${service.rentType.rentTypeName}">282</td>
+<!--            <td >-->
+<!--                <a class="btn btn-danger" th:href="@{deleteService/{id}(id=${service.serviceId})}" id="deleteButton" th:text="Delete"></a>-->
+<!--            </td>-->
         </tr>
 
         </tbody>
     </table>
-    <div th:if="${search==null}" style=" text-align: center;">
-        <a class="btn btn-warning" th:href="@{'/listCustomer'(page=${customers.number - 1})}" th:if="${customers.hasPrevious()}">Previous</a>
-        <span th:text="${customers.number + 1}"></span>/<span th:text="${customers.totalPages}"></span>
-        <a class="btn btn-warning"  th:href="@{'/listCustomer'(page=${customers.number + 1})}" th:if="${customers.hasNext()}">Next</a>
+    <div style=" text-align: center;">
+        <a class="btn btn-warning" th:href="@{'/listCustomer'(page=${services.number - 1})}" th:if="${services.hasPrevious()}">Previous</a>
+        <span th:text="${services.number + 1}"></span>/<span th:text="${services.totalPages}"></span>
+        <a class="btn btn-warning"  th:href="@{'/listCustomer'(page=${services.number + 1})}" th:if="${services.hasNext()}">Next</a>
     </div>
-    <div th:if="${search}" style="text-align: center;">
-        <a class="btn btn-warning" th:href="@{'/listCustomer'(page=${customers.number - 1},search=${search})}" th:if="${customers.hasPrevious()}">Previous</a>
-        <span th:text="${customers.number + 1}"></span>/<span th:text="${customers.totalPages}"></span>
-        <a class="btn btn-warning"  th:href="@{'/listCustomer'(page=${customers.number + 1},search=${search})}" th:if="${customers.hasNext()}">Next</a>
-    </div>
-<!--    <div>-->
-<!--        <a th:href="@{'/customers'(page=${customers.number - 1})}" th:if="${customers.hasPrevious()}">Previous</a>-->
-<!--        <span th:text="${customers.number + 1}"></span>/<span th:text="${customers.totalPages}"></span>-->
-<!--        <a th:href="@{'/customers'(page=${customers.number + 1})}" th:if="${customers.hasNext()}">Next</a>-->
-<!--    </div>-->
+
+    <!--    <div>-->
+    <!--        <a th:href="@{'/customers'(page=${customers.number - 1})}" th:if="${customers.hasPrevious()}">Previous</a>-->
+    <!--        <span th:text="${customers.number + 1}"></span>/<span th:text="${customers.totalPages}"></span>-->
+    <!--        <a th:href="@{'/customers'(page=${customers.number + 1})}" th:if="${customers.hasNext()}">Next</a>-->
+    <!--    </div>-->
 </div>
 <div th:insert="~{/home/home::footer}"></div>
 <div class="modal fade" tabindex="-1" role="dialog" id="deleteModal">

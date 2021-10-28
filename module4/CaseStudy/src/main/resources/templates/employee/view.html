@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Employee</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/home/studyhome.css}">
+    <link rel="stylesheet" th:href="@{/customer/style.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<!--<body style="background-image:url('/static/video/bg.jpg')" >-->
+<body class="main" style="background-image:url('https://i.imgur.com/GhDZipY.jpg')">
+<!--<div th:insert="~{/home/home.html::header}"></div>-->
+<!--th:style="background-image: url(@{});"-->
+<!--<img th:src="@{images/bg2.jpg}">-->
+<div class="container">
+    <th:block th:object="${employee}" >
+
+
+            <h4 class="text-center mb-2 title2">Information</h4>
+            <div class="row ">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="id">ID Employee</label>
+                        <input type="text" readonly class="form-control" id="id" placeholder="Enter ID Customer"
+                               th:field="*{employeeId}" >
+                    </div>
+                    <div class="form-group">
+                        <label for="nameEmpl">Name Employee</label>
+                        <input type="text" readonly class="form-control" id="nameEmpl" placeholder="Enter Name Employee"
+                               th:field="*{employeeName}">
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday">BirthDay Employee</label>
+                        <input type="date" readonly class="form-control" id="birthday"
+                               th:field="*{employeeBirthday}">
+                    </div>
+                    <div class="form-group">
+                        <label for="idcard">ID Card Employee</label>
+                        <input type="number" readonly class="form-control" id="idcard"
+                               th:field="*{employeeIdCard}">
+                    </div>
+                    <div class="form-group">
+                        <label for="salary">Salary Employee</label>
+                        <input type="number" readonly class="form-control" id="salary"
+                               th:field="*{employeeSalary}">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone </label>
+                        <input type="number" readonly class="form-control" id="phone"
+                               th:field="*{employeePhone}">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" readonly class="form-control" id="email"
+                               th:field="*{employeeEmail}">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" readonly class="form-control" id="address"
+                               th:field="*{employeeAddress}">
+                    </div>
+                    <div class="form-group">
+                        <label for="position">Position</label>
+                        <select id="position" readonly class="form-control" th:field="*{positions}">
+                            <!--                        <option th:value="1" selected >Choose...</option>-->
+                            <option value="-1" selected>Choose...</option>
+                            <th:block th:each="type:${positions}">
+                                <option  th:value="${type.position_id}"
+                                         th:text="${type.position_name}" value="">Type Customer
+                                </option>
+                            </th:block>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="education">Education</label>
+                        <select id="education" readonly class="form-control" th:field="*{educations}">
+                            <!--                        <option th:value="1" selected >Choose...</option>-->
+                            <option value="-1" selected>Choose...</option>
+                            <th:block th:each="type:${educations}">
+                                <option th:value="${type.education_degree_id}"
+                                        th:text="${type.education_degree_name}" value="">Type Customer
+                                </option>
+                            </th:block>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="division">Division</label>
+                        <select id="division" readonly class="form-control" th:field="*{divisions}">
+                            <!--                        <option th:value="1" selected >Choose...</option>-->
+                            <option value="-1" selected>Choose...</option>
+                            <th:block th:each="type:${divisions}">
+                                <option  th:value="${type.division_id}"
+                                         th:text="${type.division_name}" value="">Type Customer
+                                </option>
+                            </th:block>
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+
+    </th:block>
+</div>
+<!--<div th:insert="~{/home/home::footer}"></div>-->
+</body>
+<!--</body>-->
+</html>
