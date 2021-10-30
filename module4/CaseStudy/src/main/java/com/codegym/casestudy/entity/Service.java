@@ -1,21 +1,33 @@
 package com.codegym.casestudy.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 @Entity
 public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull(message = "Không được để trống")
+//    @Pattern(regexp="^DV-[0-9]{4}$",message="không đúng địng dạng: KH-XXXX ")
     private int serviceId;
+    @NotBlank(message = "Không được để trống")
     private String nameService;
+    @NotNull(message = "Không được để trống")
     private int serviceArea;
+    @NotNull(message = "Không được để trống")
     private double serviceCost;
+    @NotNull(message = "Không được để trống")
     private int maxPeople;
-
+    @NotBlank(message = "Không được để trống")
     private String standardRoom;
+    @NotBlank(message = "Không được để trống")
     private String descriptionOther;
+    @NotNull(message = "Không được để trống")
     private double pool_area;
+    @NotNull(message = "Không được để trống")
     private int numberFloors;
     @ManyToOne(targetEntity = ServiceType.class)
     @JoinColumn(name = "serviceTypeId",referencedColumnName = "serviceTypeId")

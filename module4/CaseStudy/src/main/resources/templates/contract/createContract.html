@@ -40,16 +40,22 @@
                         <label > End Start </label>
                         <input type="date" class="form-control"
                                th:field="*{endDate}">
+                        <p style="color: yellow" th:errors="*{endDate}">Name Error</p>
+
                     </div>
                     <div class="form-group">
                         <label >Contract Deposit </label>
                         <input type="number" class="form-control"  placeholder="Enter Area Service"
                                th:field="*{deposit}">
+                        <p style="color: yellow" th:errors="*{deposit}">Name Error</p>
+
                     </div>
                     <div class="form-group">
                         <label >Total Money</label>
                         <input type="number" class="form-control"
                                th:field="*{totalMoney}">
+                        <p style="color: yellow" th:errors="*{totalMoney}">Name Error</p>
+
                     </div>
 
 

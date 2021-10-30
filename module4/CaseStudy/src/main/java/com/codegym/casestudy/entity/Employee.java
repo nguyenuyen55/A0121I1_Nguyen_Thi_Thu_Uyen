@@ -1,22 +1,41 @@
 package com.codegym.casestudy.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
+//import javax.validation.Validator;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 
 @Entity
-public class Employee {
+public class Employee implements Validator {
     @Id
+//    @NotBlank(message = "Không được để trống")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int employeeId;
+    @NotBlank(message = "Không được để trống")
     private String employeeName;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    @NotEmpty(message = "Không được để trống")
     private Date employeeBirthday;
+    @NotBlank(message = "Không được để trống")
     private String employeeIdCard;
+    @NotNull(message = "Không được để trống")
     private Double employeeSalary;
+    @NotBlank(message = "Không được để trống")
+    @Pattern(regexp = "^(091[0-9]{7})?$|^(090[0-9]{7})$",message = "Không đúng định dạng. 090xxxxxxx hoặc 091xxxxxxx")
     private String employeePhone;
+    @NotBlank(message = "Không được để trống")
     private String employeeEmail;
+    @NotBlank(message = "Không được để trống")
     private String employeeAddress;
     @ManyToOne(targetEntity = Position.class)
     @JoinColumn(name = "positionId",referencedColumnName = "position_id")
@@ -128,5 +147,33 @@ public class Employee {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return Employee.class.isAssignableFrom(clazz);
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Employee employee = (Employee) target;
+        LocalDate today = LocalDate.now();
+        Date birthday= employee.getEmployeeBirthday();
+        if(birthday==null){
+            errors.rejectValue("employeeBirthday","dateNotNull");
+        }else {
+             LocalDate birthdayLocal = birthday.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+             if(Period.between(birthdayLocal,today).getYears()<18){
+                 errors.rejectValue("employeeBirthday", "dateCus");
+
+             }
+        }
+
+//        chung minh nhan dan
+        String idCard = employee.getEmployeeIdCard();
+        if(idCard !=""&&(idCard.length()<8 || idCard.length()>12)){
+            errors.rejectValue("employeeIdCard",null,"Không đúng định dạng. Cmnd phải 8 hay 12 số");
+        }
+
     }
 }

@@ -30,6 +30,8 @@
                         <label for="id">ID Customer</label>
                         <input type="text" class="form-control" id="id" placeholder="Enter ID Customer"
                                th:field="*{customerId}">
+                        <p style="color: yellow" th:errors="*{customerId}">Name Error</p>
+
                     </div>
                     <div class="form-group">
                         <label for="type">Type Customer</label>
@@ -42,27 +44,29 @@
                                 </option>
                             </th:block>
                         </select>
-
+                        <p style="color: yellow" th:errors="*{customertypes}">Name Error</p>
                     </div>
                     <div class="form-group">
                         <label for="name">Name Customer</label>
                         <input type="text" class="form-control" id="name" placeholder="Enter Name Customer"
                                th:field="*{customerName}">
+                        <p style="color: yellow" th:errors="*{customerName}">Name Error</p>
+
                     </div>
                     <div class="row">
                         <div class="form-group col-5 ">
                             <label class="col-form-label" for="birthday">Birthday</label>
                             <input type="date" class="form-control" id="birthday" placeholder="mm/dd/yyyy"
                                    name="birthdayCus" th:field="*{birthday}">
-                            <td  th:errors="*{birthday}">Name Error</td>
+                            <p style="color: yellow" th:errors="*{birthday}">Name Error</p>
                         </div>
                         <div class="form-group col-7 ">
                             <label class=" col-form-label" for="gender">Gender</label>
                             <select id="gender" class="form-control" th:field="*{gender}">
                                 <option th:selected="${customer.gender==1}" value="1">Nam</option>
                                 <option th:selected="${customer.gender==0}" value="0">Nữ</option>
-
                             </select>
+
                         </div>
                     </div>
 
@@ -71,21 +75,29 @@
                     <div class="form-group">
                         <label for="cmnd">CCCD/CMND</label>
                         <input type="text" class="form-control" id="cmnd" placeholder="CCCD/CMND" th:field="*{idCard}">
+                        <p style="color: yellow" th:errors="*{idCard}">Name Error</p>
+
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>
                         <input type="text" class="form-control" id="phone" placeholder="Enter phone Customer"
                                th:field="*{phone}">
+                        <p style="color: yellow" th:errors="*{phone}">Name Error</p>
+
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="text" class="form-control" id="email" placeholder="Enter email Customer"
                                th:field="*{email}">
+                        <p style="color: yellow" th:errors="*{email}">Name Error</p>
+
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>
                         <input type="text" class="form-control" id="address" placeholder="Enter address Customer"
                                th:field="*{address}">
+                        <p style="color: yellow" th:errors="*{address}">Name Error</p>
+
                     </div>
                     <input type="hidden" th:value="${action}" name="action">
                 </div>

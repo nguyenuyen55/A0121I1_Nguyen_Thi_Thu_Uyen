@@ -1,13 +1,20 @@
 package com.codegym.casestudy.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
-public class Contract {
+public class Contract implements Validator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int contractId;
@@ -16,7 +23,9 @@ public class Contract {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
     //tien cọc
+    @NotNull(message = "Không được để trống")
     private double deposit;
+    @NotNull(message = "Không được để trống")
     private double totalMoney;
     @ManyToOne(targetEntity = Customer.class)
     @JoinColumn(name = "customerId",referencedColumnName = "customerId")
@@ -103,5 +112,28 @@ public class Contract {
 
     public void setContractDetails(Set<ContractDetail> contractDetails) {
         this.contractDetails = contractDetails;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return Contract.class.isAssignableFrom(clazz);
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+    Contract contract =(Contract) target;
+        Date start= contract.getStartDate();
+        Date end= contract.getEndDate();
+        LocalDate today = LocalDate.now();
+        if((start.getYear()==end.getYear()&&(end.getMonth()-start.getMonth()>3))){
+            errors.rejectValue("endDate",null,"thời gian ket thuc phai nhỏ hơn 3 tháng");
+        }
+        if(contract.getDeposit()<=0){
+            errors.rejectValue("deposit",null,"phải là số nguyên dương");
+        }
+        if(contract.getTotalMoney()<=0){
+            errors.rejectValue("totalMoney",null,"phải là số nguyên dương");
+        }
+
     }
 }
