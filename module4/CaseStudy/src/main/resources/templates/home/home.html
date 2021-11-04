@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Home</title>
     <!-- Required meta tags -->
@@ -9,14 +9,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/home/studyhome.css}">
+    <link rel="stylesheet" th:href="@{/customer/style.css}">
     <link rel="stylesheet" href="/static/css/bootstrap.css" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/home/studyhome.css">
 </head>
-<body class="main"  style="background-image: url('/templates/customer/bg2.jpg');">
+<body class="main"  style="background-image:url('https://i.imgur.com/GhDZipY.jpg')" >
 <div th:fragment="header" >
     <div class="row">
         <div class="col-4">
             <!--        <h2 class="font-logo" data-text="Thu Uyên">Thu Uyên</h2>-->
+            <div sec:authorize="isAuthenticated()">
+                Xin chào: <span sec:authentication="name" style="color: red"></span>
+                <a th:href="/logout">Logout</a>
+            </div>
             <div class="box">
 <!--                <div class="inner">-->
 <!--                    <span>Code là ghiền</span>-->
@@ -28,6 +35,11 @@
         </div>
         <div class="col-8">
             <ul class="nav justify-content-end">
+
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link " th:if="${userName}" th:text="${userName}">Home</a>-->
+<!--                </li>-->
+<!--               <p th:text="${#request.userPrincipal.name}"></p>-->
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Home</a>
                 </li>
