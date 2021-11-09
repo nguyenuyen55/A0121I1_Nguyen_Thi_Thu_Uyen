@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>create</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<h1>sửa câu hoit</h1>
+<form th:action="@{/update}" th:object="${question}" method="post">
+    <table class="table">
+        <tr>
+            <td>Tiêu đề:</td>
+
+            <td>
+                <input type="text" th:field="*{title}"/>
+                <p style="color: red" th:errors="*{title}">Name Error</p>
+                <input type="hidden"  th:field="*{idQues}"/>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>Nội dung:</td>
+            <td>
+                <input type="text" th:field="*{question2}"/>
+                <!--                <div th:if="${#fields.hasErrors('chiTiet')}" th:errors="*{question}" style="color: red"></div>-->
+                <p style="color: red" th:errors="*{question2}">Name Error</p>
+            </td>
+        </tr>
+        <div class="form-group">
+            <label for="education">Loại câu hỏi</label>
+            <select id="education" class="form-control" th:field="*{questions}">
+                <!--                        <option th:value="1" selected >Choose...</option>-->
+                <option value="-1" selected>Choose...</option>
+                <th:block th:each="type:${questiontypes}">
+                    <option  th:selected="${type.idQuestionType==queId}" th:value="${type.idQuestionType}"
+                             th:text="${type.name}" value="">laoij câu hỏi
+                    </option>
+                </th:block>
+            </select>
+            <p style="color: red" th:errors="*{questions}">Name Error</p>
+
+
+        </div>
+        <div class="form-group">
+            <label for="education">Tình trạng</label>
+            <select id class="form-control" th:field="*{status}">
+                <!--                        <option th:value="1" selected >Choose...</option>-->
+
+                    <option   th:value="true"
+                             th:text="${'đã trả lời'}" value="">laoij câu hỏi
+                    </option>
+                <option   th:value="false"
+                          th:text="${'chưa trae loi'}" value="">laoij câu hỏi
+                </option>
+
+            </select>
+            <p style="color: red" th:errors="*{questions}">Name Error</p>
+
+
+        </div>
+    </table>
+    <input class="btn btn-success" type="submit" value="update ">
+    <a class="btn btn-success" href="/">Quay lại</a>
+</form>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
