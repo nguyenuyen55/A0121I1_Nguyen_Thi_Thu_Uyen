@@ -1,0 +1,3 @@
+Color<input type="color" [value]="background" (change)="onchange($event.target.value)">
+<p>Text color:{{background}} </p>
+<div class="color" [style.background]="background"></div>
