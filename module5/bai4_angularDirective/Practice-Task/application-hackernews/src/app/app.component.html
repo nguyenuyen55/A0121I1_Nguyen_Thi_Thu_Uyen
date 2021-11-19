@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+
+<h3 class="text-danger">Today's article</h3>
+<hr>
+<button class="btn btn-danger">hihi</button>
+<a href="{{article.url}}" target="_blank">{{article.title}}</a>
+<hr>
+<textarea [(ngModel)]="article.title" cols="70" id="article-title"></textarea>
+<textarea [(ngModel)]="article.url" cols="70" id="article-url"></textarea>
+<input type="button" value="Update">
+<div *ngFor="let art of articles">
+  <a href="{{art.url}}" target="_blank">{{art.title}}</a>
+
+
+</div>
+{{likes}} likes. <button (click)="likeThis()">Like</button>
+<!--<button (click)="addArticle()">Add</button>-->
+@ThuUyen, 2021
+<div *ngFor="let art of articles">
+  <a href="{{art.url}}" target="_blank">{{art.title}}</a>
+<!--  <likes></likes>-->
+</div>
+<app-footer></app-footer>
