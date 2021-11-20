@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {services} from "../../../models/service";
 
 @Component({
   selector: 'app-list-service',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-service.component.css']
 })
 export class ListServiceComponent implements OnInit {
-
+ Iservices = services;
   constructor() { }
 
   ngOnInit(): void {

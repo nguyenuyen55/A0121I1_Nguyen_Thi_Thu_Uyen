@@ -1,0 +1,28 @@
+<div class="container">
+  <button class="btn btn-success mt-2 mb-2">Create Customer</button>
+<table class="table table-hover" >
+  <thead>
+
+  <tr >
+    <th>ID</th>
+    <th>name</th>
+    <th>birthday</th>
+    <th>gender</th>
+    <th>type customer</th>
+    <th>#</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let customer of customers ">
+    <th scope="row">{{customer.id}}</th>
+    <td>{{customer.customerName}}</td>
+    <td>{{customer.customerBirthday}}</td>
+    <td>{{customer.customerGender}}</td>
+    <td>{{customer.customerType}}</td>
+    <td><button class="btn btn-warning mr-2">View</button><button class="btn btn-primary mr-2">Update</button><button class="btn btn-danger">Delete</button></td>
+
+  </tr>
+
+  </tbody>
+</table>
+</div>

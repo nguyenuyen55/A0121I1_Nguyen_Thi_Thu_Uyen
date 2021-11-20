@@ -1,31 +1,31 @@
 <div  class="container" >
-  <div class="alert alert-primary alert-dismissible fade show" role="alert">
-    <strong ></strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <a class="btn btn-success" th:text="Create"></a>
+<!--  <div class="alert alert-primary alert-dismissible fade show" role="alert">-->
+<!--    <strong ></strong>-->
+<!--    <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+<!--      <span aria-hidden="true">&times;</span>-->
+<!--    </button>-->
+<!--  </div>-->
+  <a class="btn btn-success" >Create Service</a>
 
-  <table class="table" style="background-color: #d5989861">
+  <table class="table">
     <thead>
     <tr >
       <th>ID</th>
       <th>name service</th>
       <th>Area</th>
-      <th>Service Types</th>
-      <th>type Rent</th>
+      <th>id Types</th>
+      <th>Max people</th>
       <th> #</th>
       <!--            <th>#</th>-->
     </tr>
     </thead>
     <tbody>
-    <tr >
-      <td scope="row" >1</td>
-      <td >uyen</td>
-      <td >uyen</td>
-      <td >282</td>
-      <td >282</td>
+    <tr *ngFor="let service of Iservices">
+      <td scope="row"  >{{service.idService}}</td>
+      <td >{{service.name}}</td>
+      <td >{{service.area}}</td>
+      <td >{{service.idRent}}</td>
+      <td >{{service.maxPeople}}</td>
       <td><button class="btn btn-warning btn-primary mr-2">View</button><button class="btn btn-primary mr-2">Update</button><button class="btn btn-danger">Delete</button></td>
 
       <!--            <td >-->

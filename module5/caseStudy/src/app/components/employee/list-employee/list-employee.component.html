@@ -1,9 +1,13 @@
+<div class="container">
+
+
 <form class="form-inline my-2 my-lg-0 ">
   <div class=" search-home mb-4">
     <input class="form-control mr-sm-2 " type="search"placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </div>
 </form>
+<a class="btn btn-success" >Create Employee</a>
 <table class="table table-hover"  cellspacing = 1 cellpadding = 2 >
   <thead>
   <tr >
@@ -17,13 +21,13 @@
   </tr>
   </thead>
   <tbody>
-  <tr >
-    <td scope="row" >1</td>
-    <td>uyen</td>
-    <td >uyen</td>
-    <td >uyen</td>
-    <td >uyen</td>
-    <td > 282</td>
+  <tr *ngFor="let employee of employees">
+    <td scope="row" >{{employee.id}}</td>
+    <td>{{employee.name}}</td>
+    <td >{{employee.birthday}}</td>
+    <td >{{employee.email}}</td>
+    <td >{{employee.address}}</td>
+    <td > {{employee.salary}}</td>
     <td >
       <a class="btn btn-warning">view</a>
       <button class="btn btn-primary deleteButton"   >update</button>
@@ -35,3 +39,4 @@
 
   </tbody>
 </table>
+</div>
