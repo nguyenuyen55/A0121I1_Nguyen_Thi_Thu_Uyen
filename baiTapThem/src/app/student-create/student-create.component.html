@@ -1,0 +1,28 @@
+<div class="container-fluid"><form [formGroup]="createStudent"  (ngSubmit)="onSubmit()">
+ <h3>Create Student</h3>
+  <div class="form-group">
+    <label >id :</label>
+    <input type="number" formControlName="id" class="form-control" >
+    <div class="alert alert-danger mt-1" *ngIf="createStudent.get('id').touched">id is required</div>
+  </div>
+  <div class="form-group">
+    <label >name :</label>
+    <input type="text" class="form-control" formControlName="name" placeholder="Enter name" id="pwd">
+    <div class="alert alert-danger mt-1" *ngIf="createStudent.get('name').touched">name is required</div>
+  </div>
+  <div class="form-group">
+    <label >age :</label>
+    <input type="number" class="form-control" formControlName="age" placeholder="Enter age" >
+    <div class="alert alert-danger mt-1" *ngIf="createStudent.get('age').touched">age is required</div>
+  </div>
+  <div class="form-group">
+    <label >link avatar :</label>
+    <input type="number" class="form-control" formControlName="avatar" placeholder="Enter link avatar" >
+    <div class="alert alert-danger mt-1" *ngIf="createStudent.get('avatar').touched">avatar is required</div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<pre>
+<!--  {{createStudent | json}}-->
+</pre>
+</div>

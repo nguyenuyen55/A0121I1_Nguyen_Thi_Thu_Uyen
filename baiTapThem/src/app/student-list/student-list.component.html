@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">name</th>
+      <th scope="col">age</th>
+      <th scope="col">avatar</th>
+      <th scope="col">#</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of students">
+      <th scope="row" >{{student.id}}</th>
+      <input type="hidden" [value]="student.id" #ids >
+      <td>{{student.name}}</td>
+      <td>{{student.age}}</td>
+      <td><img [src]="student.avatar" width="70px" height="70px" ></td>
+      <td><button type="button" class="btn btn-info mr-2" (click)="getstudent(ids.value)">View</button><button type="button" class="btn btn-warning mr-2">Update</button>
+        <button type="button" class="btn btn-danger">Detele</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<app-student-information [student]="student1" ></app-student-information>
+
