@@ -1,0 +1,68 @@
+<h2>Register</h2>
+<!--<h3>Login</h3>-->
+<form [formGroup]="register" (ngSubmit)="onSubmit()" class="example-form">
+  <mat-form-field class="example-full-width" style="background: cadetblue" appearance="fill">
+    <mat-label>email</mat-label>
+    <input matInput placeholder="Ex. abc" formControlName="email">
+  </mat-form-field>
+  <p style="color: red" *ngIf="register.get('email').invalid && register.get('email').touched">email không hợp lệ</p>
+  <br>
+  <fieldset formGroupName="pwGroup">
+    <mat-form-field class="example-full-width" style="background: cadetblue" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" style="background: cadetblue" appearance="fill">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput type="password" formControlName="comfirmPassword">
+    </mat-form-field>
+  </fieldset>
+  <p style="color: red" *ngIf="register.hasError('passwordnotmatch',['pwGroup']) && register.get('pwGroup').touched">MẬt
+    khẩu không khớp</p>
+  <h4>Country</h4>
+  <mat-form-field appearance="fill">
+    <!--    <mat-label>Cars</mat-label>-->
+    <select matNativeControl required formControlName="country">
+      <option value="">chọn</option>
+      <option value="vn">Việt Nam</option>
+      <option value="us">US</option>
+      <option value="ny">New York</option>
+    </select>
+  </mat-form-field>
+  <p style="color: red" *ngIf="register.get('country').invalid && register.get('country').touched">vui lòng chọn quốc
+    tịch</p>
+  <br>
+  <mat-form-field class="example-full-width" style="background: cadetblue" appearance="fill">
+    <mat-label>Age</mat-label>
+    <input matInput placeholder="Ex. 12" formControlName="age">
+  </mat-form-field>
+  <p style="color: red" *ngIf="register.get('age').invalid && register.get('age').touched">tuổi không hợp lệ >18
+    tuổi</p>
+  <br>
+<!--  <mat-form-field class="example-full-width" style="background: cadetblue" appearance="fill">-->
+<!--    <mat-label>Age</mat-label>-->
+<!--    <input matInput placeholder="Ex. 12" formControlName="age">-->
+<!--  </mat-form-field>-->
+<!--  <p style="color: red" *ngIf="register.get('age').invalid && register.get('age').touched">tuổi không hợp lệ >18-->
+<!--    tuổi</p>-->
+  <br>
+  <h4>Gender</h4>
+  <mat-radio-group formControlName="gender" aria-label="Select an option">
+    <mat-radio-button  value="male">Male</mat-radio-button>
+    <mat-radio-button  value="female">Female</mat-radio-button>
+  </mat-radio-group>
+  <p style="color: red" *ngIf="register.get('gender').invalid && register.get('gender').touched">vui lòng chọn giới
+    tính</p>
+  <br>
+  <mat-form-field class="example-full-width" style="background: cadetblue" appearance="fill">
+    <mat-label>Phone</mat-label>
+    <input matInput type="tel" placeholder="444555566" formControlName="phone">
+  </mat-form-field>
+  <p style="color: red" *ngIf="register.get('phone').hasError('required') ">vui lòng nhập số điện thoại</p>
+  <p style="color: red" *ngIf="register.get('phone').hasError('pattern') ">+84x(9-10)</p>
+  <br>
+  <button mat-button color="primary">Submit</button>
+</form>
+<pre>
+  {{ register.value | json}}
+</pre>

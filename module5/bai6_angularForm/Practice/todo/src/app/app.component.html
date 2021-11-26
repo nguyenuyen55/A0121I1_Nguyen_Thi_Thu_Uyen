@@ -1,0 +1,12 @@
+<h1>Todo</h1>
+<mat-form-field  appearance="fill">
+  <mat-label>Input</mat-label>
+  <input matInput [formControl]="userInput" (change)="onChange()" >
+</mat-form-field>
+<ul>
+  <li (click)="toggleTodo(i)"
+      [class.complete]="todo.complete"
+      *ngFor="let todo of todos; index as i">
+    {{todo.content}}
+  </li>
+</ul>

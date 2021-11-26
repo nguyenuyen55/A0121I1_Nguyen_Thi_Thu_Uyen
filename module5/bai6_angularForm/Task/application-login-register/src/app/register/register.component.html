@@ -1,0 +1,19 @@
+<h3>Login</h3>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="example-form">
+<mat-form-field class="example-full-width" style="background: cadetblue" appearance="fill">
+  <mat-label>email</mat-label>
+  <input matInput placeholder="Ex. abc" formControlName="email">
+</mat-form-field>
+  <p style="color: red" *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched" >email không hợp lệ</p>
+<br>
+<mat-form-field class="example-full-width" style="background: cadetblue" appearance="fill">
+  <mat-label>Password</mat-label>
+  <input matInput type="password" formControlName="password">
+</mat-form-field>
+  <p style="color: red" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched" >MẬt khẩu không hợp lệ</p>
+  <br>
+  <button mat-button color="primary">Submit </button>
+</form>
+<pre>
+  {{ loginForm.value | json}}
+</pre>
