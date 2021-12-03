@@ -1,5 +1,5 @@
 <div class="container">
-  <form method="post" >
+  <form [formGroup]="createEmployee" (ngSubmit)="onSubmit()">
     <div class="contentCreate" style="height: 764px">
 
       <h4 class="text-center mb-2">Create Employee </h4>
@@ -7,85 +7,106 @@
         <div class="col-6">
           <div class="form-group">
             <label for="id">ID Employee</label>
-            <input type="text" class="form-control" id="id" placeholder="Enter ID Customer"
-                   >
-
+            <input type="text" class="form-control" formControlName="id" id="id" placeholder="Enter ID Customer"
+            >
+            <div class="alert alert-danger" *ngIf="createEmployee.controls.id.errors?.required && createEmployee.controls.id?.touched" role="alert">
+              ID is required
+            </div>
+            <div class="alert alert-danger" *ngIf="createEmployee.controls.id.errors?.pattern && createEmployee.controls.id?.touched" role="alert">
+              wrong format NV-XXXX
+            </div>
           </div>
           <div class="form-group">
             <label for="nameEmpl">Name Employee</label>
-            <input type="text" class="form-control" id="nameEmpl" placeholder="Enter Name Employee"
-               >
-
+            <input type="text" class="form-control" id="nameEmpl" formControlName="name" placeholder="Enter Name Employee"
+            >
+            <div class="alert alert-danger" *ngIf="createEmployee.controls.id.errors?.required && createEmployee.controls.id?.touched" role="alert">
+              Name is required
+            </div>
           </div>
           <div class="form-group">
             <label for="birthday">BirthDay Employee</label>
-            <input type="date" class="form-control" id="birthday"
-                  >
-
+            <input type="date" class="form-control" formControlName="birthday" id="birthday"
+            >
+            <div class="alert alert-danger" *ngIf="createEmployee.controls.birthday.errors?.required && createEmployee.controls.birthday?.touched" role="alert">
+              birthday is required
+            </div>
           </div>
           <div class="form-group">
             <label for="idcard">ID Card Employee</label>
-            <input type="number" class="form-control" id="idcard"
-                  >
-
+            <input type="number"  formControlName="idCard" class="form-control" id="idcard"
+            >
+            <div class="alert alert-danger" *ngIf="createEmployee.controls.idCard.errors?.required && createEmployee.controls.idCard?.touched" role="alert">
+              ID Card is required
+            </div>
           </div>
           <div class="form-group">
             <label for="salary">Salary Employee</label>
-            <input type="number" class="form-control" id="salary"
-                 >
+            <input type="number" formControlName="salary" class="form-control" id="salary"
+            >
+            <div class="alert alert-danger" *ngIf="createEmployee.controls.salary.errors?.required && createEmployee.controls.salary?.touched" role="alert">
+              Salary is required
+            </div>
           </div>
           <div class="form-group">
             <label for="phone">Phone </label>
-            <input type="number" class="form-control" id="phone"
-              >
+            <input type="number" formControlName="phone" class="form-control" id="phone"
+            >
+            <div class="alert alert-danger" *ngIf="createEmployee.controls.phone.errors?.required && createEmployee.controls.phone?.touched" role="alert">
+              Phone is required
+            </div>
           </div>
         </div>
         <div class="col-6">
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="text" class="form-control" id="email"
-                  >
+            <input type="text" formControlName="email" class="form-control" id="email"
+            >
+            <div class="alert alert-danger" *ngIf="createEmployee.controls.email.errors?.required && createEmployee.controls.email?.touched" role="alert">
+              Email is required
+            </div>
           </div>
           <div class="form-group">
             <label for="address">Address</label>
-            <input type="text" class="form-control" id="address"
-                   >
-
+            <input type="text" formControlName="address" class="form-control" id="address"
+            >
+            <div class="alert alert-danger" *ngIf="createEmployee.controls.address.errors?.required && createEmployee.controls.address?.touched" role="alert">
+              Address is required
+            </div>
           </div>
           <div class="form-group">
             <label for="position">Position</label>
-            <select id="position" class="form-control" >
+            <select id="position" formControlName="positionId" class="form-control">
               <!--                        <option th:value="1" selected >Choose...</option>-->
-              <option value="-1" selected>Choose...</option>
-
-                <option   value="">Type Customer
-                </option>
-
+              <option value="1">Lễ tân</option>
+              <option value="2">Phục vụ</option>
+              <option value="3">Chuyên viên</option>
+              <option value="4">Giám sát</option>
+              <option value="5">Quản lí</option>
+              <option value="6">Giám đốc</option>
             </select>
 
           </div>
           <div class="form-group">
             <label for="education">Education</label>
-            <select id="education" class="form-control" >
+            <select id="education" formControlName="eductionId" class="form-control">
               <!--                        <option th:value="1" selected >Choose...</option>-->
-              <option value="-1" selected>Choose...</option>
-
-                <option
-                     value="">Type Customer
-                </option>
-
+             <option value="1">Trung cấp</option>
+             <option value="2">Cao Đẳng</option>
+             <option value="3">Đại Học</option>
+             <option value="4">Sau Đại Học</option>
             </select>
 
 
           </div>
           <div class="form-group">
             <label for="division">Division</label>
-            <select id="division" class="form-control">
+            <select id="division" formControlName="divisionId" class="form-control">
               <!--                        <option th:value="1" selected >Choose...</option>-->
-              <option value="-1" selected>Choose...</option>
-
-                <option  value="">Type Customer
-                </option>
+              <option value="1">Sale - Marketing</option>
+              <option value="2">Hành chính</option>
+              <option value="3">Phục vụ</option>
+              <option value="4">Quản lí</option>
 
             </select>
 
@@ -95,9 +116,9 @@
         </div>
       </div>
       <div class="row justify-content-center mt-4">
-        <a  class=" btn btn-info mr-2">Back</a>
+        <a class=" btn btn-info mr-2">Back</a>
         <a type="reset" class=" btn btn-dark mr-2">Reset</a>
-        <button type="submit" class="btn btn-success" >Create
+        <button type="submit" class="btn btn-success">Create
         </button>
       </div>
 

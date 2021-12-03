@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+// @ts-ignore
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-likes',
@@ -11,5 +12,9 @@ export class LikesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  @Input()
+  likes: number ;
+  likeThis() {
+    this.likes++;
+  }
 }

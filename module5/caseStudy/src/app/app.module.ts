@@ -19,6 +19,7 @@ import { ListContractComponent } from './components/contract/list-contract/list-
 import { CreateContractComponent } from './components/contract/create-contract/create-contract.component';
 import { ListContracDetailComponent } from './components/contractDetail/list-contrac-detail/list-contrac-detail.component';
 import { CreateContractDetailComponent } from './components/contractDetail/create-contract-detail/create-contract-detail.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -40,10 +41,11 @@ import { CreateContractDetailComponent } from './components/contractDetail/creat
     ListContracDetailComponent,
     CreateContractDetailComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

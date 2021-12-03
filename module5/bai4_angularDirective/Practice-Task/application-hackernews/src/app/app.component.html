@@ -10,10 +10,9 @@
 <input type="button" value="Update">
 <div *ngFor="let art of articles">
   <a href="{{art.url}}" target="_blank">{{art.title}}</a>
-
-
+  <app-likes [likes]="0"></app-likes>
 </div>
-{{likes}} likes. <button (click)="likeThis()">Like</button>
+<!--{{likes}} likes. <button (click)="likeThis()">Like</button>-->
 <!--<button (click)="addArticle()">Add</button>-->
 @ThuUyen, 2021
 <div *ngFor="let art of articles">
