@@ -11,7 +11,7 @@ import { UpdateComponent } from './components/customer/update/update.component';
 import { ListEmployeeComponent } from './components/employee/list-employee/list-employee.component';
 import { CreateEmployeeComponent } from './components/employee/create-employee/create-employee.component';
 import { UpdateEmployeeComponent } from './components/employee/update-employee/update-employee.component';
-import { ViewEmployeeComponent } from './components/employee/view-employee/view-employee.component';
+
 import { ListServiceComponent } from './components/service/list-service/list-service.component';
 import { CreateServiceComponent } from './components/service/create-service/create-service.component';
 import { UpdateServiceComponent } from './components/service/update-service/update-service.component';
@@ -19,8 +19,17 @@ import { ListContractComponent } from './components/contract/list-contract/list-
 import { CreateContractComponent } from './components/contract/create-contract/create-contract.component';
 import { ListContracDetailComponent } from './components/contractDetail/list-contrac-detail/list-contrac-detail.component';
 import { CreateContractDetailComponent } from './components/contractDetail/create-contract-detail/create-contract-detail.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { DeleteComponent } from './components/customer/delete/delete.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {NgxPaginationModule} from "ngx-pagination";
+import { DeleteEmployeeComponent } from './components/employee/delete-employee/delete-employee.component';
 
+// @ts-ignore
+// import {MatSnackBarModule, MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatInputModule, } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,20 +41,27 @@ import {ReactiveFormsModule} from "@angular/forms";
     ListEmployeeComponent,
     CreateEmployeeComponent,
     UpdateEmployeeComponent,
-    ViewEmployeeComponent,
+
     ListServiceComponent,
     CreateServiceComponent,
     UpdateServiceComponent,
     ListContractComponent,
     CreateContractComponent,
     ListContracDetailComponent,
-    CreateContractDetailComponent
+    CreateContractDetailComponent,
+    DeleteComponent,
+    DeleteEmployeeComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule,MatSnackBarModule,
+    MatDialogModule,
+    NgxPaginationModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {employees} from "../../../models/employee";
-import {services} from "../../../models/service";
 import {Icustomers} from "../../../models/customer";
 import {IContract} from "../../../models/contract";
 
@@ -28,8 +26,8 @@ export class CreateContractComponent implements OnInit {
     })
   }
 
-  employees =employees;
-  Iservices =services;
+  employees :any;
+  // Iservices =services;
   customers =Icustomers;
 
   onSubmit() {

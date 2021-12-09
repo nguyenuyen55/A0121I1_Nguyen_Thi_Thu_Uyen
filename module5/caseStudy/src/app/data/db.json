@@ -1,0 +1,166 @@
+{
+  "customer": [
+    {
+      "id": "kkh01",
+      "customerType": "vip",
+      "customerName": "Nguyễn Văn A",
+      "customerBirthday": "05/06/1988",
+      "customerGender": "Nam",
+      "customerIdCard": "123455677",
+      "customerPhone": "099883833",
+      "customerEmail": "nguyena@gmail.com",
+      "customerAddress": "bình dương"
+    },
+    {
+      "id": "kkh02",
+      "customerType": "vip",
+      "customerName": "Nguyễn Thị Nở",
+      "customerBirthday": "05/06/1987",
+      "customerGender": "Nữ",
+      "customerIdCard": "123455677",
+      "customerPhone": "099883833",
+      "customerEmail": "nothi@gmail.com",
+      "customerAddress": "bình chánh"
+    },
+    {
+      "id": "kkh03",
+      "customerType": "xịn",
+      "customerName": "Nguyễn Hoài An",
+      "customerBirthday": "05/05/1998",
+      "customerGender": "Nữ",
+      "customerIdCard": "123455677",
+      "customerPhone": "099883833",
+      "customerEmail": "hoaian83@gmail.com",
+      "customerAddress": "quảng ngãi"
+    },
+    {
+      "id": "kkh04",
+      "customerType": "bình thường",
+      "customerName": "Nguyễn Văn Chính",
+      "customerBirthday": "05/06/2000",
+      "customerGender": "Nam",
+      "customerIdCard": "12348677",
+      "customerPhone": "099883733",
+      "customerEmail": "chinhvan@gmail.com",
+      "customerAddress": "đà nẵng"
+    }
+  ],
+  "customerTypes": [
+    {
+      "value": "Diamond",
+      "name": "Diamond"
+    },
+    {
+      "value": "Platinum",
+      "name": "Platinium"
+    },
+    {
+      "value": "Gold",
+      "name": "Gold"
+    },
+    {
+      "value": "Silver",
+      "name": "Silver"
+    },
+    {
+      "value": "Member",
+      "name": "Menber"
+    }
+  ],
+  "employees": [
+    {
+      "id": "1",
+      "name": "thi uyen",
+      "birthday": "05/05/2000",
+      "idCard": "78945612",
+      "salary": 2500,
+      "phone": "093938292",
+      "email": "uyen@gmail.com",
+      "address": "Quảng Ngãi",
+      "positionId": 1,
+      "eductionId": 2,
+      "divisionId": 1,
+      "username": "uyen"
+    },
+    {
+      "id": "2",
+      "name": "minh đạt my love",
+      "birthday": "12/09/1999",
+      "idCard": "78945612",
+      "salary": 100000,
+      "phone": "093938992",
+      "email": "dat@gmail.com",
+      "address": "Đà lạt",
+      "positionId": 2,
+      "eductionId": 2,
+      "divisionId": 1,
+      "username": "dat"
+    },
+    {
+      "id": "3",
+      "name": "thuý loan",
+      "birthday": "10/07/2000",
+      "idCard": "71236982",
+      "salary": 3500,
+      "phone": "093944292",
+      "email": "loan@gmail.com",
+      "address": "Bình Định",
+      "positionId": 1,
+      "eductionId": 2,
+      "divisionId": 1,
+      "username": "loan"
+    }
+  ],
+  "services": [
+    {
+      "id": "100",
+      "name": "valli",
+      "area": 100,
+      "floors": 2,
+      "maxPeople": 4,
+      "constRent": 150000,
+      "idRent": "1",
+      "status": "chưa thuê"
+    },
+    {
+      "id": "101",
+      "name": "house 5",
+      "area": 120,
+      "floors": 1,
+      "maxPeople": 2,
+      "constRent": 120000,
+      "idRent": "2",
+      "status": "đã được thuê"
+    },
+    {
+      "id": "102",
+      "name": "resort",
+      "area": 500,
+      "floors": 3,
+      "maxPeople": 10,
+      "constRent": 880000,
+      "idRent": "1",
+      "status": "đã được thuê"
+    },
+    {
+      "id": "DV-9323",
+      "name": "uyen",
+      "area": 4,
+      "floors": 5,
+      "maxPeople": 4,
+      "constRent": 6,
+      "idRent": "2",
+      "status": "CHƯA THUÊ"
+    },
+    {
+      "id": "DV-0303",
+      "name": "uyen",
+      "area": 4,
+      "floors": 3,
+      "maxPeople": 5,
+      "constRent": 9,
+      "idRent": "3",
+      "status": "CHƯA THUÊ"
+    }
+  ]
+}

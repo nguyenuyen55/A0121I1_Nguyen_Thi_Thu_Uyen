@@ -7,13 +7,13 @@
         <div class="col-6">
           <div class="form-group">
             <label >ID Service</label>
-            <input type="text" class="form-control" formControlName="idService" placeholder="Enter ID Service"
+            <input type="text" class="form-control" formControlName="id" placeholder="Enter ID Service"
                   >
           </div>
-          <div class="alert alert-danger" *ngIf="createService.controls.idService.errors?.required && createService.controls.idService?.touched" role="alert">
+          <div class="alert alert-danger" *ngIf="createService.controls.id.errors?.required && createService.controls.id?.touched" role="alert">
             ID Service is required
           </div>
-          <div class="alert alert-danger" *ngIf="createService.controls.idService.errors?.pattern && createService.controls.idService?.touched" role="alert">
+          <div class="alert alert-danger" *ngIf="createService.controls.id.errors?.pattern && createService.controls.id?.touched" role="alert">
             patter is required
           </div>
           <div class="form-group">

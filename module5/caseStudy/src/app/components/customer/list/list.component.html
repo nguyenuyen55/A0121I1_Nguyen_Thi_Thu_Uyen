@@ -1,7 +1,12 @@
 <div class="container">
 <!--  <a [routerLink]=['createCustomer'] class="btn btn-success mt-2 mb-2">Create Customer</a>-->
   <a class="btn btn-success mt-2 mb-2" [routerLink]="['createCustomer']">Create</a>
-<table class="table table-hover" >
+
+<div class="form-inline my-2 mb-2 my-lg-0">
+  <input class="form-control mr-sm-2" #searchname type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" (click)="search(searchname.value)" type="button">Search</button>
+</div>
+<table class="table table-hover mt-3" >
   <thead>
 
   <tr >
@@ -14,16 +19,19 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let customer of customers ">
+  <tr *ngFor="let customer of customers | paginate: { itemsPerPage: 5, currentPage: p}">
     <th scope="row">{{customer.id}}</th>
     <td>{{customer.customerName}}</td>
     <td>{{customer.customerBirthday}}</td>
     <td>{{customer.customerGender}}</td>
     <td>{{customer.customerType}}</td>
-    <td><button class="btn btn-warning mr-2">View</button><button class="btn btn-primary mr-2">Update</button><button class="btn btn-danger">Delete</button></td>
+    <td><button class="btn btn-warning mr-2">View</button>
+      <a routerLink="/updateCustomer/{{customer.id}}" class="btn btn-danger" >Update</a>
+      <button (click)="openDialog(customer.id)" class="btn btn-primary mr-2">Delete</button>
+    </td>
 
   </tr>
-
   </tbody>
 </table>
 </div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

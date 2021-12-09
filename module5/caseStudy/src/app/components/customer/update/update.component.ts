@@ -1,7 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ICustomer, Icustomers} from "../../../models/customer";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {CustomerService} from "../../../service/customer.service";
+import {TypeCutomer} from "../create/create.component";
 
 @Component({
   selector: 'app-update',
@@ -10,8 +12,9 @@ import {Router} from "@angular/router";
 })
 export class UpdateComponent implements OnInit {
   updateCustomer: FormGroup;
-
-  constructor(private formBuilder:FormBuilder,private router:Router) { }
+  typeCustomers :TypeCutomer[];
+  constructor(private formBuilder:FormBuilder,private router:Router,private serviceCustomer:CustomerService,
+              private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.updateCustomer=this.formBuilder.group({
@@ -25,13 +28,25 @@ export class UpdateComponent implements OnInit {
       customerEmail: ['',Validators.required],
       customerAddress: ['',Validators.required]
     })
-    // this.customer
+    this.serviceCustomer.getAllCustomerTypes().subscribe(data=>{
+      this.typeCustomers=data;
+      this.serviceCustomer.findById(this.activatedRoute.snapshot.params['id']).subscribe(data=>{
+        console.log(data);
+        this.updateCustomer.setValue(data);
+      })
+    })
+
   }
+  // $('#myModal').modal('show');
 
   updateCus() {
     if(this.updateCustomer.valid){
-      Icustomers.push(this.updateCustomer.value);
-      this.router.navigateByUrl("/");
+
+      this.serviceCustomer.updateCustomer(this.updateCustomer.value,this.activatedRoute.snapshot.params['id']).subscribe(
+        ()=>{
+          this.router.navigateByUrl("/");
+        }
+      )
     }
   }
 }

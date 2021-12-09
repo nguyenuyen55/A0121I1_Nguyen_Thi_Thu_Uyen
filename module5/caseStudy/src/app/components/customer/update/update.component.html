@@ -1,82 +1,103 @@
 <div class="container">
-  <form  [formGroup]="updateCustomer" (ngSubmit)="updateCus()">
+  <form [formGroup]="updateCustomer" (ngSubmit)="updateCus()">
     <div class="contentCreate mb-5 mt-4">
-
-      <h4 class="text-center mb-2">Update Customer </h4>
+      <h4 class="text-center mb-2">Create Customer </h4>
       <div class="row ">
         <div class="col-6">
           <div class="form-group">
             <label for="id">ID Customer</label>
-            <input type="text" class="form-control" id="id" placeholder="Enter ID Customer"
-            >
-
+            <input type="text" class="form-control" id="id" formControlName="id" placeholder="Enter ID Customer">
+          </div>
+          <div class="alert alert-danger" *ngIf="updateCustomer.controls.id.errors?.required && updateCustomer.controls.id?.touched" role="alert">
+            ID is required
+          </div>
+          <!--          *ngIf="customerCreateForm.controls.idCard.errors?.pattern && customerCreateForm.controls.idCard?.touched"-->
+          <div class="alert alert-danger" *ngIf="updateCustomer.controls.id.errors?.pattern && updateCustomer.controls.id?.touched" role="alert">
+            patter is required
           </div>
           <div class="form-group">
-            <label >Type Customer</label>
-            <select class="form-control">
-              <!--                        <option th:value="1" selected >Choose...</option>-->
-              <option value="-1" selected>Choose...</option>
-
+            <label>Type Customer</label>
+            <select class="form-control" formControlName="customerType">
+              <!--              <option value="-1" selected  >Chọn</option>-->
+              <option [selected]="updateCustomer.value.customerType == type.name" *ngFor="let type of typeCustomers" value="{{type.value}}" >{{type.name}}</option>
             </select>
+          </div>
+          <div class="alert alert-danger" *ngIf="updateCustomer.get('customerType').touched && updateCustomer.get('customerType').invalid" role="alert">
+            Type Customer is required
           </div>
           <div class="form-group">
             <label for="name">Name Customer</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Name Customer"
-            >
-
+            <input type="text" formControlName="customerName" class="form-control" id="name" placeholder="Enter Name Customer">
+          </div>
+          <div class="alert alert-danger" *ngIf="updateCustomer.get('customerName').touched && updateCustomer.get('customerName').invalid" role="alert">
+            Name is required
           </div>
           <div class="row">
             <div class="form-group col-5 ">
               <label class="col-form-label" for="birthday">Birthday</label>
-              <input type="date" class="form-control" id="birthday" placeholder="mm/dd/yyyy"
-                     name="birthdayCus" >
+              <input type="date" formControlName="customerBirthday" class="form-control" id="birthday" placeholder="mm/dd/yyyy"
+                     name="birthdayCus">
             </div>
+
             <div class="form-group col-7 ">
               <label class=" col-form-label" for="gender">Gender</label>
-              <select id="gender" class="form-control" >
-                <option value="1">Nam</option>
-                <option  value="0">Nữ</option>
+              <select id="gender" class="form-control" formControlName="customerGender">
+                <option value="Name">Nam</option>
+                <option value="Nữ">Nữ</option>
               </select>
-
+            </div>
+            <div class="alert alert-danger col-5" *ngIf="updateCustomer.get('customerBirthday').touched && updateCustomer.get('customerBirthday').invalid" role="alert">
+              Birthday is required
+            </div>
+            <div class="alert alert-danger ml-1 col-5" *ngIf="updateCustomer.get('customerGender').touched && updateCustomer.get('customerGender').invalid" role="alert">
+              Gender is required
             </div>
           </div>
-
         </div>
         <div class="col-6">
           <div class="form-group">
             <label for="cmnd">CCCD/CMND</label>
-            <input type="text" class="form-control" id="cmnd" placeholder="CCCD/CMND" >
-
+            <input type="text" class="form-control" formControlName="customerIdCard" id="cmnd" placeholder="CCCD/CMND">
+          </div>
+          <div class="alert alert-danger" *ngIf="updateCustomer.get('customerIdCard').touched && updateCustomer.get('customerIdCard').invalid" role="alert">
+            CMND is required
+          </div>
+          <div class="alert alert-danger" *ngIf="updateCustomer.controls.customerIdCard.errors?.pattern && updateCustomer.controls.customerIdCard?.touched" role="alert">
+            CMND is 8 number or 12 number
           </div>
           <div class="form-group">
             <label for="phone">Phone</label>
-            <input type="text" class="form-control" id="phone" placeholder="Enter phone Customer"
-            >
-
-
+            <input type="text" class="form-control" formControlName="customerPhone" id="phone" placeholder="Enter phone Customer">
+          </div>
+          <div class="alert alert-danger" *ngIf="updateCustomer.get('customerPhone').touched && updateCustomer.get('customerPhone').invalid" role="alert">
+            Phone is required
+          </div>
+          <div class="alert alert-danger" *ngIf="updateCustomer.controls.customerPhone.errors?.pattern && updateCustomer.controls.customerPhone?.touched" role="alert">
+            phone format 090XXXXXXX or 091XXXXXXX
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="text" class="form-control" id="email" placeholder="Enter email Customer"
-            >
-
+            <input type="text" class="form-control" id="email" formControlName="customerEmail" placeholder="Enter email Customer">
+          </div>
+          <div class="alert alert-danger" *ngIf="updateCustomer.get('customerEmail').touched && updateCustomer.get('customerEmail').invalid" role="alert">
+            Email is required
           </div>
           <div class="form-group">
             <label for="address">Address</label>
-            <input type="text" class="form-control" id="address" placeholder="Enter address Customer"
-            >
-
+            <input type="text" class="form-control" id="address" formControlName="customerAddress" placeholder="Enter address Customer">
           </div>
-          <input type="hidden"  name="action">
+          <div class="alert alert-danger" *ngIf="updateCustomer.get('customerAddress').touched && updateCustomer.get('customerAddress').invalid" role="alert">
+            Address is required
+          </div>
+          <input type="hidden" name="action">
         </div>
       </div>
       <div class="row justify-content-center mt-4">
         <a href="#" class=" btn btn-info mr-2">Back</a>
         <a type="reset" class=" btn btn-dark mr-2">Reset</a>
-        <button type="submit" class="btn btn-success" >Update
+        <button type="submit" class="btn btn-success">Update
         </button>
       </div>
-
-    </div >
+    </div>
   </form>
 </div>

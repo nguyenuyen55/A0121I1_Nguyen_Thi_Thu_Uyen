@@ -1,15 +1,14 @@
-<div  class="container" >
-<!--  <div class="alert alert-primary alert-dismissible fade show" role="alert">-->
-<!--    <strong ></strong>-->
-<!--    <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
-<!--      <span aria-hidden="true">&times;</span>-->
-<!--    </button>-->
-<!--  </div>-->
-  <a class="btn btn-success" >Create Service</a>
-
+<div class="container">
+  <!--  <div class="alert alert-primary alert-dismissible fade show" role="alert">-->
+  <!--    <strong ></strong>-->
+  <!--    <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+  <!--      <span aria-hidden="true">&times;</span>-->
+  <!--    </button>-->
+  <!--  </div>-->
+  <a class="btn btn-success" routerLink="/createService">Create Service</a>
   <table class="table">
     <thead>
-    <tr >
+    <tr>
       <th>ID</th>
       <th>name service</th>
       <th>Area</th>
@@ -21,30 +20,16 @@
     </thead>
     <tbody>
     <tr *ngFor="let service of Iservices">
-      <td scope="row"  >{{service.idService}}</td>
-      <td >{{service.name}}</td>
-      <td >{{service.area}}</td>
-      <td >{{service.idRent}}</td>
-      <td >{{service.maxPeople}}</td>
-      <td><button class="btn btn-warning btn-primary mr-2">View</button><button class="btn btn-primary mr-2">Update</button><button class="btn btn-danger">Delete</button></td>
-
-      <!--            <td >-->
-      <!--                <a class="btn btn-danger" th:href="@{deleteService/{id}(id=${service.serviceId})}" id="deleteButton" th:text="Delete"></a>-->
-      <!--            </td>-->
+      <td scope="row">{{service.id}}</td>
+      <td>{{service.name}}</td>
+      <td>{{service.area}}</td>
+      <td>{{service.idRent}}</td>
+      <td>{{service.maxPeople}}</td>
+      <td>
+        <a class="btn btn-primary mr-2" routerLink="/updateService/{{service.id}}">Update</a>
+      </td>
     </tr>
-
     </tbody>
   </table>
-<!--  <div style=" text-align: center;">-->
-<!--    <a class="btn btn-warning" th:href="@{'/listCustomer'(page=${services.number - 1})}" th:if="${services.hasPrevious()}">Previous</a>-->
-<!--    <span th:text="${services.number + 1}"></span>/<span th:text="${services.totalPages}"></span>-->
-<!--    <a class="btn btn-warning"  th:href="@{'/listCustomer'(page=${services.number + 1})}" th:if="${services.hasNext()}">Next</a>-->
-<!--  </div>-->
 
-  <!--    <div>-->
-  <!--        <a th:href="@{'/customers'(page=${customers.number - 1})}" th:if="${customers.hasPrevious()}">Previous</a>-->
-  <!--        <span th:text="${customers.number + 1}"></span>/<span th:text="${customers.totalPages}"></span>-->
-  <!--        <a th:href="@{'/customers'(page=${customers.number + 1})}" th:if="${customers.hasNext()}">Next</a>-->
-  <!--    </div>-->
 </div>
-<app-create-service></app-create-service>

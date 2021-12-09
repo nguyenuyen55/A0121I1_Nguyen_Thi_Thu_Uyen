@@ -2,10 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Icustomers} from "../../../models/customer";
 import {Route, Router} from "@angular/router";
-interface TypeCutomer {
+import {CustomerService} from "../../../service/customer.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
+
+export interface TypeCutomer {
   value: string;
   name: string;
 }
+
+
+
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
@@ -20,7 +26,9 @@ typeCustomers :TypeCutomer[]=[
   {value: 'Silver', name: 'Silver'},
   {value: 'Member', name: 'Menber'},
 ];
-  constructor(private fb: FormBuilder, private router:Router) { }
+  constructor(private fb: FormBuilder, private router:Router,
+              private customerService:CustomerService,
+  private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.createCustomer = this.fb.group({
@@ -39,7 +47,9 @@ typeCustomers :TypeCutomer[]=[
   onSubmit() {
 console.log(this.createCustomer.value);
 if(this.createCustomer.valid){
-    Icustomers.push(this.createCustomer.value);
+  this.customerService.createCustomer(this.createCustomer.value).subscribe()
+    // Icustomers.push(this.createCustomer.value);
+  this.snackBar.open("Bạn đã thêm thành công");
     this.router.navigateByUrl("/");
 
   }}

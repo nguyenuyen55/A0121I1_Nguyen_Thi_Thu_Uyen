@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Icustomers} from "../../../models/customer";
-import {services} from "../../../models/service";
+import {ServersService} from "../../../service/servers.service";
+import {Route, Router} from "@angular/router";
 
-interface IRent {
+export interface IRent {
   id: number,
   nameRent: string;
 }
@@ -16,20 +17,22 @@ interface IRent {
 export class CreateServiceComponent implements OnInit {
   createService: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private services:ServersService,
+              private route:Router) {
 
   }
 
   ngOnInit(): void {
     this.createService = this.formBuilder.group({
-      idService: ['',[Validators.required,Validators.pattern(/DV-[0-9]{4}$/)]],
+      id: ['',[Validators.required,Validators.pattern(/DV-[0-9]{4}$/)]],
       name: ['', Validators.required],
       area: ['', Validators.required],
       floors: ['', Validators.required],
       maxPeople: ['', Validators.required],
       constRent: ['', Validators.required],
       idRent: ['', Validators.required],
-      status: ['', Validators.required]
+      status: ['CHƯA THUÊ']
     })
   }
 
@@ -46,9 +49,13 @@ export class CreateServiceComponent implements OnInit {
   ]
 
   onSubmit() {
-    if(this.createService.invalid){
+    console.log(this.createService.value);
+
+    if(this.createService.valid){
       console.log(this.createService.value);
-      services.push(this.createService.value);
+      this.services.createService(this.createService.value).subscribe(()=>{
+     this.route.navigateByUrl("/service");
+   })
     }
     // console.log(this.createService.value);
   }

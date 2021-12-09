@@ -1,13 +1,12 @@
 <div class="container">
 
 
-
-  <div class=" search-home mb-4">
-    <input class="form-control mr-sm-2 " type="search"placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  <div class="form-inline my-2 mb-2 my-lg-0">
+    <input class="form-control mr-sm-2" #searchname type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" (click)="searchempl(searchname.value)" type="button">Search</button>
   </div>
 
-<a class="btn btn-success" >Create Employee</a>
+<a class="btn btn-success" routerLink="/createEmployee" >Create Employee</a>
 <table class="table table-hover"  cellspacing = 1 cellpadding = 2 >
   <thead>
   <tr >
@@ -21,7 +20,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let employee of employees">
+  <tr *ngFor="let employee of employees | paginate:{ itemsPerPage: 5, currentPage: p}">
     <td scope="row" >{{employee.id}}</td>
     <td>{{employee.name}}</td>
     <td >{{employee.birthday}}</td>
@@ -29,10 +28,9 @@
     <td >{{employee.address}}</td>
     <td > {{employee.salary}}</td>
     <td >
-      <a class="btn btn-warning">view</a>
-      <button class="btn btn-primary deleteButton"   >update</button>
+      <a class="btn btn-primary " routerLink="/updateEmployee/{{employee.id}}">update</a>
       <input type="hidden" >
-      <button class="btn btn-danger"  >delete</button>
+      <button class="btn btn-danger" (click)="openDialog(employee.id)"  >delete</button>
       <input type="hidden" >
     </td>
   </tr>
@@ -40,4 +38,4 @@
   </tbody>
 </table>
 </div>
-<app-create-employee></app-create-employee>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

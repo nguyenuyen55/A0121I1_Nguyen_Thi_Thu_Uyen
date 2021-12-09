@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Icustomers} from "../../../models/customer";
-import {employees} from "../../../models/employee";
+import {EmployeeService} from "../../../service/employee.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-employee',
@@ -11,7 +13,10 @@ import {employees} from "../../../models/employee";
 export class CreateEmployeeComponent implements OnInit {
   createEmployee: FormGroup;
 
-  constructor(private fb :FormBuilder) { }
+  constructor(private fb :FormBuilder,
+              private serviceService:EmployeeService,
+              private snackBar:MatSnackBar,
+              private route:Router) { }
 
   ngOnInit(): void {
     this.createEmployee=this.fb.group({
@@ -32,8 +37,11 @@ export class CreateEmployeeComponent implements OnInit {
 
   onSubmit() {
     if(this.createEmployee.invalid){
-      console.log(this.createEmployee.value);
-      employees.push(this.createEmployee.value);
+     this.serviceService.createEmployee(this.createEmployee.value).subscribe(()=>{
+       this.snackBar.open("Bạn thêm mới thành công",'OK',{duration:3000})
+       this.route.navigateByUrl("/employee");
+     })
+      // employees.push(this.createEmployee.value);
 
     }
   }
