@@ -1,0 +1,65 @@
+{
+  "lohangs": [
+    {
+      "id": "LH-0001",
+      "sanpham": {
+        "id": 1,
+        "ten": "Sting",
+        "xuatxu": "some comment",
+        "giatien": 1,
+        "donvi": "Thùng"
+      },
+      "soluong": 5,
+      "ngaynhap": "2021-12-06",
+      "ngayxuat": "2021-12-06",
+      "ngayhethan": "2021-12-06"
+    },
+    {
+      "id": "LH-9382",
+      "sanpham": {
+        "id": 1,
+        "ten": "Sting",
+        "xuatxu": "some comment",
+        "giatien": 1,
+        "donvi": "Thùng"
+      },
+      "soluong": "5",
+      "ngaynhap": "2021-12-29",
+      "ngayxuat": "2021-11-30",
+      "ngayhethan": "2021-12-15"
+    },
+    {
+      "id": "LH-9397",
+      "sanpham": {
+        "id": 2,
+        "ten": "Bia",
+        "xuatxu": "some comment",
+        "giatien": 1,
+        "donvi": "thùng"
+      },
+      "soluong": "1",
+      "ngaynhap": "2021-12-07",
+      "ngayxuat": "2021-12-16",
+      "ngayhethan": "2021-12-21"
+    }
+  ],
+  "sanphams": [
+    {
+      "id": 1,
+      "ten": "Sting",
+      "xuatxu": "some comment",
+      "giatien": 1,
+      "donvi": "Thùng"
+    },
+    {
+      "id": 2,
+      "ten": "Bia",
+      "xuatxu": "some comment",
+      "giatien": 1,
+      "donvi": "thùng"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

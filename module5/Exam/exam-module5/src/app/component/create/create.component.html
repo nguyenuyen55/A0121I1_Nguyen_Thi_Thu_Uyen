@@ -1,0 +1,57 @@
+<div class="container">
+
+
+  <form [formGroup]="create" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Mã Lô Hàng</label>
+      <input class="form-control" formControlName="id">
+      <!--    *ngIf="create.controls.customerPhone.errors?.pattern && create.controls.customerPhone?.touched"-->
+      <p class="text-danger" *ngIf="create.controls.id.errors?.required && create.controls.id?.touched">Bắt buộc
+        nhập</p>
+      <p class="text-danger" *ngIf="create.controls.id.errors?.pattern && create.controls.id?.touched">Fomat LH-XXXX</p>
+    </div>
+    <div class="form-group">
+      <label>San pham</label>
+      <select class="form-control" formControlName="sanpham">
+        <option *ngFor="let sanpham of sanphams" [ngValue]="sanpham">{{sanpham.ten}}</option>
+      </select>
+      <p class="text-danger" *ngIf="create.controls.sanpham.errors?.required && create.controls.sanpham?.touched">Bắt
+        buộc nhập</p>
+
+    </div>
+    <div class="form-group">
+      <label>Số lượng</label>
+      <input class="form-control" formControlName="soluong">
+      <p class="text-danger" *ngIf="create.controls.soluong.errors?.required && create.controls.soluong?.touched">Bắt
+        buộc nhập</p>
+      <p class="text-danger" *ngIf="create.controls.soluong.errors?.pattern && create.controls.soluong?.touched">phải là
+        số nguyên dương</p>
+    </div>
+    <div class="form-group">
+      <label>Ngày nhập</label>
+      <input class="form-control" formControlName="ngaynhap" type="date">
+    </div>
+    <p class="text-danger" *ngIf="create.controls.ngaynhap.errors?.required && create.controls.ngaynhap?.touched">Bắt
+      buộc nhập</p>
+
+    <div class="form-group">
+      <label>Ngày Xuất</label>
+      <input class="form-control" formControlName="ngayxuat" type="date">
+    </div>
+    <p class="text-danger" *ngIf="create.controls.ngayxuat.errors?.required && create.controls.ngayxuat?.touched">Bắt
+      buộc nhập</p>
+    <div class="form-group">
+      <label>Ngày Hết hạn</label>
+      <input class="form-control" formControlName="ngayhethan" type="date">
+      <p class="text-danger" *ngIf="create.controls.ngayhethan.errors?.required && create.controls.ngayhethan?.touched">
+        Bắt buộc nhập</p>
+
+    </div>
+
+    <div class="row">
+      <button type="submit" class=" btn btn-primary mr-3">Nhập hàng</button>
+      <a class="btn btn-primary" routerLink="/">Trở về</a>
+    </div>
+
+  </form>
+</div>
